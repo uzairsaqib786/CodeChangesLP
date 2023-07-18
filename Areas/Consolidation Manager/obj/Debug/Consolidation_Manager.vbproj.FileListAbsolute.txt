@@ -1,0 +1,4 @@
+D:\Projects\PickProWeb\PickPro Web\Areas\Consolidation Manager\obj\Debug\Consolidation_Manager.vbproj.AssemblyReference.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\Consolidation Manager\obj\Debug\PickPro_Web.Resources.resources
+D:\Projects\PickProWeb\PickPro Web\Areas\Consolidation Manager\obj\Debug\Consolidation_Manager.vbproj.GenerateResource.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\Consolidation Manager\obj\Debug\Consolidation_Manager.vbproj.CoreCompileInputs.cache

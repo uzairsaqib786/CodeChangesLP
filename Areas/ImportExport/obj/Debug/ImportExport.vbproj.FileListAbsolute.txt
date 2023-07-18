@@ -1,0 +1,4 @@
+D:\Projects\PickProWeb\PickPro Web\Areas\ImportExport\obj\Debug\ImportExport.vbproj.AssemblyReference.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\ImportExport\obj\Debug\PickPro_Web.Resources.resources
+D:\Projects\PickProWeb\PickPro Web\Areas\ImportExport\obj\Debug\ImportExport.vbproj.GenerateResource.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\ImportExport\obj\Debug\ImportExport.vbproj.CoreCompileInputs.cache

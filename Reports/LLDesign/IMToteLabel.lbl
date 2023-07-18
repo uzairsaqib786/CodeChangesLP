@@ -1,0 +1,211 @@
+[Label description]
+[Description]
+ Text=? (default)
+ FileVersion=11
+ Units=SCM-Units
+ Metric=2
+ TextQuote.Start=1
+ TextQuote.End=1
+ RepresentationCode.CondStart=171
+ RepresentationCode.CondSep=166
+ RepresentationCode.CondEnd=187
+ RepresentationCode.Tab=247
+ RepresentationCode.Ret=182
+ RepresentationCode.PhantomSpace=8203
+ RepresentationCode.LockNextChar=8288
+ RepresentationCode.ExprSep=164
+ LCID=1033
+ UserVars.ManualSortOrder=1
+ Created=1/6/2011, 11:33:12 AM
+ CreatedByApp=MSACCESS.EXE [11.0.8321]
+ CreatedByDLL=CMLL12.DLL [12,5,0,0 (06-11-13 15:23)]
+ CreatedByUser=szehr on SZEHR-D830
+ LastModified=9/9/2015, 8:33:13 AM
+ LastModifiedByApp=LLACCESSTONETUPGRADE.VSHOST.EXE [12.0.21005.1]
+ LastModifiedByDLL=CMLL19.DLL [19.0.2013.29712 (13-10-18 12:39)F]
+ LastModifiedByUser=cvalerino on STSYRW015
+ CreatedByCallFrom=clr.dll
+ [@DatabaseStructure]
+  
+[Layout]
+ P1.Template=
+ xGrid=2540
+ yGrid=2540
+ GridShow=FALSE
+ GridSnap=FALSE
+ EnhancedExpressions=TRUE
+ EnhancedOldExpressions=FALSE
+ Decimals=2
+ RealDataPreviewPageLimit=-2
+ DefFont={(0,0,0),12.000000,-20,0,0,0,400,0,0,0,0,4,0,0,0,Arial}
+ HelpLines.Horizontal=
+ HelpLines.Vertical=
+ PDF.MaxOutlineDepth=2
+ PDF.MaxOutlineDepth.IDX=3
+ DefaultSize.Objecttype1=(0,0,99822,19812)
+ ObjectCount=1
+[UserSection]
+
+[SumVariables]
+[Layer]
+ Name=Base
+ Condition=
+ WorkspaceColor=(102,102,102)
+ Visible=TRUE
+ LayerID=0
+[Layer]
+ Name=First Page
+ Condition=Page() = 1
+ WorkspaceColor=(197,207,10)
+ Visible=TRUE
+ LayerID=1
+[Layer]
+ Name=Following Pages
+ Condition=Page() <> 1
+ WorkspaceColor=(161,203,243)
+ Visible=TRUE
+ LayerID=2
+[ProjectTemplates]
+ [@ProjectTemplates]
+  {
+  [ProjectTemplates]
+   {
+   }
+  }
+[Object]
+ ObjectID=1
+ ObjectName=Text
+ Locked=FALSE
+ LinkID=1
+ LinkToID=0
+ LinkMode=32
+ LayerID=0
+ LayerCond=
+ GroupID=0
+ Identifier=Data.Tote_ID
+ Condition=True
+ UserLocked=False
+ WrapBefore=False
+ ExportAsPicture=False
+ Position/Left=2032
+ Position/Top=2794
+ Position/Width=86106
+ Position/Height=19812
+ Direction=0
+ bFill=0
+ Frame/Layout=0
+ Frame/Left/Spacing=0
+ Frame/Left/Line=False
+ Frame/Top/Spacing=0
+ Frame/Top/Line=False
+ Frame/Right/Spacing=0
+ Frame/Right/Line=False
+ Frame/Bottom/Spacing=0
+ Frame/Bottom/Line=False
+ PDFLevel=0
+ PDFText=
+ IndexPDFLevel=0
+ IndexPDFText=
+ IssueCondition=True
+ bPageWrap=False
+ bBottomAligned=False
+ [@Lines]
+  {
+  [Lines]
+   {
+   [Line]
+	{
+	[Font]
+	 {
+	 Default=True
+	 }
+	Align=0
+	Adjusted=False
+	Uneraseable=False
+	LineWrap=1
+	PageWrapAllowed=True
+	ForceWrap=False
+	SpaceOptimization=True
+	Spacing.Paragraph=0
+	Spacing.Line=0
+	OutputFormatter=
+	Condition=True
+	Text=Data.Tote_ID
+	Tab=0
+	TabAlign=0
+	}
+   }
+  }
+[UserVariables]
+[Parameters]
+ [@Parameters]
+  {
+  [Parameters]
+   {
+   LL.ProjectDescription=? (default)
+   LL.SortOrderID=
+   }
+  }
+[UsedIdentifiers]
+ Variables=Data.Cells;Data.Tote ID
+[PageLayouts]
+ [@PageLayouts]
+  {
+  [PageLayouts]
+   {
+   [PageLayout]
+	{
+	DisplayName=
+	Condition=True
+	SourceTray=0
+	ForcePaperFormat=True
+	UsePhysicalPaper=True
+	PaperFormat=1
+	PaperFormat.cx=215900
+	PaperFormat.cy=279400
+	PaperFormat.Orientation=1
+	Copies=1
+	Duplex=0
+	Collate=0
+	FitPage=False
+	Layout.Size.cx=88900
+	Layout.Size.cy=34798
+	Layout.Distance.cx=0
+	Layout.Distance.cy=0
+	Layout.Count.x=1
+	Layout.Count.y=1
+	Layout.Offset.x=0
+	Layout.Offset.y=0
+	LayoutPrintOrder=0
+	ShowInPrintDialog=True
+	}
+   }
+  }
+[ExtendedInfo]
+ [@ExtendedInfos]
+  {
+  [UserDefinedDesignScheme]
+   {
+   [Foreground]
+	{
+	Color=(173,215,227)
+	Color=(167,195,209)
+	Color=(165,170,199)
+	Color=(155,122,153)
+	Color=(135,95,119)
+	Color=(255,230,179)
+	Color=(238,190,93)
+	Color=(242,167,17)
+	Color=(166,178,102)
+	Color=(102,204,199)
+	}
+   [Background]
+	{
+	Color=(240,249,255)
+	Color=(255,230,179)
+	Color=(173,215,227)
+	Color=(167,195,209)
+	FillMode=1
+	}
+   }
+  }

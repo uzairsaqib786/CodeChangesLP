@@ -1,0 +1,4 @@
+D:\Projects\PickProWeb\PickPro Web\Areas\ICSAdmin\obj\Debug\ICSAdmin.vbproj.AssemblyReference.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\ICSAdmin\obj\Debug\PickPro_Web.Resources.resources
+D:\Projects\PickProWeb\PickPro Web\Areas\ICSAdmin\obj\Debug\ICSAdmin.vbproj.GenerateResource.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\ICSAdmin\obj\Debug\ICSAdmin.vbproj.CoreCompileInputs.cache

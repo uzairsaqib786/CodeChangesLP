@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04A0DC0F-37D7-4349-9AEC-7357D7482DB1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PickPro_Web</RootNamespace>
+    <AssemblyName>ICSAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>ICSAdmin.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>ICSAdmin.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PeakLogix.PickProLib.ActiveDirectorySecurityDriver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\PeakLogix.PickProLib.ActiveDirectorySecurityDriver.1.0.3\lib\net48\PeakLogix.PickProLib.ActiveDirectorySecurityDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Serilog.2.12.0\lib\net47\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.1.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Serilog.Sinks.Console.4.1.0\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=5.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Serilog.Sinks.File.5.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminRegistration.vb" />
+    <Compile Include="Code\BatchManager.vb" />
+    <Compile Include="Code\CycleCount.vb" />
+    <Compile Include="Code\DeAllocateOrders.vb" />
+    <Compile Include="Code\Employees.vb" />
+    <Compile Include="Code\EmployeesStats.vb" />
+    <Compile Include="Code\HoldTransactions.vb" />
+    <Compile Include="Code\ICSAdminFunctions.vb" />
+    <Compile Include="Code\InventoryDetail.vb" />
+    <Compile Include="Code\LocationAssignment.vb" />
+    <Compile Include="Code\Menu.vb" />
+    <Compile Include="Code\MoveItems.vb" />
+    <Compile Include="Code\Preferences.vb" />
+    <Compile Include="Code\SystemReplenishment.vb" />
+    <Compile Include="Code\SystemReplenishmentLocationAssignment.vb" />
+    <Compile Include="Controllers\BatchManagerController.vb" />
+    <Compile Include="Controllers\ColumnSequenceController.vb" />
+    <Compile Include="Controllers\CycleCountController.vb" />
+    <Compile Include="Controllers\DeAllocateOrdersController.vb" />
+    <Compile Include="Controllers\EmployeesController.vb" />
+    <Compile Include="Controllers\HoldTransactionsController.vb" />
+    <Compile Include="Controllers\ICSAdminController.vb" />
+    <Compile Include="Controllers\InventoryDetailController.vb" />
+    <Compile Include="Controllers\LocationAssignmentController.vb" />
+    <Compile Include="Controllers\SystemReplenishmentController.vb" />
+    <Compile Include="Hubs\HoldTransactionsHub.vb" />
+    <Compile Include="Controllers\MenuController.vb" />
+    <Compile Include="Controllers\MoveItemsController.vb" />
+    <Compile Include="Controllers\PreferencesController.vb" />
+    <Compile Include="Hubs\BatchManagerHub.vb" />
+    <Compile Include="Hubs\CycleCountHub.vb" />
+    <Compile Include="Hubs\DeAllocateHub.vb" />
+    <Compile Include="Hubs\EmployeeGroupHub.vb" />
+    <Compile Include="Hubs\EmployeesHub.vb" />
+    <Compile Include="Hubs\EmployeeStatsHub.vb" />
+    <Compile Include="Hubs\InventoryDetailHub.vb" />
+    <Compile Include="Hubs\LocationAssignmentHub.vb" />
+    <Compile Include="Hubs\MenuHub.vb" />
+    <Compile Include="Hubs\PreferencesHub.vb" />
+    <Compile Include="Hubs\SystemReplenishmentHub.vb" />
+    <Compile Include="Models\MenuObj.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\PickProWeb Production.pubxml" />
+    <None Include="My Project\PublishProfiles\Web4.pubxml" />
+    <None Include="My Project\PublishProfiles\Web5.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toggles-modern.css" />
+    <Content Include="Content\toggles.css" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\BatchManager\Batch\BatchManModal.js" />
+    <Content Include="Scripts\BatchManager\Batch\BM.js" />
+    <Content Include="Scripts\BatchManager\Batch\BMDataTables.js" />
+    <Content Include="Scripts\BatchManager\Batch\BMHub.js" />
+    <Content Include="Scripts\BatchManager\Batch\OSAltPartial.js" />
+    <Content Include="Scripts\BatchManager\Batch\PickModal.js" />
+    <Content Include="Scripts\BatchManager\SuperBatch\SBM.js" />
+    <Content Include="Scripts\BatchManager\SuperBatch\SBMDataTables.js" />
+    <Content Include="Scripts\BatchManager\SuperBatch\SBMHub.js" />
+    <Content Include="Scripts\Column Sequence\ColSequence.js" />
+    <Content Include="Scripts\Column Sequence\sorting.js" />
+    <Content Include="Scripts\CycleCount\CountBatches.js" />
+    <Content Include="Scripts\CycleCount\CountBatchesTA.js" />
+    <Content Include="Scripts\CycleCount\CountQueue.js" />
+    <Content Include="Scripts\CycleCount\CycleCount.js" />
+    <Content Include="Scripts\De-Allocate Orders\De-Allocate Orders.js" />
+    <Content Include="Scripts\De-Allocate Orders\De-AllocatedFilters.js" />
+    <Content Include="Scripts\Employees\AddNewEmployeePartial.js" />
+    <Content Include="Scripts\Employees\EmLocationsModal.js" />
+    <Content Include="Scripts\Employees\EmployeeGroups.js" />
+    <Content Include="Scripts\Employees\Employees.js" />
+    <Content Include="Scripts\Employees\EmployeesHub.js" />
+    <Content Include="Scripts\Employees\EmployeeSorting.js" />
+    <Content Include="Scripts\Employees\EmployeesStats.js" />
+    <Content Include="Scripts\HoldTransactions\DeallocateModal.js" />
+    <Content Include="Scripts\HoldTransactions\HoldTransactions.js" />
+    <Content Include="Scripts\InventoryDetail\InventoryDetail.js" />
+    <Content Include="Scripts\LocationAssignment\LocAss.js" />
+    <Content Include="Scripts\LocationAssignment\LocAssCountDT.js" />
+    <Content Include="Scripts\LocationAssignment\LocAssCountModal.js" />
+    <Content Include="Scripts\LocationAssignment\LocAssHub.js" />
+    <Content Include="Scripts\LocationAssignment\LocAssPickDT.js" />
+    <Content Include="Scripts\LocationAssignment\LocAssPutAwayDT.js" />
+    <Content Include="Scripts\Menu\Menu.js" />
+    <Content Include="Scripts\Menu\MenuHub.js" />
+    <Content Include="Scripts\Menu\MenuKeyShortcuts.js" />
+    <Content Include="Scripts\MoveItems\MoveItemsDatatable.js" />
+    <Content Include="Scripts\MoveItems\MoveItemsFilters.js" />
+    <Content Include="Scripts\MoveItems\MoveModal.js" />
+    <Content Include="Scripts\Preferences\Preferences.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\BulkHandheldSettings\BulkHandheldSettings.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\CompanySetup\CompanyLogo.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\CompanySetup\CompanySetup.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\DevicePreferences\DevicePreferences.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\DevicePreferences\DevicePreferencesModal.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\DevicePreferences\IPTI.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\DevicePreferences\TrayTilt.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\FieldNameMappings\FieldNameMappings.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LightTree\LightTree.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LocationZones\LocationNameModal.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LocationZones\LocationZones.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LookupList\AdjustmentLookup.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LookupList\ToteSetup.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\LookupList\UFSetup.js" />
+    <Content Include="Scripts\Preferences\SystemPreferences\ScanVerifySetup\ScanVerifySetup.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\BulkZones\BulkZones.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\CustomApps\CustomApps.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\Misc\MiscellaneousSettings.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\PickLevels\PickLevels.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\PODSetup\PODSetup.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\Setup\WorkstationSetup.js" />
+    <Content Include="Scripts\Preferences\WorkstationPreferences\SortBar\SortBarSetup.js" />
+    <Content Include="Scripts\SystemReplenishment\CurrentReplenishments.js" />
+    <Content Include="Scripts\SystemReplenishment\DeleteModal.js" />
+    <Content Include="Scripts\SystemReplenishment\ItemNumberFilter.js" />
+    <Content Include="Scripts\SystemReplenishment\NewReplenishments.js" />
+    <Content Include="Scripts\SystemReplenishment\NewReplenishmentTransQtyModal.js" />
+    <Content Include="Scripts\SystemReplenishment\ReplenLabelPrintModal.js" />
+    <Content Include="Scripts\SystemReplenishment\SystReplenFilters.js" />
+    <Content Include="Scripts\toggles.min.js" />
+    <Content Include="Views\Menu\Index.vbhtml" />
+    <Content Include="Views\Menu\MenuAdminPartial.vbhtml" />
+    <Content Include="Views\Menu\MenuPickPartial.vbhtml" />
+    <Content Include="Views\_AdminLayout.vbhtml" />
+    <Content Include="Views\Preferences\Index.vbhtml" />
+    <Content Include="Views\Preferences\LogoModal.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\CompanySetupPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferences\DevicePreferencesModalPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferences\DevicePreferencesTrayTiltModalPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferences\IPTILightTree.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferences\OtherInterface.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferences\WMIInterface.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\DevicePreferencesPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\HandheldSettingsPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\LightTreeSetup.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\LocationNameModalPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\LocationZonePartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\LookupListsPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\ScanVerifySetup.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferencePartials\UserFieldsPartial.vbhtml" />
+    <Content Include="Views\Preferences\SystemPreferences.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\BulkZonesPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\CustAppsPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\MiscSettingsPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\PickLevelsPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\PODSetupPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\SortBarSetupPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferencePartials\WorkstationSetupPartial.vbhtml" />
+    <Content Include="Views\Preferences\WorkstationPreferences.vbhtml" />
+    <Content Include="Views\ModalPartials\CategoryModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\CellSizeModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\DescriptionModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\EmergencyOrdersModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\EventLogDetailModal.vbhtml" />
+    <Content Include="Views\ModalPartials\ImportFieldMapModal.vbhtml" />
+    <Content Include="Views\ModalPartials\ItemNumberModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\ItemQuantityModalPartial.vbhtml" />
+    <Content Include="Views\LocationAssignment\LocAssCountModal.vbhtml" />
+    <Content Include="Views\ModalPartials\LocationsModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\NotesModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\PrintModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\ScanCodeModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\SupplierItemIDModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\UnitOfMeasureModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\UserFieldsModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\VelocityCodeModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\WarehouseModalPartial.vbhtml" />
+    <Content Include="Views\ColumnSequence\Index.vbhtml" />
+    <Content Include="Views\InventoryDetail\Index.vbhtml" />
+    <Content Include="Views\LocationAssignment\CountPartial.vbhtml" />
+    <Content Include="Views\LocationAssignment\Index.vbhtml" />
+    <Content Include="Views\LocationAssignment\PickPartial.vbhtml" />
+    <Content Include="Views\LocationAssignment\PutAwayPartial.vbhtml" />
+    <Content Include="Views\BatchManager\Batch\BatchManDeletePartial.vbhtml" />
+    <Content Include="Views\BatchManager\Batch\BatchManModal.vbhtml" />
+    <Content Include="Views\BatchManager\Batch\BatchPartial.vbhtml" />
+    <Content Include="Views\BatchManager\Batch\OSAlternativePartial.vbhtml" />
+    <Content Include="Views\BatchManager\Batch\PickPartial.vbhtml" />
+    <Content Include="Views\BatchManager\Index.vbhtml" />
+    <Content Include="Views\BatchManager\SuperBatch\SuperBatchPartial.vbhtml" />
+    <Content Include="Views\MoveItems\Index.vbhtml" />
+    <Content Include="Views\MoveItems\MoveItemsModal.vbhtml" />
+    <Content Include="Views\CycleCount\CountBatches.vbhtml" />
+    <Content Include="Views\CycleCount\Index.vbhtml" />
+    <Content Include="Views\Employees\AddEmployeeGroupPartial.vbhtml" />
+    <Content Include="Views\Employees\AddNewEmployeeModalPartial.vbhtml" />
+    <Content Include="Views\Employees\EmployeeLocationsPartial.vbhtml" />
+    <Content Include="Views\Employees\EmployeePartial.vbhtml" />
+    <Content Include="Views\Employees\EmployeeStatsPartial.vbhtml" />
+    <Content Include="Views\Employees\GroupChangePartial.vbhtml" />
+    <Content Include="Views\Employees\GroupsPartial.vbhtml" />
+    <Content Include="Views\Employees\Index.vbhtml" />
+    <Content Include="Views\DeAllocateOrders\Index.vbhtml" />
+    <Content Include="Views\HoldTransactions\DeallocateModal.vbhtml" />
+    <Content Include="Views\HoldTransactions\Index.vbhtml" />
+    <Content Include="Views\SystemReplenishment\CurrentOrders.vbhtml" />
+    <Content Include="Views\SystemReplenishment\DeleteModal.vbhtml" />
+    <Content Include="Views\SystemReplenishment\Index.vbhtml" />
+    <Content Include="Views\SystemReplenishment\NewOrders.vbhtml" />
+    <Content Include="Views\SystemReplenishment\NewOrdersModalPartial.vbhtml" />
+    <Content Include="Views\SystemReplenishment\ItemNumberFilterPartial.vbhtml" />
+    <Content Include="Views\SystemReplenishment\ReplenLabelPrintModalPartial.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PickPro Web.vbproj">
+      <Project>{b6025f4d-4ae9-4c4c-92cb-3348621e64fc}</Project>
+      <Name>PickPro Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61617</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51190/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

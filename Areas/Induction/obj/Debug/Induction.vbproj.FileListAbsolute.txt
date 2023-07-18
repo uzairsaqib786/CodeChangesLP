@@ -1,0 +1,4 @@
+D:\Projects\PickProWeb\PickPro Web\Areas\Induction\obj\Debug\Induction.vbproj.AssemblyReference.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\Induction\obj\Debug\PickPro_Web.Resources.resources
+D:\Projects\PickProWeb\PickPro Web\Areas\Induction\obj\Debug\Induction.vbproj.GenerateResource.cache
+D:\Projects\PickProWeb\PickPro Web\Areas\Induction\obj\Debug\Induction.vbproj.CoreCompileInputs.cache
