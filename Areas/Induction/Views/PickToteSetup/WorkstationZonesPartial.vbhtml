@@ -12,10 +12,11 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-9">
-                        <label>Zones</label>
+                        <label>Add Zone:</label>
+                        <input type="text" class="form-control typeahead" id="TAZone"/>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-primary" id="AddWSZone" data-toggle="tooltip" data-placement="top" data-original-title="Add New Zone"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button type="button" class="btn btn-danger" id="ClearAllZones" data-toggle="tooltip" data-placement="top">Clear All Zones</button>
                     </div>
                 </div>
                 <div class="row">

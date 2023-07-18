@@ -47,7 +47,7 @@ Public Class PickToteSetupHub
                                                             result = DataReader(0)
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("PickToteSetupHub", "validateOrderNumber", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "validateOrderNumber", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -77,7 +77,7 @@ Public Class PickToteSetupHub
                                                                      End While
                                                                  End If
                                                              Catch ex As Exception
-                                                                 insertErrorMessages("PickToteSetupHub", "fillOrderNums", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 insertErrorMessages("PickToteSetupHub", "fillOrderNums", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(DataReader) Then
                                                                      DataReader.Dispose()
@@ -133,7 +133,7 @@ Public Class PickToteSetupHub
                                                                  End If
 
                                                              Catch ex As Exception
-                                                                 insertErrorMessages("PickToteSetupHub", "selectPickBatchZones", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 insertErrorMessages("PickToteSetupHub", "selectPickBatchZones", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(DataReader) Then
                                                                      DataReader.Dispose()
@@ -172,7 +172,7 @@ Public Class PickToteSetupHub
             Loop While DataReader.NextResult
 
         Catch ex As Exception
-            insertErrorMessages("PickToteSetupHub", "selectFilterData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            insertErrorMessages("PickToteSetupHub", "selectFilterData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -207,7 +207,7 @@ Public Class PickToteSetupHub
                                                                                                                             {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "insertNewFilterRow", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "insertNewFilterRow", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -239,7 +239,7 @@ Public Class PickToteSetupHub
                                                         End If
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "insertNewOrderRow", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "insertNewOrderRow", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -275,7 +275,7 @@ Public Class PickToteSetupHub
                                                                                                                                {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "updatePickBatchFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "updatePickBatchFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -302,7 +302,7 @@ Public Class PickToteSetupHub
                                                                                                                            {"@ID", ID, intVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "updatePickBatchOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "updatePickBatchOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -326,7 +326,7 @@ Public Class PickToteSetupHub
                                                                                                                             {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -347,7 +347,7 @@ Public Class PickToteSetupHub
                                                         RunActionSP("delPickBatchOrder", Context.QueryString.Get("WSID"), {{"@ID", id, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -371,7 +371,7 @@ Public Class PickToteSetupHub
                                                                                                                                   {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "renameFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "renameFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -396,7 +396,7 @@ Public Class PickToteSetupHub
                                                         End If
                                                     Catch ex As Exception
                                                         def = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "renameFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "renameFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -420,7 +420,7 @@ Public Class PickToteSetupHub
                                                         RunActionSP("updPickBatchFilterClearDef", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "clearDefaultFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "clearDefaultFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -442,7 +442,7 @@ Public Class PickToteSetupHub
                                                                                                                                {"@BatchDesc", BatchDesc, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "markDefaultFilter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "markDefaultFilter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -465,7 +465,7 @@ Public Class PickToteSetupHub
 
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchFilterBatch", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "deletePickBatchFilterBatch", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -489,7 +489,7 @@ Public Class PickToteSetupHub
                                                                                                                               {"@BatchType", BatchType, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "markZoneDefault", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "markZoneDefault", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success
@@ -540,7 +540,7 @@ Public Class PickToteSetupHub
                                                                           inners = New List(Of String)
                                                                           inners.Add("Error")
                                                                           Orders.Add(inners)
-                                                                          insertErrorMessages("PickToteSetupHub", "selectOrdersFilterZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                          insertErrorMessages("PickToteSetupHub", "selectOrdersFilterZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                       Finally
                                                                           If Not IsNothing(DataReader) Then
                                                                               DataReader.Dispose()
@@ -583,7 +583,7 @@ Public Class PickToteSetupHub
                                                         End If
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "processPickToteSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "processPickToteSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -618,7 +618,7 @@ Public Class PickToteSetupHub
                                                         Next
                                                     Catch ex As Exception
                                                         InvalidTote = "Error"
-                                                        insertErrorMessages("PickToteSetupHub", "validateTotes", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "validateTotes", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -648,7 +648,7 @@ Public Class PickToteSetupHub
 
                                                      Catch ex As Exception
                                                          Return False
-                                                         insertErrorMessages("PickToteSetupHub", "validOrderForZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("PickToteSetupHub", "validOrderForZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(Datareader) Then
                                                              Datareader.Dispose()
@@ -684,7 +684,7 @@ Public Class PickToteSetupHub
                                                                           inners = New List(Of String)
                                                                           inners.Add("Error")
                                                                           Orders.Add(inners)
-                                                                          insertErrorMessages("PickToteSetupHub", "selectOrdersInZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                          insertErrorMessages("PickToteSetupHub", "selectOrdersInZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                       Finally
                                                                           If Not IsNothing(DataReader) Then
                                                                               DataReader.Dispose()
@@ -720,7 +720,7 @@ Public Class PickToteSetupHub
                                                             success = DataReader(0).ToString()
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("PickToteSetupHub", "processPickToteSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "processPickToteSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -751,7 +751,7 @@ Public Class PickToteSetupHub
                                                         End If
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("PickToteSetupHub", "processBlossom", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "processBlossom", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -778,8 +778,8 @@ Public Class PickToteSetupHub
                                                                  End If
 
                                                              Catch ex As Exception
-                                                                 Debug.Print(ex.Message)
-                                                                 insertErrorMessages("PickToteSetupHub", "SelectLocationZones", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 Debug.Print(ex.ToString())
+                                                                 insertErrorMessages("PickToteSetupHub", "SelectLocationZones", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(DataReader) Then
                                                                      DataReader.Dispose()
@@ -804,8 +804,8 @@ Public Class PickToteSetupHub
                                                          RunActionSP("insIMWorkstationPickZones", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@Zone", Zone, strVar}})
 
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("PickToteSetupHub", "insertWSPickZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("PickToteSetupHub", "insertWSPickZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -820,12 +820,38 @@ Public Class PickToteSetupHub
                                                          RunActionSP("delIMWorkstationPickZones", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@Zone", Zone, strVar}})
 
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("PickToteSetupHub", "insertWSPickZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("PickToteSetupHub", "insertWSPickZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
                                                      Return True
                                                  End Function)
     End Function
+
+    Public Function deleteAllWSPickZone() As Task(Of Boolean)
+        Return Task(Of Boolean).Factory.StartNew(Function() As Boolean
+
+                                                     Try
+                                                         Dim WSID = Context.QueryString.Get("WSID")
+                                                         Dim WorkZones As List(Of String) = Induction.PickToteSetup.SelectWSZones(Context.User.Identity.Name, WSID)
+                                                         Dim DelCalls As New List(Of SQLCommandInfo)
+
+
+                                                         For Each Zone In WorkZones
+                                                             DelCalls.Add(New SQLCommandInfo With {.SP = "delIMWorkstationPickZones", .Params = {{"@WSID", WSID, strVar}, {"@Zone", Zone, strVar}}})
+                                                         Next
+
+                                                         RunActionSPMulti(DelCalls, WSID)
+
+                                                     Catch ex As Exception
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("PickToteSetupHub", "deleteAllWSPickZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Return False
+                                                     End Try
+
+                                                     Return True
+                                                 End Function)
+    End Function
+
 End Class

@@ -37,8 +37,8 @@ Public Class OMPreferencesHub
                                                                                                                     {"@CustomAdminText", CustomAdminText, strVar}, _
                                                                                                                      {"@PrintDirect", CastAsSqlBool(PrintDirect), intVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("OMPreferencesHub", "selectOMCountData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("OMPreferencesHub", "selectOMCountData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          success = False
                                                      End Try
                                                      Return success

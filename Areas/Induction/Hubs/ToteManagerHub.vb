@@ -32,7 +32,7 @@ Public Class ToteManagerHub
                                                                                                                   {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                          Return True
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ToteManagerHub", "deleteTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ToteManagerHub", "deleteTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
                                                      Return False
                                                  End Function)
@@ -55,7 +55,7 @@ Public Class ToteManagerHub
                                                                                                                   {"@OldToteID", OldToteID, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ToteManagerHub", "updateTotes", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ToteManagerHub", "updateTotes", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -74,7 +74,7 @@ Public Class ToteManagerHub
                                                          RunActionSP("InsTote", Context.QueryString.Get("WSID"), {{"@ToteID", toteID, strVar}, {"@Cells", cells, intVar}})
                                                          Return True
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ToteManagerHub", "addTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ToteManagerHub", "addTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
                                                      Return False
                                                  End Function)

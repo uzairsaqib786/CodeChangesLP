@@ -27,7 +27,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ShippingTransaction.vb", "insShipLabelData", ex.Message, user, WSID)
+                insertErrorMessages("ShippingTransaction.vb", "insShipLabelData", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -58,7 +58,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ShippingTransaction.vb", "getAdjustmentReason", ex.Message, user, wsid)
+                insertErrorMessages("ShippingTransaction.vb", "getAdjustmentReason", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -86,7 +86,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ShippingTransactions.vb", "selItemNumShipTransTA", ex.Message, user, wsid)
+                insertErrorMessages("ShippingTransactions.vb", "selItemNumShipTransTA", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -115,7 +115,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ShippingTransactions.vb", "selShippingPreferences", ex.Message, user, wsid)
+                insertErrorMessages("ShippingTransactions.vb", "selShippingPreferences", ex.ToString(), user, wsid)
 
             Finally
                 If Not IsNothing(dataReader) Then

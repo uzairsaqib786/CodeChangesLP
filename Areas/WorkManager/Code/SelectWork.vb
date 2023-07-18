@@ -64,8 +64,8 @@ Namespace WorkManager
                                                                     {"@StartRow", sRow, intVar}, {"@EndRow", eRow, intVar}, {"@SortCol", sort, strVar}, {"@SortOrder", sortOrder, strVar}, _
                                                                     {"@User", selectedUser, strVar}, {"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWork", "GetSelectWorkTables", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWork", "GetSelectWorkTables", ex.ToString(), user, WSID)
             End Try
             Return table
         End Function
@@ -94,8 +94,8 @@ Namespace WorkManager
                     reader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWork", "GetWorkCounts", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWork", "GetWorkCounts", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -118,8 +118,8 @@ Namespace WorkManager
             Try
                 RunActionSP("updWMOTBatch", WSID, {{"@User", user, strVar}, {"@Selected", selected, strVar}, {"@TransType", transType, strVar}, {"@Tote", isTote, intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWork", "AssignBatchID", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWork", "AssignBatchID", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True

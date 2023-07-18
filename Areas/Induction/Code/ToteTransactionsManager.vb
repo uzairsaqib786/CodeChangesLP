@@ -51,8 +51,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ToteTransactionsManager", "selectToteTransManTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ToteTransactionsManager", "selectToteTransManTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -90,7 +90,7 @@ Namespace Induction
                     BatchIDs.Add(New With {.BatchID = "No Batch ID"})
                 End If
             Catch ex As Exception
-                insertErrorMessages("ToteTransactionsManager", "selectBatchPickTA", ex.Message, User, WSID)
+                insertErrorMessages("ToteTransactionsManager", "selectBatchPickTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

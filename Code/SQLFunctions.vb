@@ -109,7 +109,7 @@ Public Module SQLFunctions
                 dbConn = New SqlConnection(userCS(WSID))
             Catch ex As Exception
                 Dim connString = Config.getConnectionString(WSID, Nothing)
-                insertErrorMessages("SQLFunctions", "RunSPArray", "Connection String not found: " + ex.Message, SPName, WSID)
+                insertErrorMessages("SQLFunctions", "RunSPArray", "Connection String not found: " + ex.ToString(), SPName, WSID)
                 userCS.TryAdd(WSID, connString)
                 dbConn = New SqlConnection(userCS(WSID))
             End Try
@@ -151,8 +151,8 @@ Public Module SQLFunctions
             cmd.Connection.Open()
             DataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
         Catch ex As Exception
-            Debug.WriteLine("Run SP Array exception Attempting SP " & SPName & " error: " & ex.Message)
-            insertErrorMessages("SQLFunctions", "RunSPArray", "SP: " & SPName & " Message: " & ex.Message, "SQLFunctions", WSID)
+            Debug.WriteLine("Run SP Array exception Attempting SP " & SPName & " error: " & ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunSPArray", "SP: " & SPName & " Message: " & ex.ToString(), "SQLFunctions", WSID)
             If DataReader IsNot Nothing Then
                 DataReader.Close()
             End If
@@ -207,8 +207,8 @@ Public Module SQLFunctions
             DataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
 
         Catch ex As Exception
-            Debug.WriteLine("Run SP Array exception Attempting SP " & SPName & " error: " & ex.Message)
-            insertErrorMessages("SQLFunctions", "RunSPArray", "SP: " & SPName & " Message: " & ex.Message, "SQLFunctions", "")
+            Debug.WriteLine("Run SP Array exception Attempting SP " & SPName & " error: " & ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunSPArray", "SP: " & SPName & " Message: " & ex.ToString(), "SQLFunctions", "")
             If DataReader IsNot Nothing Then
                 DataReader.Close()
             End If
@@ -260,8 +260,8 @@ Public Module SQLFunctions
             cmd.ExecuteNonQuery()
 
         Catch ex As Exception
-            Debug.WriteLine("RunActionSP exception Attempting SP " & SPName & " error: " & ex.Message)
-            insertErrorMessages("SQLFunctions", "RunActionSP", "SP: " & SPName & " Message: " & ex.Message, "SQLFunctions", "CONFIG")
+            Debug.WriteLine("RunActionSP exception Attempting SP " & SPName & " error: " & ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunActionSP", "SP: " & SPName & " Message: " & ex.ToString(), "SQLFunctions", "CONFIG")
         Finally
             connection.Close()
             connection.Dispose()
@@ -328,8 +328,8 @@ Public Module SQLFunctions
             cmd.ExecuteNonQuery()
 
         Catch ex As Exception
-            Debug.WriteLine("RunActionSP exception Attempting SP " & SPName & " error: " & ex.Message)
-            insertErrorMessages("SQLFunctions", "RunActionSP", "SP: " & SPName & " Message: " & ex.Message, "SQLFunctions", WSID)
+            Debug.WriteLine("RunActionSP exception Attempting SP " & SPName & " error: " & ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunActionSP", "SP: " & SPName & " Message: " & ex.ToString(), "SQLFunctions", WSID)
             Throw ex
         Finally
             connection.Close()
@@ -360,8 +360,8 @@ Public Module SQLFunctions
             command.Dispose()
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SQLFunctions", "RunSqlStr", "SQL String: " & SqlStr & " Message: " & ex.Message, "SQLFunctions", WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunSqlStr", "SQL String: " & SqlStr & " Message: " & ex.ToString(), "SQLFunctions", WSID)
         Finally
             connection.Close()
             connection.Dispose()
@@ -418,8 +418,8 @@ Public Module SQLFunctions
             cmd.Connection.Open()
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SQLFunctions", "RunSQLGetIdentity", "SP: " & SPName & " Message: " & ex.Message, "SQLFunctions", WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunSQLGetIdentity", "SP: " & SPName & " Message: " & ex.ToString(), "SQLFunctions", WSID)
         Finally
             connection.Close()
             connection.Dispose()
@@ -478,8 +478,8 @@ Public Module SQLFunctions
             cmd.ExecuteNonQuery()
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SQLFunctions", "RunSQLReturnString", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SQLFunctions", "RunSQLReturnString", ex.ToString(), user, WSID)
         Finally
             connection.Close()
             connection.Dispose()
@@ -558,7 +558,7 @@ Public Module SQLFunctions
             Try
                 RunActionSP("InsPPErrorLog", "CONFIG", {{"@View", view, strVar}, {"@Method", method, strVar}, {"@Message", message, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
             End Try
         End If
     End Sub
@@ -577,7 +577,7 @@ Public Module SQLFunctions
               {"@EVENTID", 99, intVar}
               })
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
+            Debug.WriteLine(ex.ToString())
         End Try
     End Sub
 
@@ -604,7 +604,7 @@ Public Module SQLFunctions
                 returnVal = IIf(boolVal, 1, 0)
             Catch ex As Exception
                 Throw New Exception("Method: CastAsSqlBool, Error: The value provided is not recognized as a boolean value.  Valid values are boolean, string (1, 0 or true, false)  Value: " _
-                                    & value.ToString() & ".  Originating exception: " & ex.Message)
+                                    & value.ToString() & ".  Originating exception: " & ex.ToString())
             End Try
         End If
         Return returnVal
@@ -720,7 +720,7 @@ Public Module SQLFunctions
             FileWrite.WriteLine(sMssg & "---" & Now())
             FileWrite.Close()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox(ex.ToString())
         End Try
 
         Exit Sub
@@ -779,14 +779,14 @@ Public Module SQLFunctions
             Trans.Commit()
 
         Catch ex As Exception
-            insertErrorMessages("SQLFunctions", "RunActionSPMulti", "Message: " & ex.Message, "SQLFunctions", WSID)
-            Throw New InvalidOperationException(ex.Message)
+            insertErrorMessages("SQLFunctions", "RunActionSPMulti", "Message: " & ex.ToString(), "SQLFunctions", WSID)
+            Throw New InvalidOperationException(ex.ToString())
 
             Try
                 Trans.Rollback()
             Catch rollex As Exception
-                insertErrorMessages("SQLFunctions", "RunActionSPMulti", "Message: " & rollex.Message, "SQLFunctions", WSID)
-                Throw New InvalidOperationException(rollex.Message)
+                insertErrorMessages("SQLFunctions", "RunActionSPMulti", "Message: " & rollex.ToString(), "SQLFunctions", WSID)
+                Throw New InvalidOperationException(rollex.ToString())
             End Try
 
         Finally

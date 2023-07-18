@@ -26,8 +26,8 @@ Namespace Admin
                                                                          {{"@Reel", reel, strVar}, {"@ItemNum", itemnum, strVar}, {"@OrderNum", ordernum, strVar}, {"@Reason", reason, strVar}, _
                                                                           {"@User", Context.User.Identity.Name, strVar}, {"@ID", id, intVar}})
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("HoldTransactions", "deallocateTransactions", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("HoldTransactions", "deallocateTransactions", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True

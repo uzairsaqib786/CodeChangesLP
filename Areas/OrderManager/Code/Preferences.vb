@@ -46,7 +46,7 @@ Namespace OrderManager
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                insertErrorMessages("OrderManager Preferences", "selectOMPreferences", ex.Message, User, WSID)
+                insertErrorMessages("OrderManager Preferences", "selectOMPreferences", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

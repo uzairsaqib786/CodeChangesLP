@@ -73,7 +73,7 @@ Namespace Admin
                     RunActionSP("updOTMastRecID", WSID, {{"nothing"}})
                     Return "Success"
                 Catch ex As Exception
-                    insertErrorMessages("Move Items", "CreateMoveTransactions", ex.Message, User, WSID)
+                    insertErrorMessages("Move Items", "CreateMoveTransactions", ex.ToString(), User, WSID)
                 End Try
 
                 Return "Error"

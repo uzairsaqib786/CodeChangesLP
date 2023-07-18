@@ -82,8 +82,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("GlobalFunctions", "getIdleTimes", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("GlobalFunctions", "getIdleTimes", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -109,7 +109,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

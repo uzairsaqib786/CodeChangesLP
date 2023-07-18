@@ -36,7 +36,7 @@ Namespace Consolidation
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     insertErrorMessages("ShippingTransactionsHub", "SplitTransaction", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     insertErrorMessages("ShippingTransactionsHub", "SplitTransaction", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                      row.Add("Error")
                                                                      Return row
                                                                  Finally
@@ -62,7 +62,7 @@ Namespace Consolidation
                                                             RunActionSP("updShipTransContID", Context.QueryString.Get("WSID"), {{"@orderNum", orderNum, strVar}, {"@toteID", toteID, strVar}, {"@contID", contID, strVar}})
 
                                                         Catch ex As Exception
-                                                            insertErrorMessages("ShippingTransactionsHub", "updContIDShipTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("ShippingTransactionsHub", "updContIDShipTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success
@@ -84,7 +84,7 @@ Namespace Consolidation
                                                         Try
                                                             RunActionSP("updShipTransShipQTY", Context.QueryString.Get("WSID"), {{"@STID", STID, strVar}, {"shipQTY", shipQTY, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@Reason", reason, strVar}})
                                                         Catch ex As Exception
-                                                            insertErrorMessages("ShippingTransactionsHub", "updShipQTYShipTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("ShippingTransactionsHub", "updShipQTYShipTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success
@@ -123,7 +123,7 @@ Namespace Consolidation
                                                             RunActionSPMulti(SPs, Context.QueryString.Get("WSID"))
 
                                                         Catch ex As Exception
-                                                            insertErrorMessages("ShippingTransactionsHub", "updCompletePacking", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("ShippingTransactionsHub", "updCompletePacking", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             Return "Fail"
                                                         End Try
                                                         Return success
@@ -146,7 +146,7 @@ Namespace Consolidation
                                                                 count = dataReader(0)
                                                             End If
                                                         Catch ex As Exception
-                                                            insertErrorMessages("ShippingTransactionsHub", "selCountOpenTransactionsTemp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("ShippingTransactionsHub", "selCountOpenTransactionsTemp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             count = -1
                                                         Finally
                                                             If Not IsNothing(dataReader) Then
@@ -164,7 +164,7 @@ Namespace Consolidation
                                                             RunActionSP("updShipTransSTIDContID", Context.QueryString.Get("WSID"), {{"@STID", STID, intVar}, {"@ContID", ContainerID, strVar}})
 
                                                         Catch ex As Exception
-                                                            insertErrorMessages("ShippingTransactionsHub", "updContainerIdShipTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("ShippingTransactionsHub", "updContainerIdShipTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success

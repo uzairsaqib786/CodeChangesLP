@@ -25,8 +25,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManager", "getNextBatchID", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManager", "getNextBatchID", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -59,8 +59,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManagerHub", "getTableData", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManagerHub", "getTableData", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -88,8 +88,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManager", "selectBatchesDeleteDrop", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManager", "selectBatchesDeleteDrop", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -134,8 +134,8 @@ Namespace Admin
                     End If
                 Next
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManager", "getSBSingleOrders", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManager", "getSBSingleOrders", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()

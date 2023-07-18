@@ -34,7 +34,7 @@ Public Class CMPreferencesHub
 
                                                     Catch ex As Exception
                                                         returnMessage = "Error"
-                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return returnMessage
                                                 End Function)
@@ -75,7 +75,7 @@ Public Class CMPreferencesHub
 
                                                     Catch ex As Exception
                                                         returnMessage = "Error"
-                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return returnMessage
                                                 End Function)
@@ -94,7 +94,7 @@ Public Class CMPreferencesHub
                                                         RunActionSP("updSystPrefsEmailSlip", Context.QueryString.Get("WSID"), {{"@EmailPackSlip", EmailPackSlip, boolVar}})
                                                     Catch ex As Exception
                                                         returnMessage = "Error"
-                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return returnMessage
                                                 End Function)
@@ -117,8 +117,8 @@ Public Class CMPreferencesHub
                                                                      End While
                                                                  End If
                                                              Catch ex As Exception
-                                                                 Debug.WriteLine(ex.Message)
-                                                                 insertErrorMessages("Preferences", "selectCarriers", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 Debug.WriteLine(ex.ToString())
+                                                                 insertErrorMessages("Preferences", "selectCarriers", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(DataReader) Then
                                                                      DataReader.Dispose()
@@ -144,8 +144,8 @@ Public Class CMPreferencesHub
                                                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("Prefrences", "deleteCarrier", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("Prefrences", "deleteCarrier", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -168,8 +168,8 @@ Public Class CMPreferencesHub
                                                         RunActionSP(SP, Context.QueryString.Get("WSID"), params)
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("Prefrences", "saveCarrier", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("Prefrences", "saveCarrier", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)

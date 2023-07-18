@@ -23,8 +23,8 @@ Public Class ScanCodes
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ScanCodes", "getScanCodes", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ScanCodes", "getScanCodes", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -45,8 +45,8 @@ Public Class ScanCodes
         Try
             RunActionSP("DelScanType", WSID, {{"@Type", scantype, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ScanCodes", "deleteScanType", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ScanCodes", "deleteScanType", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -66,8 +66,8 @@ Public Class ScanCodes
         Try
             RunActionSP(SP, WSID, params)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ScanCodes", "saveScanType", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ScanCodes", "saveScanType", ex.ToString(), user, WSID)
         End Try
     End Sub
 End Class

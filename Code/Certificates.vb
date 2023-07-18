@@ -29,7 +29,7 @@ Public Class Certificates
                 verifyClientCertificate("C:\ProgramData\Scotttech\Certs\Issued\client" & certName & "cert.pfx")
                 addValidWorkstation(friendlyName, readClientSerial("C:\Programdata\Scotttech\Certs\Issued\Client" & friendlyName & ".ser"))
             Catch ex As Exception
-                Return ex.Message
+                Return ex.ToString()
             End Try
             Return "Success"
         Else
@@ -84,8 +84,8 @@ Public Class Certificates
         Try
             RunActionSP("insValidWorkstation", "CONFIG", {{"@PCName", PCName, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GenerateCert", "addValidWorkstation", ex.Message, "", "")
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GenerateCert", "addValidWorkstation", ex.ToString(), "", "")
         End Try
 
     End Sub
@@ -106,8 +106,8 @@ Public Class Certificates
                 Return False
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GenerateCert", "checkPCName", ex.Message, "", "")
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GenerateCert", "checkPCName", ex.ToString(), "", "")
         Finally
             If Not IsNothing(Datareader) Then
                 Datareader.Dispose()
@@ -155,8 +155,8 @@ Public Class Certificates
                 Return Datareader(0)
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Certificates", "getPCName", ex.Message, "", "")
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Certificates", "getPCName", ex.ToString(), "", "")
         Finally
             If Not IsNothing(Datareader) Then
                 Datareader.Dispose()

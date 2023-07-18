@@ -25,8 +25,8 @@ Public Class Warehouse
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Warehouse", "getWarehouses", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Warehouse", "getWarehouses", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -47,8 +47,8 @@ Public Class Warehouse
         Try
             RunActionSP("delWarehouse", WSID, {{"@Warehouse", warehouse, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Warehouse", "deleteWarehouse", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Warehouse", "deleteWarehouse", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True
@@ -70,8 +70,8 @@ Public Class Warehouse
         Try
             RunActionSP(SP, WSID, params)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Warehouse", "saveWarehouse", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Warehouse", "saveWarehouse", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True

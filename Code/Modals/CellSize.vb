@@ -25,8 +25,8 @@ Public Class CellSize
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CellSize", "getCellSizes", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CellSize", "getCellSizes", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -46,8 +46,8 @@ Public Class CellSize
         Try
             RunActionSP("delCellSize", WSID, {{"@Size", cell, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CellSize", "deleteCell", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CellSize", "deleteCell", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -64,8 +64,8 @@ Public Class CellSize
         Try
             RunActionSP("saveCell", WSID, {{"@OldCell", oldcell, strVar}, {"@NewCell", newcell, strVar}, {"@CellType", celltype, strVar}, {"@User", user, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CellSize", "saveCell", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CellSize", "saveCell", ex.ToString(), user, WSID)
         End Try
     End Sub
 

@@ -81,8 +81,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Employee Stats Report", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("EmployeesCOntroller", "printEmployeeStatsReport", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("EmployeesCOntroller", "printEmployeeStatsReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -106,8 +106,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Employee  Report", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("EmployeesController", "printEmployees", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("EmployeesController", "printEmployees", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -135,8 +135,8 @@ Namespace Admin.Controllers
                 Clients.Print(m)
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("EmployeeController", "printEmployeeGroup", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("EmployeeController", "printEmployeeGroup", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

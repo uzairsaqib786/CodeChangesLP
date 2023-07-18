@@ -26,8 +26,8 @@ Public Class LogonHub
                                                             Dim message As String = AuthenticationDriver.ChangePassword(username, password, newPassword)
                                                             returnString = message
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Logon", "changePassword", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Logon", "changePassword", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             returnString = ex.Message
                                                         End Try
                                                     Else
@@ -42,8 +42,8 @@ Public Class LogonHub
                                                                 End If
                                                             End If
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Logon", "changePassword", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Logon", "changePassword", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             returnString = "Password Change Failed"
                                                         Finally
                                                             If Not IsNothing(DataReader) Then

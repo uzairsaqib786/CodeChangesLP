@@ -52,7 +52,7 @@ Module CreateDataSet
                 DS.Load(reader, LoadOption.PreserveChanges, {"Data"})
             End If
         Catch ex As Exception
-            insertDataSetError(data, 1, "CreateDataset SP : " & data.DataSPName, ex.Message)
+            insertDataSetError(data, 1, "CreateDataset SP : " & data.DataSPName, ex.ToString())
             Return Nothing
         Finally
             If Not IsNothing(reader) Then
@@ -105,7 +105,7 @@ Module CreateDataSet
             End If
 
         Catch ex As Exception
-            insertDataSetError(data, 1, "CreateDataOrderStatus", ex.Message)
+            insertDataSetError(data, 1, "CreateDataOrderStatus", ex.ToString())
             Return Nothing
         Finally
             If Not IsNothing(reader) And Not returnDR Then
@@ -137,7 +137,7 @@ Module CreateDataSet
                 ds.Load(reader, LoadOption.PreserveChanges, {"Data", "Report Titles"})
             End If
         Catch ex As Exception
-            insertDataSetError(data, 1, "CreateDataSetCustomReport", ex.Message)
+            insertDataSetError(data, 1, "CreateDataSetCustomReport", ex.ToString())
             Return Nothing
         Finally
             If Not IsNothing(reader) And Not returnDR Then

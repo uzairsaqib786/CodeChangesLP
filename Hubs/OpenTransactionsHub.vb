@@ -45,8 +45,8 @@ Public Class OpenTransactionsHub
                                                                         {"@lineNumber", lineNumber, strVar}, _
                                                                         {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine("ERROR : " & ex.Message)
-                                             insertErrorMessages("Open Transactions", "deleteOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine("ERROR : " & ex.ToString())
+                                             insertErrorMessages("Open Transactions", "deleteOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
     End Function
@@ -71,8 +71,8 @@ Public Class OpenTransactionsHub
                                                              End While
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("Open Transactions", "sendCompletedToTH", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("Open Transactions", "sendCompletedToTH", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return 0

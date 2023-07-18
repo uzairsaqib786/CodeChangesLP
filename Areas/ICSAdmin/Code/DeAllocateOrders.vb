@@ -25,7 +25,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("DeAllocateOrders", "getAllocatedOrders", ex.Message, user, WSID)
+                insertErrorMessages("DeAllocateOrders", "getAllocatedOrders", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -53,7 +53,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("DeAllocateOrders", "getAllocatedItems", ex.Message, user, WSID)
+                insertErrorMessages("DeAllocateOrders", "getAllocatedItems", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -83,7 +83,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("DeAllocateOrders", "getAllocatedOrders", ex.Message, user, WSID)
+                insertErrorMessages("DeAllocateOrders", "getAllocatedOrders", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -143,8 +143,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("DeAllocateOrders", "getTableData", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("DeAllocateOrders", "getTableData", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

@@ -26,8 +26,8 @@ Public Class Category
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Category", "getCategories", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Category", "getCategories", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -50,8 +50,8 @@ Public Class Category
         Try
             RunActionSP("delCategory", WSID, {{"@Category", category, strVar}, {"@Subcategory", subcategory, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Category", "delCategory", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Category", "delCategory", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True
@@ -74,8 +74,8 @@ Public Class Category
         Try
             RunActionSP(SP, WSID, params)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Category", "saveCategory", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Category", "saveCategory", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True

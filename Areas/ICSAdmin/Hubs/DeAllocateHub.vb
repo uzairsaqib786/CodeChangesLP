@@ -34,8 +34,8 @@ Namespace Admin
                                                              {{"@OrderNumbers", orderNums, strVar}, {"@User", Context.User.Identity.Name, strVar}, _
                                                               {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("DeallocateHub", "deallocate", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("DeallocateHub", "deallocate", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function

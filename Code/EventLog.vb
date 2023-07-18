@@ -51,8 +51,8 @@ Public Class EventLog
                                                             {"@sortOrder", sortOrder, strVar}, _
                                                             {"@filter", filter, strVar}}, columnOrder:=columnorder)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Event Log Manager", "selEventLog", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Event Log Manager", "selEventLog", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -84,7 +84,7 @@ Public Class EventLog
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Event Log Manager", "getMessageDrop", ex.Message, user, WSID)
+            insertErrorMessages("Event Log Manager", "getMessageDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -115,7 +115,7 @@ Public Class EventLog
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Event Log Manager", "getEventLocDrop", ex.Message, user, WSID)
+            insertErrorMessages("Event Log Manager", "getEventLocDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -146,7 +146,7 @@ Public Class EventLog
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Event Log Manager", "getNameStampDrop", ex.Message, user, WSID)
+            insertErrorMessages("Event Log Manager", "getNameStampDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -177,7 +177,7 @@ Public Class EventLog
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Event Log Manager", "getEventTypeDrop", ex.Message, user, WSID)
+            insertErrorMessages("Event Log Manager", "getEventTypeDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -208,7 +208,7 @@ Public Class EventLog
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Event Log Manager", "getEventCodeDrop", ex.Message, user, WSID)
+            insertErrorMessages("Event Log Manager", "getEventCodeDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try

@@ -89,7 +89,7 @@ Public Class AESCrypter
             'Look up appKey encrypted AppKey
 
         Catch ex As Exception
-            insertErrorMessages("Appstart", "AppStartErr", ex.Message, "No User", "Error In AESCrypter GetAppPermissions")
+            insertErrorMessages("Appstart", "AppStartErr", ex.ToString(), "No User", "Error In AESCrypter GetAppPermissions")
         End Try
 
         Return AppPermissionDictionary
@@ -134,7 +134,7 @@ Public Class AESCrypter
                 DBAppList.Add(New AppData(DataReader(0), CheckDBNull(DataReader(1)), CheckDBNull(DataReader(2)), CheckDBNull(DataReader(3))))
             End While
         Catch ex As Exception
-            insertErrorMessages("Licensing", "GetAppLicenseData", ex.Message, "Application", "Application")
+            insertErrorMessages("Licensing", "GetAppLicenseData", ex.ToString(), "Application", "Application")
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Close()

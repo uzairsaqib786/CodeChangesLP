@@ -24,7 +24,7 @@ Namespace OrderManager
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("CreateOrders", "selectWarehouses", ex.Message, User, WSID)
+                insertErrorMessages("CreateOrders", "selectWarehouses", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -53,7 +53,7 @@ Namespace OrderManager
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("CreateOrders", "selCreateOrdersTA", ex.Message, User, WSID)
+                insertErrorMessages("CreateOrders", "selCreateOrdersTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

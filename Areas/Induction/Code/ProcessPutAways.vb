@@ -26,8 +26,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ProcessPutAways", "BatchIDTypeahead", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "BatchIDTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -75,8 +75,8 @@ Namespace Induction
                     reader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetTotesTable", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetTotesTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -104,8 +104,8 @@ Namespace Induction
                                                      {"@BatchID", batchid, strVar}, {"@WSID", WSID, strVar}, {"@TransType", transtype, strVar}, _
                                                      {"@DeAllocate", IIf(deallocate, 1, 0), intVar}, {"@PageFrom", PageFrom, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessTransactions", "DeleteBatchOrTote", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessTransactions", "DeleteBatchOrTote", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -122,8 +122,8 @@ Namespace Induction
             Try
                 RunActionSP("delIMBatchAll", WSID, {{"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessTransactions", "DeleteAllBatches", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessTransactions", "DeleteAllBatches", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -147,8 +147,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetNextTote", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetNextTote", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(dr) Then
                     dr.Dispose()
@@ -179,8 +179,8 @@ Namespace Induction
                 RunActionSP("updNextToteID", WSID, {{"@ToteID", tote + 1, intVar}})
 
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetNextTote", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetNextTote", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(dr) Then
                     dr.Dispose()
@@ -201,8 +201,8 @@ Namespace Induction
             Try
                 RunActionSP("updNextToteID", WSID, {{"@ToteID", tote, intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "UpdateNextTote", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "UpdateNextTote", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -235,8 +235,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAwaysHub", "GetBatchTotes", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAwaysHub", "GetBatchTotes", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -288,8 +288,8 @@ Namespace Induction
                     dr.NextResult()
                 Next index
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetAvailableZones", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetAvailableZones", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(dr) Then
                     dr.Dispose()
@@ -314,8 +314,8 @@ Namespace Induction
                 RunActionSP("insIMBatchPutAway", WSID, {{"@BatchID", BatchID, strVar}, {"@ZoneLabel", ZoneLabel, strVar}, {"@WSID", WSID, strVar}, {"@Totes", Totes(0), strVar}, _
                                                         {"@Cells", Totes(1), strVar}, {"@Positions", Totes(2), strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "ProcessBatch", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "ProcessBatch", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -391,8 +391,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetTransactionsForTote", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetTransactionsForTote", ex.ToString(), user, WSID)
             Finally
                 If dr IsNot Nothing Then
                     dr.Dispose()
@@ -420,8 +420,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetNextSerialNumber", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetNextSerialNumber", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -450,8 +450,8 @@ Namespace Induction
                                                 {"@CVel", cvel, strVar}, {"@BVel", bvel, strVar}, {"@CFVel", cfvel, strVar}, {"@ItemNumber", item, strVar}, {"@PZone", pzone, strVar},
                                                 {"@SZone", szone, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "UpdateInventoryMaster", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "UpdateInventoryMaster", ex.ToString(), user, WSID)
             End Try
             Return True
         End Function
@@ -488,8 +488,8 @@ Namespace Induction
                 'Secondary Zone
                 item(38) = item(38).ToLower
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetItemDetails", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetItemDetails", ex.ToString(), user, WSID)
                 Return New With {.Succ = False}
             Finally
                 If Not IsNothing(datareader) Then
@@ -520,8 +520,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetTop1Batch", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetTop1Batch", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -571,8 +571,8 @@ Namespace Induction
                     reader.Dispose()
                 Next
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "CreateReels", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "CreateReels", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -624,8 +624,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetBatchLocationTypeahead", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetBatchLocationTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -690,8 +690,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "CrossDockExists", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "CrossDockExists", ex.ToString(), user, WSID)
                 page.success = False
             Finally
                 If Not IsNothing(datareader) Then
@@ -722,8 +722,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetBatchByZone", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetBatchByZone", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -757,8 +757,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetRPDetail", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetRPDetail", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -822,8 +822,8 @@ Namespace Induction
                     i += 1
                 End While
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "GetContainerTables", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "GetContainerTables", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -844,8 +844,8 @@ Namespace Induction
             Try
                 RunActionSP("updIMFullGoldenZone", WSID, {{"@Location", location, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "MarkContainerFull", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "MarkContainerFull", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -875,8 +875,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "CheckBadContainer", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "CheckBadContainer", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -899,8 +899,8 @@ Namespace Induction
             Try
                 RunActionSP("updIMDedicateLocation", WSID, {{"@InvMapID", InvMapID, intVar}, {"@Item", item, strVar}, {"@Whse", whse, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "DedicateLocation", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "DedicateLocation", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -931,8 +931,8 @@ Namespace Induction
                     reader = Nothing
                 Next
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "CheckValidSN", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "CheckValidSN", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -963,8 +963,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "IsDedicated", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "IsDedicated", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -1033,8 +1033,8 @@ Namespace Induction
                                                       {"@Row", Row, strVar}, {"@Shelf", Shelf, strVar}, {"@Bin", Bin, strVar}, {"@InvMapID", InvMapID, intVar}, {"@LocMaxQty", LocMaxQty, intVar},
                                                       {"@Reel", CastAsSqlBool(Reel), intVar}, {"@Dedicate", CastAsSqlBool(Dedicate), intVar}, {"@OrderNumber", OrderNumber, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "TaskComplete", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "TaskComplete", ex.ToString(), user, WSID)
                 NewOTID = -1
             Finally
                 If Not IsNothing(DataReader) Then
@@ -1065,8 +1065,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "CompleteBatch", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "CompleteBatch", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -1088,8 +1088,8 @@ Namespace Induction
             Try
                 exists = GetResultSingleCol("selToteSetupQueueBatchID", WSID, {{"@WSID", WSID, strVar}, {"@BatchID", batchID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ProcessPutAways", "BatchExists", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ProcessPutAways", "BatchExists", ex.ToString(), user, WSID)
             End Try
             Return exists
         End Function

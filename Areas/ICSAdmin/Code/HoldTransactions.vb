@@ -68,8 +68,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("HoldTransactions", "selHoldTransactions", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("HoldTransactions", "selHoldTransactions", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -112,8 +112,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("HoldTransactions", "getTypeaheadHoldTransactions", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("HoldTransactions", "getTypeaheadHoldTransactions", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -143,8 +143,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("HoldTransactions", "getReelCount", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("HoldTransactions", "getReelCount", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

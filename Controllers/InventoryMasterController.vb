@@ -63,8 +63,8 @@ Namespace Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Inventory Kit Report", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("InventoryMasterController", "PrintKitReport", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("InventoryMasterController", "PrintKitReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -81,8 +81,8 @@ Namespace Controllers
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Inventory Master", "ConvertToItemNum", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Inventory Master", "ConvertToItemNum", ex.ToString(), User.Identity.Name, Session("WSID"))
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

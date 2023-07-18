@@ -5,6 +5,8 @@ Imports Microsoft.AspNet.SignalR
 Imports System.Threading.Tasks
 Imports System.Data.SqlClient
 Imports System.IO
+Imports Newtonsoft.Json.Serialization
+Imports System.DirectoryServices.Protocols
 
 Namespace Admin
     Public Class CycleCountHub
@@ -37,7 +39,7 @@ Namespace Admin
                                                                 RunActionSP("insccQueue", WSID, {{"@InvMapID", InvMapID, intVar}, {"@WSID", WSID, strVar}})
                                                             Catch ex As Exception
                                                                 returnMessage = "One or More records failed to be moved into the Queue, check the error log for more information"
-                                                                insertErrorMessages("Cycle Count", "InsertccQueue", ex.Message, Context.User.Identity.Name, WSID)
+                                                                insertErrorMessages("Cycle Count", "InsertccQueue", ex.ToString(), Context.User.Identity.Name, WSID)
                                                                 RemoveccQueueAll()
                                                             End Try
                                                         Next
@@ -59,7 +61,7 @@ Namespace Admin
                                                             RunActionSP("delccQueueInvMapID", WSID, {{"@InvMapID", InvMapID, intVar}, {"@WSID", WSID, strVar}})
                                                         Catch ex As Exception
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.Message, Context.User.Identity.Name, WSID)
+                                                            insertErrorMessages("Cycle Count", "RemoveccQueueRow", ex.ToString(), Context.User.Identity.Name, WSID)
                                                         End Try
                                                         Return returnMessage
                                                     End Function)
@@ -77,7 +79,7 @@ Namespace Admin
                                                             RunActionSP("delccQueue", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                         Catch ex As Exception
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "RemoveccQueueAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count", "RemoveccQueueAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         End Try
                                                         Return returnMessage
                                                     End Function)
@@ -93,21 +95,27 @@ Namespace Admin
                                                         Dim returnMessage = "Done"
                                                         Dim batchID = GlobalFunctions.getNextBatchID(Context.QueryString.Get("WSID"), Context.User.Identity.Name)
 
-                                                        Try
-                                                            batchID = batchID + "cc"
-                                                            'Insert new records into Open Transactions
-                                                            RunActionSP("insOTccQueue", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar},
-                                                                                                                          {"@User", Context.User.Identity.Name, strVar},
-                                                                                                                          {"@BatchID", batchID, strVar}})
-                                                            'Update Master record IDs for Open Transactions
-                                                            RunActionSP("updOTMastRecID", Context.QueryString.Get("WSID"), {{"nothing"}})
-
-                                                            'Deletes all records from ccQueue that Count Trans. were just created for
-                                                            RunActionSP("delccQueue", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}})
-                                                        Catch ex As Exception
+                                                        If (batchID = "") Then
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "CreateCountRecords", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
-                                                        End Try
+                                                            insertErrorMessages("Cycle Count", "getNextBatchID", "Batch ID returned blank.", Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Else
+                                                            Try
+                                                                batchID = batchID + "cc"
+                                                                'Insert new records into Open Transactions
+                                                                RunActionSP("insOTccQueue", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar},
+                                                                                                                              {"@User", Context.User.Identity.Name, strVar},
+                                                                                                                              {"@BatchID", batchID, strVar}})
+                                                                'Update Master record IDs for Open Transactions
+                                                                RunActionSP("updOTMastRecID", Context.QueryString.Get("WSID"), {{"nothing"}})
+
+                                                                'Deletes all records from ccQueue that Count Trans. were just created for
+                                                                RunActionSP("delccQueue", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}})
+                                                            Catch ex As Exception
+                                                                returnMessage = "Error"
+                                                                insertErrorMessages("Cycle Count", "CreateCountRecords", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            End Try
+                                                        End If
+
                                                         Return returnMessage
                                                     End Function)
         End Function
@@ -124,9 +132,9 @@ Namespace Admin
                                                         Dim success As String = "Ran"
 
                                                         Try
-                                                            RunActionSP("delOTCountOrderNum", Context.QueryString.Get("WSID"), {{"@OrderNum", ordernumber, strVar}, _
-                                                                                                                                 {"@Ident", Ident, strVar}, _
-                                                                                                                                 {"@User", Context.User.Identity.Name, strVar}, _
+                                                            RunActionSP("delOTCountOrderNum", Context.QueryString.Get("WSID"), {{"@OrderNum", ordernumber, strVar},
+                                                                                                                                 {"@Ident", Ident, strVar},
+                                                                                                                                 {"@User", Context.User.Identity.Name, strVar},
                                                                                                                                  {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                         Catch ex As Exception
                                                             success = "Error"
@@ -151,7 +159,7 @@ Namespace Admin
 
                                                             dataSet.Load(DataReader, LoadOption.PreserveChanges, {"Data"})
                                                         Catch ex As Exception
-                                                            insertErrorMessages("Cycle Count Hub", "PrintCycleCountDetailReport", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count Hub", "PrintCycleCountDetailReport", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             Success = "Fail"
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
@@ -175,7 +183,7 @@ Namespace Admin
                                                         Dim DataReader As SqlDataReader = Nothing
                                                         Dim countNum As String = ""
                                                         Try
-                                                            DataReader = RunSPArray("selInvMapCycleQty", Context.QueryString.Get("WSID"), {{"@itemNum", itemNum, strVar}, _
+                                                            DataReader = RunSPArray("selInvMapCycleQty", Context.QueryString.Get("WSID"), {{"@itemNum", itemNum, strVar},
                                                                                                                                             {"@wareHouse", wareHouse, strVar}})
                                                             If (DataReader.HasRows) Then
                                                                 While (DataReader.Read())
@@ -184,7 +192,7 @@ Namespace Admin
                                                             End If
                                                         Catch ex As Exception
 
-                                                            insertErrorMessages("Cycle Count Hub", "getCycleCountQty", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count Hub", "getCycleCountQty", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             countNum = "Error"
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
@@ -205,11 +213,11 @@ Namespace Admin
             Return Task(Of String).Factory.StartNew(Function()
                                                         Dim returnMessage = ""
                                                         Try
-                                                            RunActionSP("delCCDiscrepant", Context.QueryString.Get("WSID"), {{"@Username", Context.User.Identity.Name, strVar}, _
+                                                            RunActionSP("delCCDiscrepant", Context.QueryString.Get("WSID"), {{"@Username", Context.User.Identity.Name, strVar},
                                                                                                                              {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                         Catch ex As Exception
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "delCCDiscrepant", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count", "delCCDiscrepant", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
 
                                                         End Try
                                                         Return returnMessage
@@ -233,7 +241,7 @@ Namespace Admin
 
                                                         Catch ex As Exception
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "cycleCountCreateTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count", "cycleCountCreateTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         End Try
                                                         Return returnMessage
                                                     End Function)
@@ -301,12 +309,12 @@ Namespace Admin
         ''' <param name="backup">The path to backup the file in</param>
         ''' <returns>A string telling if the operation completed successfully</returns>
         ''' <remarks></remarks>
-        Public Function updateFieldMapModel(wareHouseStart As Integer, warehouseLength As Integer, warehouseEnd As Integer, warehousePadLeft As Boolean, warehouseImpFormat As String, _
-                                            expdateStart As Integer, expdateLength As Integer, expdateEnd As Integer, expdatePadLeft As Boolean, expdateImpFormat As String, _
-                                            itemnumStart As Integer, itemnumLength As Integer, itemnumEnd As Integer, itemnumPadLeft As Boolean, itemnumImpFormat As String, _
-                                            lotnumStart As Integer, lotnumLength As Integer, lotnumEnd As Integer, lotnumPadLeft As Boolean, lotnumImpFormat As String, _
-                                            sernumStart As Integer, sernumLength As Integer, sernumEnd As Integer, sernumPadLeft As Boolean, sernumImpFormat As String, _
-                                            hostQStart As Integer, hostQLength As Integer, hostQEnd As Integer, hostQPadLeft As Boolean, hostQImpFormat As String, _
+        Public Function updateFieldMapModel(wareHouseStart As Integer, warehouseLength As Integer, warehouseEnd As Integer, warehousePadLeft As Boolean, warehouseImpFormat As String,
+                                            expdateStart As Integer, expdateLength As Integer, expdateEnd As Integer, expdatePadLeft As Boolean, expdateImpFormat As String,
+                                            itemnumStart As Integer, itemnumLength As Integer, itemnumEnd As Integer, itemnumPadLeft As Boolean, itemnumImpFormat As String,
+                                            lotnumStart As Integer, lotnumLength As Integer, lotnumEnd As Integer, lotnumPadLeft As Boolean, lotnumImpFormat As String,
+                                            sernumStart As Integer, sernumLength As Integer, sernumEnd As Integer, sernumPadLeft As Boolean, sernumImpFormat As String,
+                                            hostQStart As Integer, hostQLength As Integer, hostQEnd As Integer, hostQPadLeft As Boolean, hostQImpFormat As String,
                                             importPath As String, fileDefault As String, active As Boolean, backup As String) As Task(Of String)
             Return Task(Of String).Factory.StartNew(Function()
                                                         Dim returnMessage = ""
@@ -315,26 +323,26 @@ Namespace Admin
 
 
 
-                                                            RunActionSP("updateInfoFieldMapModel", Context.QueryString.Get("WSID"), {{"@WareHouseStart", wareHouseStart, intVar}, {"@WareHouseLength", warehouseLength, intVar}, _
-                                                                                                                                     {"@WareHouseEnd", warehouseEnd, intVar}, {"@WareHousePadLeft", warehousePadLeft, boolVar}, _
-                                                                                                                                     {"@WareHouseImpFormat", warehouseImpFormat, strVar}, {"@ExpDateStart", expdateStart, intVar}, _
-                                                                                                                                     {"@ExpDateLength", expdateLength, intVar}, {"@ExpDateEnd", expdateEnd, intVar}, _
-                                                                                                                                     {"@ExpDatePadLeft", expdatePadLeft, boolVar}, {"@ExpDateImpFormat", expdateImpFormat, strVar}, _
-                                                                                                                                     {"@ItemNumStart", itemnumStart, intVar}, {"@ItemNumLength", itemnumLength, intVar}, _
-                                                                                                                                     {"@ItemNumEnd", itemnumEnd, intVar}, {"@ItemNumPadLeft", itemnumPadLeft, boolVar}, _
-                                                                                                                                     {"@ItemNumImpFormat", itemnumImpFormat, strVar}, {"@LotNumStart", lotnumStart, intVar}, _
-                                                                                                                                     {"@LotNumLength", lotnumLength, intVar}, {"@LotNumEnd", lotnumEnd, intVar}, _
-                                                                                                                                     {"@LotNumPadLeft", lotnumPadLeft, boolVar}, {"@LotNumImpFormat", lotnumImpFormat, strVar}, _
-                                                                                                                                     {"@SerNumStart", sernumStart, intVar}, {"@SerNumLength", sernumLength, intVar}, _
-                                                                                                                                     {"@SerNumEnd", sernumEnd, intVar}, {"@SerNumPadLeft", sernumPadLeft, boolVar}, _
-                                                                                                                                     {"@SerNumImpFormat", sernumImpFormat, strVar}, {"@HostQStart", hostQStart, intVar}, _
-                                                                                                                                     {"@HostQLength", hostQLength, intVar}, {"@HostQEnd", hostQEnd, intVar}, _
-                                                                                                                                     {"@HostQPadLeft", hostQPadLeft, boolVar}, {"@HostQImpFormat", hostQImpFormat, strVar}, _
-                                                                                                                                     {"@ImportPath", importPath, strVar}, {"@FileDefault", fileDefault, strVar}, _
+                                                            RunActionSP("updateInfoFieldMapModel", Context.QueryString.Get("WSID"), {{"@WareHouseStart", wareHouseStart, intVar}, {"@WareHouseLength", warehouseLength, intVar},
+                                                                                                                                     {"@WareHouseEnd", warehouseEnd, intVar}, {"@WareHousePadLeft", warehousePadLeft, boolVar},
+                                                                                                                                     {"@WareHouseImpFormat", warehouseImpFormat, strVar}, {"@ExpDateStart", expdateStart, intVar},
+                                                                                                                                     {"@ExpDateLength", expdateLength, intVar}, {"@ExpDateEnd", expdateEnd, intVar},
+                                                                                                                                     {"@ExpDatePadLeft", expdatePadLeft, boolVar}, {"@ExpDateImpFormat", expdateImpFormat, strVar},
+                                                                                                                                     {"@ItemNumStart", itemnumStart, intVar}, {"@ItemNumLength", itemnumLength, intVar},
+                                                                                                                                     {"@ItemNumEnd", itemnumEnd, intVar}, {"@ItemNumPadLeft", itemnumPadLeft, boolVar},
+                                                                                                                                     {"@ItemNumImpFormat", itemnumImpFormat, strVar}, {"@LotNumStart", lotnumStart, intVar},
+                                                                                                                                     {"@LotNumLength", lotnumLength, intVar}, {"@LotNumEnd", lotnumEnd, intVar},
+                                                                                                                                     {"@LotNumPadLeft", lotnumPadLeft, boolVar}, {"@LotNumImpFormat", lotnumImpFormat, strVar},
+                                                                                                                                     {"@SerNumStart", sernumStart, intVar}, {"@SerNumLength", sernumLength, intVar},
+                                                                                                                                     {"@SerNumEnd", sernumEnd, intVar}, {"@SerNumPadLeft", sernumPadLeft, boolVar},
+                                                                                                                                     {"@SerNumImpFormat", sernumImpFormat, strVar}, {"@HostQStart", hostQStart, intVar},
+                                                                                                                                     {"@HostQLength", hostQLength, intVar}, {"@HostQEnd", hostQEnd, intVar},
+                                                                                                                                     {"@HostQPadLeft", hostQPadLeft, boolVar}, {"@HostQImpFormat", hostQImpFormat, strVar},
+                                                                                                                                     {"@ImportPath", importPath, strVar}, {"@FileDefault", fileDefault, strVar},
                                                                                                                                      {"@Active", active, boolVar}, {"@Backup", backup, strVar}})
                                                         Catch ex As Exception
                                                             returnMessage = "Error"
-                                                            insertErrorMessages("Cycle Count", "updateFieldMapModel", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Cycle Count", "updateFieldMapModel", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         End Try
                                                         Return returnMessage
                                                     End Function)
@@ -361,7 +369,7 @@ Namespace Admin
                                                             While DataReader.HasRows
                                                                 While DataReader.Read()
                                                                     If index = 0 Then
-                                                                        ImportSettings.Add(DataReader("xfer Fieldname"), _
+                                                                        ImportSettings.Add(DataReader("xfer Fieldname"),
                                                                                            New ccSetting(DataReader("Start Position"), DataReader("Field Length")))
                                                                     ElseIf index = 1 Then
                                                                         Extension = DataReader("File Extension Default")
@@ -378,7 +386,7 @@ Namespace Admin
 
                                                             If AuditFiles.Length > 0 Then
                                                                 'delete from the dicrepancy table
-                                                                RunActionSP("delCCDiscrepant", Context.QueryString.Get("WSID"), {{"@Username", Context.User.Identity.Name, strVar}, _
+                                                                RunActionSP("delCCDiscrepant", Context.QueryString.Get("WSID"), {{"@Username", Context.User.Identity.Name, strVar},
                                                                                                                              {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                                 For Each CurrentFile In AuditFiles
                                                                     If Not Backup = "" Then
@@ -386,20 +394,20 @@ Namespace Admin
                                                                     End If
                                                                     For Each line As String In File.ReadLines(CurrentFile.FullName)
                                                                         'create nwe object with datat from read line in the file
-                                                                        Dim ccItem As Object = New With { _
-                                                                            .ItemNumber = Trim(line.Substring(ImportSettings("Item Number").StartIndex - 1, ImportSettings("Item Number").LenIndex)), _
-                                                                            .HostQuantity = Trim(line.Substring(ImportSettings("Host Quantity").StartIndex - 1, ImportSettings("Host Quantity").LenIndex)), _
-                                                                            .Warehouse = Trim(line.Substring(ImportSettings("Warehouse").StartIndex - 1, ImportSettings("Warehouse").LenIndex)), _
-                                                                            .SerialNumber = Trim(line.Substring(ImportSettings("Serial Number").StartIndex - 1, ImportSettings("Serial Number").LenIndex)), _
-                                                                            .LotNumber = Trim(line.Substring(ImportSettings("Lot Number").StartIndex - 1, ImportSettings("Lot Number").LenIndex)), _
-                                                                            .ExpirationDate = Trim(line.Substring(ImportSettings("Expiration Date").StartIndex - 1, ImportSettings("Expiration Date").LenIndex)) _
+                                                                        Dim ccItem As Object = New With {
+                                                                            .ItemNumber = Trim(line.Substring(ImportSettings("Item Number").StartIndex - 1, ImportSettings("Item Number").LenIndex)),
+                                                                            .HostQuantity = Trim(line.Substring(ImportSettings("Host Quantity").StartIndex - 1, ImportSettings("Host Quantity").LenIndex)),
+                                                                            .Warehouse = Trim(line.Substring(ImportSettings("Warehouse").StartIndex - 1, ImportSettings("Warehouse").LenIndex)),
+                                                                            .SerialNumber = Trim(line.Substring(ImportSettings("Serial Number").StartIndex - 1, ImportSettings("Serial Number").LenIndex)),
+                                                                            .LotNumber = Trim(line.Substring(ImportSettings("Lot Number").StartIndex - 1, ImportSettings("Lot Number").LenIndex)),
+                                                                            .ExpirationDate = Trim(line.Substring(ImportSettings("Expiration Date").StartIndex - 1, ImportSettings("Expiration Date").LenIndex))
                                                                             }
                                                                         'update discrepancy table
-                                                                        RunActionSP("updCcDiscFromFile", Context.QueryString.Get("WSID"), {{"@ItemNum", ccItem.ItemNumber, strVar}, _
-                                                                                                                                           {"@HostQty", ccItem.HostQuantity, intVar}, _
-                                                                                                                                           {"@Warehouse", ccItem.Warehouse, strVar}, _
-                                                                                                                                           {"@SerialNum", ccItem.SerialNumber, strVar}, _
-                                                                                                                                           {"@LotNum", ccItem.LotNumber, strVar}, _
+                                                                        RunActionSP("updCcDiscFromFile", Context.QueryString.Get("WSID"), {{"@ItemNum", ccItem.ItemNumber, strVar},
+                                                                                                                                           {"@HostQty", ccItem.HostQuantity, intVar},
+                                                                                                                                           {"@Warehouse", ccItem.Warehouse, strVar},
+                                                                                                                                           {"@SerialNum", ccItem.SerialNumber, strVar},
+                                                                                                                                           {"@LotNum", ccItem.LotNumber, strVar},
                                                                                                                                            {"@ExpirationDate", CDate(ccItem.ExpirationDate), dteVar}})
                                                                     Next
                                                                     File.Delete(CurrentFile.FullName)
@@ -413,8 +421,8 @@ Namespace Admin
 
 
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Cycle Count", "importHostQtyFile", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Cycle Count", "importHostQtyFile", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Error has occured"
                                                         Finally
                                                             If Not IsNothing(DataReader) Then

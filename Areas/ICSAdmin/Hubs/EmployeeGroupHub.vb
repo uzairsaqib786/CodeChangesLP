@@ -50,7 +50,7 @@ Namespace Admin
                                                              End If
                                                          Catch ex As Exception
                                                              Debug.WriteLine(ex)
-                                                             insertErrorMessages("EmployeesGroupHub", "insGroups", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("EmployeesGroupHub", "insGroups", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
@@ -82,8 +82,8 @@ Namespace Admin
                                                      RunActionSP("delGroups", Context.QueryString.Get("WSID"), {{"@Group", group, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                  End If
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesGroupHub", "delGroups", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesGroupHub", "delGroups", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -138,7 +138,7 @@ Namespace Admin
                                                  Next
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("EmployeesGroupHub", "getFunctionsByGroup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("EmployeesGroupHub", "getFunctionsByGroup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -168,14 +168,14 @@ Namespace Admin
                                                          Try
                                                              RunActionSP("insGroupControl", Context.QueryString.Get("WSID"), {{"@Group", group, strVar}, {"@Control", c, strVar}})
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("EmployeeGroupHub", "insGroupControl", "Group: " & group & " Control: " & c & " Message: " & ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("EmployeeGroupHub", "insGroupControl", "Group: " & group & " Control: " & c & " Message: " & ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                      Next
                                                  End If
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesGroupHub", "insGroupsFunction", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesGroupHub", "insGroupsFunction", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -193,8 +193,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("updStaffAccessGroups", Context.QueryString.Get("WSID"), {{"@Group", group, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesGroupHub", "updateEmployeesInGroup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesGroupHub", "updateEmployeesInGroup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -223,7 +223,7 @@ Namespace Admin
                                                              End If
                                                          Catch ex As Exception
                                                              Debug.WriteLine(ex)
-                                                             insertErrorMessages("EmployeesGroupHub", "insGroups", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("EmployeesGroupHub", "insGroups", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True

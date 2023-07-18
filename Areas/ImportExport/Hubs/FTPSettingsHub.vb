@@ -35,7 +35,7 @@ Public Class FTPSettingsHub
                                                             End While
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("FTPSettingsHub", "getFTPSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("FTPSettingsHub", "getFTPSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -77,7 +77,7 @@ Public Class FTPSettingsHub
                                                                                                           {"@User", Context.User.Identity.Name, strVar}, _
                                                                                                           {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("FTPSettingsHub", "updImportSett", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("FTPSettingsHub", "updImportSett", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -115,7 +115,7 @@ Public Class FTPSettingsHub
                                                                                                           {"@User", Context.User.Identity.Name, strVar}, _
                                                                                                           {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("FTPSettingsHub", "updImportSett", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("FTPSettingsHub", "updImportSett", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True

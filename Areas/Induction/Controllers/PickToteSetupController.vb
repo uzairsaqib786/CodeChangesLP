@@ -78,8 +78,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -113,8 +113,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickItemLabel", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickItemLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -145,8 +145,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickToteLabelButt", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickToteLabelButt", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -177,8 +177,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PrintPrevOffCarPickList", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PrintPrevOffCarPickList", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -209,8 +209,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", ListLabelHelperFunctions.GetStandardLLExportProperties(Username, WSID, Server, "preview", sp, Parms, filename))
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PrintPrevPickToteLabel", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PrintPrevPickToteLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -237,8 +237,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchToteLabel", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchToteLabel", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -266,8 +266,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchItemLabel", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchItemLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -295,8 +295,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -357,8 +357,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickToteLabelButt", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickToteLabelButt", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -391,8 +391,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickItemLabel", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickItemLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -425,8 +425,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -452,8 +452,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchToteLabel", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevIMPickBatchToteLabel", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -479,8 +479,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevInZoneCaseLabell", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevInZoneCaseLabell", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -500,8 +500,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevPickBatchList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevPickBatchList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

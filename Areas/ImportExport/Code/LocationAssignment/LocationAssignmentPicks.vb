@@ -94,7 +94,7 @@ Namespace ImportExport
                 ProcessOTList(wsid, username, dateStamp, otsToLocAssign, laPickSort, fpaw, allocResetYes, pref, invMapIdFromShort)
 
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentPicks", "AssignPicks: loc = " + locInCode.ToString, ex.Message, "AutoLA", wsid)
+                insertErrorMessages("LocationAssignmentPicks", "AssignPicks: loc = " + locInCode.ToString, ex.ToString(), "AutoLA", wsid)
             End Try
 
         End Sub
@@ -145,7 +145,7 @@ Namespace ImportExport
                 locinCode = 10
 
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentPicks", "ProcessOTList: loc = " + locInCode.ToString, ex.Message, "AutoLA", wsid)
+                insertErrorMessages("LocationAssignmentPicks", "ProcessOTList: loc = " + locInCode.ToString, ex.ToString(), "AutoLA", wsid)
 
             End Try
             'TODO: Alloc_Custom_Pick
@@ -248,7 +248,7 @@ Namespace ImportExport
                 FifoNextLoc(wsid, ot, invMapLocs, laPickSort, fpaw, username, dateStamp, invMapIdFromShort, pref)
 
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentPicks", "FifoNextLoc: loc = " + locInCode.ToString, ex.Message, "AutoLA", wsid)
+                insertErrorMessages("LocationAssignmentPicks", "FifoNextLoc: loc = " + locInCode.ToString, ex.ToString(), "AutoLA", wsid)
 
             End Try
 
@@ -328,7 +328,7 @@ Namespace ImportExport
                 End If
 
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentPicks", "HandlePickFenceResult: loc = " + locinCode.ToString, ex.Message, "AutoLA", wsid)
+                insertErrorMessages("LocationAssignmentPicks", "HandlePickFenceResult: loc = " + locinCode.ToString, ex.ToString(), "AutoLA", wsid)
 
             End Try
         End Sub

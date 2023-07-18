@@ -39,8 +39,8 @@ Public Class OrderStatusHub
                                                  End While
                                              End If
                                          Catch ex As Exception
-                                             Debug.WriteLine("ScanValidateOrder error: " & ex.Message)
-                                             insertErrorMessages("OrderStatusHub", "ScanValidateOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine("ScanValidateOrder error: " & ex.ToString())
+                                             insertErrorMessages("OrderStatusHub", "ScanValidateOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          Finally
                                              If Not DataReader Is Nothing Then
                                                  DataReader.Close()
@@ -62,8 +62,8 @@ Public Class OrderStatusHub
                                          Try
                                              RunActionSP("DeleteOrdersByNumber", Context.QueryString.Get("WSID"), {{"@Ordernum", ordernum, strVar}, {"@xferBy", Context.User.Identity.Name, strVar}, {"@totalLines", totalLines, intVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("OrderStatusHub", "DeleteOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("OrderStatusHub", "DeleteOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
     End Function
@@ -85,7 +85,7 @@ Public Class OrderStatusHub
                 retVal = CheckDBNull(DataReader(0))
             End If
         Catch ex As Exception
-            insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Close()
@@ -107,7 +107,7 @@ Public Class OrderStatusHub
                                                         RunActionSP("updOSPriority", Context.QueryString.Get("WSID"), {{"@OrderNum", OrderNum, strVar}, {"@User", Context.User.Identity.Name, strVar},
                                                                                                                        {"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@Priority", Priority, intVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderStatusHub", "updOSPriority", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderStatusHub", "updOSPriority", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success

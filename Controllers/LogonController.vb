@@ -50,8 +50,8 @@ Public Class LogonController
                     Return View(logonData())
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("LogonController", "Index", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("LogonController", "Index", ex.ToString(), User.Identity.Name, Session("WSID"))
                 TempData("Connections") = Config.getAllConnectionStrings
                 ViewData("Error") = ex.Message
                 Return View(logonData())
@@ -93,8 +93,8 @@ Public Class LogonController
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("LogonController", "Index", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("LogonController", "Index", ex.ToString(), User.Identity.Name, Session("WSID"))
                 TempData("Connections") = Config.getAllConnectionStrings
                 ViewData("Error") = "Username or Password was incorrect"
                 Return View(logonData())
@@ -228,8 +228,8 @@ Public Class LogonController
 
             model.Add(GlobalFunctions.getCompanyLogoExtension(User.Identity.Name, Session("WSID")))
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Logon", "Index(returnURL as String)", ex.Message, "Unauthenticated User", Session("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Logon", "Index(returnURL as String)", ex.ToString(), "Unauthenticated User", Session("WSID"))
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()

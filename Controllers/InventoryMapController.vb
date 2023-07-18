@@ -82,8 +82,8 @@ Namespace Controllers
                 Clients.Print(m)
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("InventoryMapController", "printIMReport", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("InventoryMapController", "printIMReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

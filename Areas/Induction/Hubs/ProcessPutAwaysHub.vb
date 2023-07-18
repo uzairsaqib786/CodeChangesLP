@@ -167,7 +167,7 @@ Public Class ProcessPutAwaysHub
                                                                                                                                    {"@BatchID", BatchID, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ProcessPutAwaysHub", "MarkToteFull", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ProcessPutAwaysHub", "MarkToteFull", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -186,8 +186,8 @@ Public Class ProcessPutAwaysHub
                                                             Try
                                                                 Return Induction.ProcessPutAways.GetTransactionsForTote(input(0), input(1), input(2), lowerBound, upperBound, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             Catch ex As Exception
-                                                                Debug.Print(ex.Message)
-                                                                insertErrorMessages("ProcessPutAwaysHub", "GetTransactionsForTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                Debug.Print(ex.ToString())
+                                                                insertErrorMessages("ProcessPutAwaysHub", "GetTransactionsForTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             End Try
                                                             Return New STPagingResult(False, New List(Of List(Of String)), "An error occurred.  Check the error log for details.", 0, 0)
                                                         End Function)
@@ -248,8 +248,8 @@ Public Class ProcessPutAwaysHub
                                                      Try
                                                          RunActionSP("updIMShelfFull", Context.QueryString.Get("WSID"), {{"@Zone", zone, strVar}, {"@Row", row, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("ProcessPutAwaysHub", "UpdateShelfFull", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("ProcessPutAwaysHub", "UpdateShelfFull", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -283,8 +283,8 @@ Public Class ProcessPutAwaysHub
                                                             Try
                                                                 Return Induction.ProcessPutAways.GetCrossDock(lowerbound, upperbound, itemWhse(0), itemWhse(1), itemWhse(2), user, WSID)
                                                             Catch ex As Exception
-                                                                Debug.Print(ex.Message)
-                                                                insertErrorMessages("ProcessPutAwaysHub", "GetCrossDock", ex.Message, user, WSID)
+                                                                Debug.Print(ex.ToString())
+                                                                insertErrorMessages("ProcessPutAwaysHub", "GetCrossDock", ex.ToString(), user, WSID)
                                                                 Return New STPagingResult(False, New List(Of List(Of String)), ex.Message, 0, 0)
                                                             End Try
                                                         End Function)
@@ -469,8 +469,8 @@ Public Class ProcessPutAwaysHub
                                                             End If
                                                         End If
                                                     Catch ex As Exception
-                                                        Debug.Print(ex.Message)
-                                                        insertErrorMessages("ProcessPutAwaysHub", "GetLocationName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.Print(ex.ToString())
+                                                        insertErrorMessages("ProcessPutAwaysHub", "GetLocationName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(reader) Then
                                                             reader.Dispose()
@@ -502,8 +502,8 @@ Public Class ProcessPutAwaysHub
                                                              End If
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("ProcessPutAwaysHub", "CheckForwardLocations", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("ProcessPutAwaysHub", "CheckForwardLocations", ex.ToString(), user, WSID)
                                                      Finally
                                                          If Not IsNothing(reader) Then
                                                              reader.Dispose()
@@ -551,8 +551,8 @@ Public Class ProcessPutAwaysHub
                                                          End If
 
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("ProcessPutAwaysHub", "CompletePick", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("ProcessPutAwaysHub", "CompletePick", ex.ToString(), user, WSID)
                                                      Finally
                                                          If Not IsNothing(reader) Then
                                                              reader.Dispose()
@@ -587,8 +587,8 @@ Public Class ProcessPutAwaysHub
                 Try
                     RunActionSP("delIMReservations", WSID, {{"@WSID", WSID, strVar}})
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("ProcessPutAwaysHub", "ClearLocationReservations", ex.Message, Context.User.Identity.Name, WSID)
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("ProcessPutAwaysHub", "ClearLocationReservations", ex.ToString(), Context.User.Identity.Name, WSID)
                     Return False
                 End Try
                 Return True
@@ -631,7 +631,7 @@ Public Class ProcessPutAwaysHub
                                                             DataReader.Close()
                                                         Next
                                                     Catch ex As Exception
-                                                        insertErrorMessages("PickToteSetupHub", "validateTotes", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("PickToteSetupHub", "validateTotes", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Error"
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
@@ -674,8 +674,8 @@ Public Class ProcessPutAwaysHub
 
 
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("ProcessPutAwaysHub", "ReserveLocation", ex.Message, Context.User.Identity.Name, WSID)
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("ProcessPutAwaysHub", "ReserveLocation", ex.ToString(), Context.User.Identity.Name, WSID)
                     Return False
                 Finally
                     If Not IsNothing(DataReader) Then

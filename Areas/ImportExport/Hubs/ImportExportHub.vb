@@ -37,8 +37,8 @@ Namespace ImportExport
                         End While
                     End If
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("ImportExportHub", "SelectOTIDsbyOrderNumber", ex.Message, "", "")
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("ImportExportHub", "SelectOTIDsbyOrderNumber", ex.ToString(), "", "")
                 Finally
                     If Not IsNothing(Datareader) Then
                         Datareader.Dispose()
@@ -151,8 +151,8 @@ Namespace ImportExport
                                                                 {"@PadLeft", CastAsSqlBool(mapping("Pad From Left")), intVar}, {"@FieldType", GlobalFunctions.NothingToStr(mapping("Field Type")), strVar},
                                                                 {"@Import", GlobalFunctions.NothingToStr(mapping("Import Format")), strVar}, {"@Export", GlobalFunctions.NothingToStr(mapping("Export Format")), strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "UpdateFieldMappings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "UpdateFieldMappings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return False
             End Try
             Return True
@@ -169,8 +169,8 @@ Namespace ImportExport
             Try
                 RunActionSP("updIEOtherFieldMaps", "IE", {{"@TransType", transType, strVar}, {"@XferType", xferType, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "UpdateMapAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "UpdateMapAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return False
             End Try
             Return True
@@ -195,8 +195,8 @@ Namespace ImportExport
                                                      {"@PadChar", row("Pad Character"), strVar},
                                                      {"@Format", currFormat, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "deleteXferMap", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "deleteXferMap", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return False
             End Try
             Return True
@@ -212,8 +212,8 @@ Namespace ImportExport
             Try
                 Return GetResultMapList("selIEXferTransSettings", "IE")
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "getXferFilePathSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "getXferFilePathSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             End Try
             Return New List(Of Dictionary(Of String, Object))
         End Function
@@ -237,8 +237,8 @@ Namespace ImportExport
                                                                 {"@ExportFile", row("Export Filename"), strVar},
                                                                 {"@ExportExt", row("Export Extension"), strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "SaveFilePathSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "SaveFilePathSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return False
             End Try
             Return True
@@ -253,8 +253,8 @@ Namespace ImportExport
             Try
                 Return New With {.success = True, .allowSet = GetResultSingleCol("selIECompleteHasMap", "IE")}
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "checkSetActiveFilePathSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "checkSetActiveFilePathSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             End Try
             Return New With {.success = False, .allowSet = False}
         End Function
@@ -289,8 +289,8 @@ Namespace ImportExport
                                                                  {"@AMPM", row("Export AMPM"), strVar},
                                                                  {"@EMS_ID", row("EMS_ID"), intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "saveInvMapSchedule", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "saveInvMapSchedule", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             End Try
             Return result
         End Function
@@ -305,8 +305,8 @@ Namespace ImportExport
             Try
                 RunActionSP("delIEInvMapSchedule", "IE", {{"@ID", ID, intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ImportExportHub", "delIEInvMapSchedule", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ImportExportHub", "delIEInvMapSchedule", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return False
             End Try
             Return True
@@ -325,8 +325,8 @@ Namespace ImportExport
                     Try
                         RunActionSP("PurgeFromIE", "IE", {{"nothing"}})
                     Catch ex As Exception
-                        Debug.Print(ex.Message)
-                        insertErrorMessages("ImportExportHub", "PurgeHistory", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                        Debug.Print(ex.ToString())
+                        insertErrorMessages("ImportExportHub", "PurgeHistory", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                         Return False
                     End Try
                     Return True

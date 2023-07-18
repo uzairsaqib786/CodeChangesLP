@@ -89,7 +89,7 @@ Public Class GlobalFunctions
         Try
             batch = GetResultSingleCol("selNextBatchID", WSID, {{"nothing"}})
         Catch ex As Exception
-            insertErrorMessages("MoveItems", "getNextBatchID", ex.Message, User, WSID)
+            insertErrorMessages("MoveItems", "getNextBatchID", ex.ToString(), User, WSID)
         End Try
         Return batch
     End Function
@@ -163,7 +163,7 @@ Public Class GlobalFunctions
             getWorkStatPrinters(WSID, user, sessionRef)
 
         Catch ex As Exception
-            SQLFunctions.insertErrorMessages("Globalfunctions", "initializeSession", ex.Message, "User not logged in at this point.", WSID)
+            SQLFunctions.insertErrorMessages("Globalfunctions", "initializeSession", ex.ToString(), "User not logged in at this point.", WSID)
         End Try
 
         'Returns Nothing if Successful
@@ -248,7 +248,7 @@ Public Class GlobalFunctions
                 DataReader.Dispose()
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
+            Debug.WriteLine(ex.ToString())
         End Try
 
         ' if no user defaults are defined return all of the columns in sql's order
@@ -302,8 +302,8 @@ Public Class GlobalFunctions
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalFunctions", "getUserRights", ex.Message, username, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "getUserRights", ex.ToString(), username, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -324,8 +324,8 @@ Public Class GlobalFunctions
                 logo = ".png" ' default to png, because why not
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Preferences", "getCompanyLogoExtension", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Preferences", "getCompanyLogoExtension", ex.ToString(), user, WSID)
         End Try
         Return logo
     End Function
@@ -341,8 +341,8 @@ Public Class GlobalFunctions
         Try
             level = GetResultSingleCol("selEmployeesAccessLevel", WSID, {{"@UserName", username, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalFunctions", "getAccessLevel", ex.Message, username, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "getAccessLevel", ex.ToString(), username, WSID)
         End Try
         Return level
     End Function
@@ -391,8 +391,8 @@ Public Class GlobalFunctions
                 innerList.Add("ID")
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalFunctions", "getColumns", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "getColumns", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReaderColumns) Then DataReaderColumns.Dispose()
         End Try
@@ -428,8 +428,8 @@ Public Class GlobalFunctions
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Preferences", "grabPrinterDropdown", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Preferences", "grabPrinterDropdown", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -472,8 +472,8 @@ Public Class GlobalFunctions
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("GlobalBroadcaster", "alertEmergencyOrders", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("GlobalBroadcaster", "alertEmergencyOrders", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then DataReader.Dispose()
                 If emergencies.Count > 0 Then GlobalHubBroadcaster.alertEmergencyOrders(emergencies)
@@ -507,8 +507,8 @@ Public Class GlobalFunctions
                 LabelPrinter = "No Printer"
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalFunctions", "getWorkStatPrinters", ex.Message, User, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "getWorkStatPrinters", ex.ToString(), User, WSID)
         End Try
         If Not IsNothing(sessionRef) Then
             sessionRef("ReportPrinter") = ReportPrinter
@@ -556,7 +556,7 @@ Public Class GlobalFunctions
                 End If
             Next
         Catch ex As Exception
-            insertErrorMessages("copyIfNewReportDesigns", "Index", ex.Message, user, WSID)
+            insertErrorMessages("copyIfNewReportDesigns", "Index", ex.ToString(), user, WSID)
         End Try
 
     End Sub
@@ -600,8 +600,8 @@ Public Class GlobalFunctions
                 End While
             End If
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("GlobalFunctions", "InitializeSharedPages", ex.Message, "GlobalFunctions", "CONFIG")
+            Debug.Print(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "InitializeSharedPages", ex.ToString(), "GlobalFunctions", "CONFIG")
         Finally
             If Not IsNothing(reader) Then reader.Dispose()
         End Try
@@ -680,8 +680,8 @@ Public Class GlobalFunctions
                 Next
             End Using
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("GlobalFunctions", "ExportToCSV", ex.Message, user, WSID)
+            Debug.Print(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "ExportToCSV", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True
@@ -724,8 +724,8 @@ Public Class GlobalFunctions
                 Next
             End Using
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("GlobalFunctions", "ExportToCSV", ex.Message, user, WSID)
+            Debug.Print(ex.ToString())
+            insertErrorMessages("GlobalFunctions", "ExportToCSV", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True

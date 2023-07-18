@@ -71,8 +71,8 @@ Namespace Admin
                                                                                      {"@User", Context.User.Identity.Name, strVar}, _
                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveFieldNames", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveFieldNames", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -96,8 +96,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getUserFieldLookupList", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getUserFieldLookupList", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -122,8 +122,8 @@ Namespace Admin
                                                  RunActionSP("updateInsUFLookup", Context.QueryString.Get("WSID"), {{"@OldValue", oldValue, strVar}, {"@NewValue", newValue, strVar}, {"@UF", uf, intVar}, _
                                                                                    {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveUFLookupEntry", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveUFLookupEntry", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -141,8 +141,8 @@ Namespace Admin
                                                  RunActionSP("delUFLookupEntry", Context.QueryString.Get("WSID"), {{"@Value", value, strVar}, {"@UF", uf, intVar}, {"@User", Context.User.Identity.Name, strVar}, _
                                                                                   {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteUFEntry", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteUFEntry", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -167,8 +167,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getAdjustmentLookup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getAdjustmentLookup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -191,8 +191,8 @@ Namespace Admin
                                                  RunActionSP("delAdjustmentReason", Context.QueryString.Get("WSID"), {{"@Reason", reason, strVar}, {"@User", Context.User.Identity.Name, strVar}, _
                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteAdjustReasonEntry", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteAdjustReasonEntry", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -209,8 +209,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("updateInsAdjustmentReason", Context.QueryString.Get("WSID"), {{"@OldValue", oldValue, strVar}, {"@NewValue", newValue, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveAdjustmentReasonEntry", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveAdjustmentReasonEntry", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -235,8 +235,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getToteSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getToteSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -259,8 +259,8 @@ Namespace Admin
                                                  RunActionSP("delExistingTote", Context.QueryString.Get("WSID"), {{"@ToteID", ToteID, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, _
                                                                                  {"@User", Context.User.Identity.Name, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteToteEntry", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteToteEntry", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -280,8 +280,8 @@ Namespace Admin
                                                                                {"@ToteID", ToteID, strVar}, _
                                                                                {"@Cell", Cell, intVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -311,8 +311,8 @@ Namespace Admin
                                                                           End If
                                                                       End If
                                                                   Catch ex As Exception
-                                                                      Debug.WriteLine(ex.Message)
-                                                                      insertErrorMessages("PreferencesHub", "getBulkSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                      Debug.WriteLine(ex.ToString())
+                                                                      insertErrorMessages("PreferencesHub", "getBulkSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                   End Try
 
                                                                   Return settings
@@ -380,8 +380,8 @@ Namespace Admin
                                                                                                                          {"@User", Context.User.Identity.Name, strVar},
                                                                                                                          {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveBulkSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveBulkSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
             '{"@LocationDelimiter", intSettings(35), intVar},
@@ -410,8 +410,8 @@ Namespace Admin
                                                                          End If
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getCompanyInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getCompanyInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  End Try
                                                                  Return companyInfo
                                                              End Function)
@@ -457,8 +457,8 @@ Namespace Admin
                                                  End Select
                                                  RunActionSP("updateCompanyInfo" & panel, Context.QueryString.Get("WSID"), params)
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveGeneralPreferences", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveGeneralPreferences", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -519,8 +519,8 @@ Namespace Admin
                                                                 DataReader.NextResult()
                                                             End While
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("PreferencesHub", "selPodSetupInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("PreferencesHub", "selPodSetupInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -557,8 +557,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "selPickLevels", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "selPickLevels", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(DataReader) Then
                                                                          DataReader.Dispose()
@@ -619,8 +619,8 @@ Namespace Admin
                                                                 DataReader.NextResult()
                                                             End While
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("PreferencesHub", "selPickLevels", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("PreferencesHub", "selPickLevels", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -655,8 +655,8 @@ Namespace Admin
 
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "addDeleteBulkZones", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "addDeleteBulkZones", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -707,8 +707,8 @@ Namespace Admin
 
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updateWorkStationSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updateWorkStationSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -740,8 +740,8 @@ Namespace Admin
                                                                                                    {"@AutoToteManifest", IIf(AutoToteManifest, "Yes", "No"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updateToteManagement", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updateToteManagement", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -773,8 +773,8 @@ Namespace Admin
                                                                                                     {"@SapLocChange", IIf(SapLocChange, "Yes", "No"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updateLocationAssignmentFunctions", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updateLocationAssignmentFunctions", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -815,8 +815,8 @@ Namespace Admin
                                                            {"@ParentZone", settings("Parent Zone"), strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, _
                                                            {"@KB", CastAsSqlBool(settings("Kanban Zone")), intVar}, {"@KBReplen", CastAsSqlBool(settings("Kanban Replenishment Source Zone")), intVar}})
                     Catch ex As Exception
-                        Debug.WriteLine(ex.Message)
-                        insertErrorMessages("PreferencesHub", "saveLocationZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                        Debug.WriteLine(ex.ToString())
+                        insertErrorMessages("PreferencesHub", "saveLocationZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     End Try
                 End Sub)
         End Function
@@ -832,8 +832,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("insLocationZone", Context.QueryString.Get("WSID"), {{"@Zone", zone, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveNewLocationZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveNewLocationZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -856,8 +856,8 @@ Namespace Admin
                                                                  Return True
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "deleteLocationZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "deleteLocationZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          Finally
                                                              If Not IsNothing(datareader) Then
@@ -894,8 +894,8 @@ Namespace Admin
 
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "addDeletePodZones", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "addDeletePodZones", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -931,8 +931,8 @@ Namespace Admin
                                                                                              {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updatePodSetupInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updatePodSetupInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -960,8 +960,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("GlobalHub", "getLocationNames", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("GlobalHub", "getLocationNames", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -986,8 +986,8 @@ Namespace Admin
                                                                                        {"@User", Context.User.Identity.Name, strVar}, _
                                                                                        {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveLocationName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveLocationName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1003,8 +1003,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("delLocationName", Context.QueryString.Get("WSID"), {{"@Name", name, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteLocationName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteLocationName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1038,8 +1038,8 @@ Namespace Admin
                                                                                                   {"@StartShelf", StartShelf, intVar}, {"@EndShelf", EndShelf, intVar}})
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "addUpdatePickLevels", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "addUpdatePickLevels", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(datareader) Then
                                                                  datareader.Dispose()
@@ -1059,8 +1059,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("updateOTClearTotes", Context.QueryString.Get("WSID"), {{"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "clearTotes", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "clearTotes", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1079,8 +1079,8 @@ Namespace Admin
                                                                                               {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "deletePickLevel", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "deletePickLevel", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -1105,8 +1105,8 @@ Namespace Admin
                                                                                              {"@HotPutOrderNum", IIf(HotPutOrderNum, "Yes", "No"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updateMiscellaneousInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updateMiscellaneousInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return Success
                                                      End Function)
@@ -1130,8 +1130,8 @@ Namespace Admin
                                                                                              {"@CCHotPut", IIf(CCHotPut, "Yes", "No"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                                          Catch ex As Exception
                                                              success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "updateMiscStockCount", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "updateMiscStockCount", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
 
                                                          Return success
@@ -1159,8 +1159,8 @@ Namespace Admin
                                                              End If
                                                          Catch ex As Exception
                                                              Success = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "addDeleteInactiveCarousels", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "addDeleteInactiveCarousels", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -1198,8 +1198,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getScanVerify", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getScanVerify", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -1226,8 +1226,8 @@ Namespace Admin
                                                                                      {"@User", Context.User.Identity.Name, strVar}, {"@OldSequence", prefs(7), intVar},
                                                                                      {"@OldField", prefs(8), strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveScanVerify", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveScanVerify", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1247,8 +1247,8 @@ Namespace Admin
                                                  RunActionSP("delScanVerify", Context.QueryString.Get("WSID"), {{"@InvMapID", InvMapID, intVar}, {"@TransType", TransType, strVar}, {"@Sequence", Sequence, intVar}, _
                                                                                {"@Field", Field, strVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteScanVerify", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteScanVerify", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1279,8 +1279,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getSVDefaults", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getSVDefaults", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -1324,8 +1324,8 @@ Namespace Admin
                                                                          End If
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getSortBar", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getSortBar", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -1363,8 +1363,8 @@ Namespace Admin
                                                                                       {"@OT17", oldvalues(16), intVar}, {"@OT18", oldvalues(17), intVar}, {"@OT19", oldvalues(18), intVar}, _
                                                                                       {"@OT20", oldvalues(19), intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveSortBar", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveSortBar", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1391,8 +1391,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("delDevicePreference", Context.QueryString.Get("WSID"), {{"@DeviceID", deviceID, intVar}, {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteDevicePreference", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteDevicePreference", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1438,8 +1438,8 @@ Namespace Admin
                                                                 datareader.NextResult()
                                                             Next
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("PreferencesHub", "getDeviceInformation", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("PreferencesHub", "getDeviceInformation", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(datareader) Then
                                                                 datareader.Dispose()
@@ -1466,8 +1466,8 @@ Namespace Admin
                                                                                {"@OBayDisplay", prefs(5), intVar}, {"@Comm", prefs(6), intVar}, {"@OComm", prefs(7), intVar}, _
                                                                                {"@New", CastAsSqlBool(newEntry), intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveIPTI", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveIPTI", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1489,8 +1489,8 @@ Namespace Admin
                                                                               {"@Zone", zone, strVar}, {"@Display", disp, intVar}, {"@Bay", bay, intVar}, {"@BayDisplay", baydisp, intVar}, _
                                                                               {"@Comm", comm, intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "deleteIPTI", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "deleteIPTI", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1524,8 +1524,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP(sp, Context.QueryString.Get("WSID"), params)
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "updateAllOrZoneDevicePreferences", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "updateAllOrZoneDevicePreferences", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1555,8 +1555,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getTrayTilt", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getTrayTilt", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -1583,8 +1583,8 @@ Namespace Admin
                                                                                        {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, _
                                                                                        {"@Tilt", CastAsSqlBool(checked), intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveTrayTilt", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveTrayTilt", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1602,8 +1602,8 @@ Namespace Admin
                                                  RunActionSP("updateShuttleTrayTiltAll", Context.QueryString.Get("WSID"), {{"@Zone", zone, strVar}, {"@Tilt", CastAsSqlBool(value), intVar}, {"@User", Context.User.Identity.Name, strVar}, _
                                                                                           {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveTrayToggleAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveTrayToggleAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1646,8 +1646,8 @@ Namespace Admin
                                                                      End If
                                                                  End If
                                                              Catch ex As Exception
-                                                                 Debug.WriteLine(ex.Message)
-                                                                 insertErrorMessages("PreferencesHub", "saveDevicePreference", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 Debug.WriteLine(ex.ToString())
+                                                                 insertErrorMessages("PreferencesHub", "saveDevicePreference", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(datareader) Then
                                                                      datareader.Dispose()
@@ -1693,8 +1693,8 @@ Namespace Admin
                                                          Try
                                                              RunActionSP(sp, Context.QueryString.Get("WSID"), params)
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "saveDevicePreference", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "saveDevicePreference", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          End Try
                                                          Return 0
                                                      End Function)
@@ -1714,8 +1714,8 @@ Namespace Admin
                                                                               {"@User", Context.User.Identity.Name, strVar}})
                                              Catch ex As Exception
                                                  success = False
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "updateCarSW", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "updateCarSW", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                              Return success
                                          End Function)
@@ -1771,8 +1771,8 @@ Namespace Admin
                                                                          End While
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getLightTrees", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getLightTrees", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(datareader) Then
                                                                          datareader.Dispose()
@@ -1800,8 +1800,8 @@ Namespace Admin
                                                              {{"@Zone", zone, strVar}, {"@Carousel", carousel, strVar}, {"@Shelf", shelf, strVar}, {"@BinLocation", bin, strVar}, _
                                                               {"@Light", alt, intVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveAltLight", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveAltLight", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1822,8 +1822,8 @@ Namespace Admin
                                                              {{"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, _
                                                               {"@Zone", zone, strVar}, {"@Carousel", carousel, strVar}, {"@Shelf", shelf, strVar}, {"@Light", alt, intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "saveAltLightAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "saveAltLightAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -1842,8 +1842,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("updateInvMapResetAltLight", WSID, {{"@Zone", zone, strVar}, {"@Carousel", carousel, strVar}, {"@WSID", WSID, strVar}, {"@User", user, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("PreferencesHub", "resetAltLight", ex.Message, user, WSID)
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("PreferencesHub", "resetAltLight", ex.ToString(), user, WSID)
                                              End Try
                                          End Sub)
         End Function
@@ -1881,8 +1881,8 @@ Namespace Admin
                                                                      Return Nothing
 
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("PreferencesHub", "getOSFilters", ex.Message, user, WSID)
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("PreferencesHub", "getOSFilters", ex.ToString(), user, WSID)
                                                                      Return Nothing
                                                                  End Try
                                                              End Function)
@@ -1908,8 +1908,8 @@ Namespace Admin
                                                              RunActionSP("updateOSFilter", WSID, SQLparams)
                                                              Return True
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("PreferencesHub", "setOSFilter:" + params.ToString, ex.Message, user, WSID)
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("PreferencesHub", "setOSFilter:" + params.ToString, ex.ToString(), user, WSID)
                                                              Return False
                                                          End Try
 

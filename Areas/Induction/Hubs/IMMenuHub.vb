@@ -20,8 +20,8 @@ Public Class IMMenuHub
                                                         End If
 
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("IMMenuHub", "ValidateSerialNumber", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("IMMenuHub", "ValidateSerialNumber", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Error"
                                                     End Try
 
@@ -42,8 +42,8 @@ Public Class IMMenuHub
                                                          RunActionSPMulti(Execs, Context.QueryString.Get("WSID"))
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("IMMenuHub", "DeleteSerialNumberOpenTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("IMMenuHub", "DeleteSerialNumberOpenTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

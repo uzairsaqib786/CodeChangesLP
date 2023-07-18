@@ -37,8 +37,8 @@ Public Class ConcurrentSysReplenLocAssign
             ' Else return the result of the processed replenishments
             Return LocAssReplen(WSID, user)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "processSystemReplenishments", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "processSystemReplenishments", ex.ToString(), user, WSID)
             Return "Error in Sys Replen Loc Assignment" & ex.Message
         Finally
             If Not IsNothing(datareader) Then
@@ -72,8 +72,8 @@ Public Class ConcurrentSysReplenLocAssign
         Try
             RunActionSP("updateRPWarehouse", WSID, {{"nothing"}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "updateRPWarehouse", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "updateRPWarehouse", ex.ToString(), user, WSID)
         End Try
         Clients.Group(WSID).updateReplenishmentStatus(replenishmentNumber, "Inserting Put Away Replenishments")
         LocReplenOTPutAway(user, WSID)
@@ -92,8 +92,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocAssReplen", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocAssReplen", ex.ToString(), user, WSID)
         End Try
         Return "Replenishments processed."
     End Function
@@ -112,8 +112,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ConcurrentSysReplenLocAssign", "StartPutAways", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ConcurrentSysReplenLocAssign", "StartPutAways", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(itemReader) Then
                 itemReader.Dispose()
@@ -140,8 +140,8 @@ Public Class ConcurrentSysReplenLocAssign
             RunActionSP("insEventLogAlloc", WSID, {{"@Message", message, strVar}, {"@EventCode", eventCode, strVar}, {"@EventLocation", WSID, strVar}, _
                                                    {"@User", user, strVar}, {"@Notes", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "EventLogAlloc", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "EventLogAlloc", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -155,8 +155,8 @@ Public Class ConcurrentSysReplenLocAssign
         Try
             RunActionSP("QtyAllocReset", WSID, {{"@LoginName", user, strVar}, {"@DynWhse", "Yes", strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "QtyAllocReset", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "QtyAllocReset", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -180,8 +180,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOT", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOT", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()
@@ -225,8 +225,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "GetSettingLM", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "GetSettingLM", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()
@@ -239,8 +239,8 @@ Public Class ConcurrentSysReplenLocAssign
         Try
             RunActionSP("updateSettingLM", wsid, {{"@Program", program, strVar}, {"@Section", section, strVar}, {"@Name", keynameLM, strVar}, {"@Setting", setting, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "SaveSettingLM", ex.Message, user, wsid)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "SaveSettingLM", ex.ToString(), user, wsid)
         End Try
     End Sub
 
@@ -248,8 +248,8 @@ Public Class ConcurrentSysReplenLocAssign
         Try
             RunActionSP("insOTReplenishmentPuts", WSID, {{"@User", user, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOTPutAway", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOTPutAway", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -269,8 +269,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemRelenishmentLocationAssignment", "LocReplenPutODBC", ex.Message, user, wsid)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemRelenishmentLocationAssignment", "LocReplenPutODBC", ex.ToString(), user, wsid)
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()
@@ -365,8 +365,8 @@ Public Class ConcurrentSysReplenLocAssign
                     End If
                 Next I
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "NextOT: for loop", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "NextOT: for loop", ex.ToString(), user, WSID)
             End Try
             If SplitCount <= 0 Then
                 Exit While
@@ -421,8 +421,8 @@ Public Class ConcurrentSysReplenLocAssign
                             End While
                         End If
                     Catch ex As Exception
-                        Debug.WriteLine(ex.Message)
-                        insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                        Debug.WriteLine(ex.ToString())
+                        insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                     Finally
                         If Not IsNothing(rstInvMap) Then
                             rstInvMap.Dispose()
@@ -484,8 +484,8 @@ Public Class ConcurrentSysReplenLocAssign
                                     End If
                                 End If
                             Catch ex As Exception
-                                Debug.WriteLine(ex.Message)
-                                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                                Debug.WriteLine(ex.ToString())
+                                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                             Finally
                                 If Not IsNothing(rst) Then
                                     rst.Dispose()
@@ -542,8 +542,8 @@ Public Class ConcurrentSysReplenLocAssign
                                     RunActionSP("insOTReplenSplitTrans", WSID, {{"@OTID", OTData(I)(OTFields.IndexOf("ID")), intVar}, {"@SplitID", SplitID, intVar}, {"@OrderCount", OrderCount, intVar}, _
                                                                                 {"@SplitQty", SplitQty, intVar}})
                                 Catch ex As Exception
-                                    Debug.WriteLine(ex.Message)
-                                    insertErrorMessages("SystemReplenishmentLocationAssigment", "StartLoc", ex.Message, user, WSID)
+                                    Debug.WriteLine(ex.ToString())
+                                    insertErrorMessages("SystemReplenishmentLocationAssigment", "StartLoc", ex.ToString(), user, WSID)
                                 End Try
                                 SplitCount += 1
                                 Return True
@@ -558,8 +558,8 @@ Public Class ConcurrentSysReplenLocAssign
             Next x
             Call ReProcess(AutoCmpShort, OTData(I)(OTFields.IndexOf("ID")), OrderCount, SplitID, user, WSID)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
         End Try
         Return False
     End Function
@@ -584,8 +584,8 @@ Public Class ConcurrentSysReplenLocAssign
                 Return False
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ConcurrentSysReplenLocAssign", "checkValidLocation", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ConcurrentSysReplenLocAssign", "checkValidLocation", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()
@@ -609,15 +609,15 @@ Public Class ConcurrentSysReplenLocAssign
             Try
                 RunActionSP("updateOTReplenAutoComplete", WSID, {{"@OTID", OTID, intVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.ToString(), user, WSID)
             End Try
         Else ' No Locations available, send to reprocess table
             Try
                 RunActionSP("insOTTempReplen", WSID, {{"@OTID", OTID, intVar}, {"@OrderCount", OrderCount, intVar}, {"@SplitID", SplitID, intVar}, {"@User", user, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.ToString(), user, WSID)
             End Try
         End If
     End Sub
@@ -656,8 +656,8 @@ Public Class ConcurrentSysReplenLocAssign
                 RunActionSP("HPAUpdateMaxQty", WSID, {{"@MaxQty", MaxQty1, intVar}, {"@MinQty", MinQty, intVar}, _
                                                       {"@InvMapID", InvMapID, intVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
             End Try
         End If
 
@@ -669,8 +669,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                         {"@UM", UM, strVar}, _
                                                         {"@Exp", ExpDate, dteVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
             End Try
         End If
 
@@ -696,8 +696,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                        {"@OTID", OTID, intVar}, {"@TransQty", AvailQty, intVar}})
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -724,8 +724,8 @@ Public Class ConcurrentSysReplenLocAssign
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: selOpenTransReplenishments", ex.Message, user, wsid)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: selOpenTransReplenishments", ex.ToString(), user, wsid)
         Finally
             If Not IsNothing(OTReader) Then
                 OTReader.Dispose()
@@ -824,8 +824,8 @@ Public Class ConcurrentSysReplenLocAssign
                     End If
                     InvMapIndex = 0
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: LocAssPickInvMap", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: LocAssPickInvMap", ex.ToString(), user, WSID)
                 Finally
                     If Not IsNothing(InvMapReader) Then
                         InvMapReader.Dispose()
@@ -842,8 +842,8 @@ Public Class ConcurrentSysReplenLocAssign
                                  OrderCount:=OrderCount, ReasonText:=ReasonText, PickCaseQty:=PickCaseQty, AvailCaseQty:=AvailCaseQty, PickQty:=PickQty)
             End While
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, For Each OTRow", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, For Each OTRow", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -863,8 +863,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                           {"@AutoCmp", "No", strVar}, _
                                                       {"@DateStamp", Now(), dteVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: ReProcessOT", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: ReProcessOT", ex.ToString(), user, WSID)
                 End Try
                 Return
             End If
@@ -893,8 +893,8 @@ Public Class ConcurrentSysReplenLocAssign
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: selCarouselByZone", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: selCarouselByZone", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(rst3) Then
                     rst3.Dispose()
@@ -913,8 +913,8 @@ Public Class ConcurrentSysReplenLocAssign
                                  NewOrder:=NewOrder, LastOrder:=LastOrder, SplitID:=SplitID, SplitQty:=SplitQty, _
                                  OrderCount:=OrderCount, ReasonText:=ReasonText, PickCaseQty:=PickCaseQty, AvailCaseQty:=AvailCaseQty, PickQty:=PickQty)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, outer try/catch block", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, outer try/catch block", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -958,8 +958,8 @@ Public Class ConcurrentSysReplenLocAssign
                             End If
                         End If
                     Catch ex As Exception
-                        Debug.WriteLine(ex.Message)
-                        insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFence, SP: selCarouselByZone", ex.Message, user, WSID)
+                        Debug.WriteLine(ex.ToString())
+                        insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFence, SP: selCarouselByZone", ex.ToString(), user, WSID)
                     Finally
                         If Not IsNothing(rst3) Then
                             rst3.Dispose()
@@ -1041,8 +1041,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                         {"@Qty", nullVar, nullVar}})
                 Return
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen avail>=trans", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen avail>=trans", ex.ToString(), user, WSID)
             End Try
         Else
             SplitID = getOTValueAsInt(OTRow(OTColumns.IndexOf("Master Record ID")))
@@ -1057,8 +1057,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                              {"@LineNum", OrderCount + 1, intVar}, _
                                                              {"@OrdNum", NewOrder, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: insOTLASplitPickReplen", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: insOTLASplitPickReplen", ex.ToString(), user, WSID)
             End Try
 
             Try
@@ -1088,8 +1088,8 @@ Public Class ConcurrentSysReplenLocAssign
                 LastOrder = NewOrder
                 Return
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen in Else", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen in Else", ex.ToString(), user, WSID)
             End Try
         End If
     End Sub
@@ -1187,8 +1187,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                         {"@Qty", nullVar, nullVar}})
                 Return
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.ToString(), user, WSID)
             End Try
         Else
             SplitID = getOTValueAsInt(OTRow(OTColumns.IndexOf("Master Record ID")))
@@ -1201,8 +1201,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                              {"@LineNum", OrderCount, intVar}, _
                                                              {"@OrdNum", NewOrder, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: insOTLASplitPickReplen", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: insOTLASplitPickReplen", ex.ToString(), user, WSID)
             End Try
             Try
                 RunActionSP("updOTLAPickReplen", WSID, {{"@ID", getOTValueAsInt(OTRow(OTColumns.IndexOf("ID"))), intVar}, _
@@ -1230,8 +1230,8 @@ Public Class ConcurrentSysReplenLocAssign
                                                         {"@Qty", PickQty, intVar}})
                 Return
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.ToString(), user, WSID)
             End Try
         End If
     End Sub

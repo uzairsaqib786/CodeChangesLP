@@ -38,8 +38,8 @@ Namespace Consolidation.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "CM OrderPL", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ShippingController", "PrintShipOrderPL", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ShippingController", "PrintShipOrderPL", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -65,8 +65,8 @@ Namespace Consolidation.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "CM ContPL", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ShippingController", "PrintShipContPL", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ShippingController", "PrintShipContPL", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

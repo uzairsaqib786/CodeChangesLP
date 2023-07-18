@@ -70,7 +70,7 @@ Namespace Admin
                 End If
                 Return returnData
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "BatchResultTable", ex.Message, user, WSID)
+                insertErrorMessages("Cycle Count", "BatchResultTable", ex.ToString(), user, WSID)
             End Try
 
             Return "Error"
@@ -95,10 +95,10 @@ Namespace Admin
             Dim recordsTotal As Integer
             Dim recordsFiltered As Integer
             Try
-                Datareader = RunSPArray("selccQueueDT", wsid, {{"@sRow", sRow, intVar}, _
-                                                               {"@eRow", eRow, intVar}, _
-                                                               {"@sortColumn", CycleCountSortColumn(sortColumnIndex), strVar}, _
-                                                               {"@sortOrder", sortOrder, strVar}, _
+                Datareader = RunSPArray("selccQueueDT", wsid, {{"@sRow", sRow, intVar},
+                                                               {"@eRow", eRow, intVar},
+                                                               {"@sortColumn", CycleCountSortColumn(sortColumnIndex), strVar},
+                                                               {"@sortOrder", sortOrder, strVar},
                                                                {"@WSID", wsid, strVar}})
 
                 Dim index = 0
@@ -132,7 +132,7 @@ Namespace Admin
                     Datareader.NextResult()
                 End While
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "ccQueueTable", ex.Message, user, wsid)
+                insertErrorMessages("Cycle Count", "ccQueueTable", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(Datareader) Then
                     Datareader.Close()
@@ -174,7 +174,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "CycleCountDescriptionTA", ex.Message, User, WSID)
+                insertErrorMessages("Cycle Count", "CycleCountDescriptionTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -203,7 +203,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "CycleCountCategoryTA", ex.Message, User, WSID)
+                insertErrorMessages("Cycle Count", "CycleCountCategoryTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -234,7 +234,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "CycleCountFromCostTA", ex.Message, User, WSID)
+                insertErrorMessages("Cycle Count", "CycleCountFromCostTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -256,7 +256,7 @@ Namespace Admin
             Dim tocost As New List(Of Object)
 
             Try
-                DataReader = RunSPArray("selInvCountToCostTA", WSID, {{"@FromCost", beginCost, strVar}, _
+                DataReader = RunSPArray("selInvCountToCostTA", WSID, {{"@FromCost", beginCost, strVar},
                                                                       {"@ToCost", endCost + "%", strVar}})
 
                 If DataReader.HasRows() Then
@@ -267,7 +267,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "CycleCountToCostTA", ex.Message, User, WSID)
+                insertErrorMessages("Cycle Count", "CycleCountToCostTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -295,7 +295,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Cycle Count", "CycleCountOrderNumTA", ex.Message, User, WSID)
+                insertErrorMessages("Cycle Count", "CycleCountOrderNumTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -329,8 +329,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Cycle Count", "getCycleCountDiscrepantDT", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Cycle Count", "getCycleCountDiscrepantDT", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -377,8 +377,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Cycle Count", "getFieldMapModalData", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Cycle Count", "getFieldMapModalData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

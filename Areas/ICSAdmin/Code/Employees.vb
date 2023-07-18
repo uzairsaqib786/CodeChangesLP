@@ -26,7 +26,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "allAccess", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "allAccess", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -57,7 +57,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "allGroups", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "allGroups", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -85,7 +85,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "allAccess", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "allAccess", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -111,7 +111,7 @@ Namespace Admin
                 Next
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "allGroups", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "allGroups", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -139,7 +139,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "getPickLevels", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "getPickLevels", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -167,7 +167,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "getHandheldZones", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "getHandheldZones", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -196,7 +196,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "getBulkRange", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "getBulkRange", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -251,7 +251,7 @@ Namespace Admin
 
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "employeeLookup", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "employeeLookup", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -278,7 +278,7 @@ Namespace Admin
                 End If
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "getAllBulkZones", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "getAllBulkZones", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -318,7 +318,7 @@ Namespace Admin
                 groups = AuthorizationDriver.GetUserGroups("UserGroups", user.Trim()).ToList()
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("Employees", "allGroups", ex.Message, user, WSID)
+                insertErrorMessages("Employees", "allGroups", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

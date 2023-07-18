@@ -52,7 +52,7 @@ Namespace Admin
                 Stats = New TableObject(draw:=draw, recordsTotal:=counts, recordsFiltered:=counts, data:=ReturnData)
             Catch ex As Exception
                 Debug.WriteLine(ex)
-                insertErrorMessages("EmployeesStats", "getEmployeeStats", ex.Message, user, WSID)
+                insertErrorMessages("EmployeesStats", "getEmployeeStats", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

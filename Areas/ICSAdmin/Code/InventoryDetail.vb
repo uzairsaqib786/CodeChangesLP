@@ -25,8 +25,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Inventory Detail", "selectItemNumberTypeahead", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Inventory Detail", "selectItemNumberTypeahead", ex.ToString(), user, WSID)
             End Try
             Return numbers
         End Function

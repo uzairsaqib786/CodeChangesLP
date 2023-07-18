@@ -73,8 +73,8 @@ Namespace OrderManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PrintReleaseOrders", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PrintReleaseOrders", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

@@ -33,8 +33,8 @@ Namespace Consolidation
 
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Shipping", "selShippingData", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Shipping", "selShippingData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -65,8 +65,8 @@ Namespace Consolidation
 
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Shipping", "selShippingData", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Shipping", "selShippingData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -100,8 +100,8 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Shipping", "selCarriers", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Shipping", "selCarriers", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -130,7 +130,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Shipping", "selShippingPreferences", ex.Message, user, wsid)
+                insertErrorMessages("Shipping", "selShippingPreferences", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()

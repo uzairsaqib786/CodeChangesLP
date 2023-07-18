@@ -173,8 +173,8 @@ Public Class GlobalConfigHub
                                                         End If
 
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("GlobalConfigHub", "insertNewPrinter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("GlobalConfigHub", "insertNewPrinter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Unknown error occurred.  Contact Scott Tech for support if this persists."
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
@@ -207,8 +207,8 @@ Public Class GlobalConfigHub
                                                             success = False
                                                         End If
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("GlobalConfigHub", "updateCurrentPrinter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("GlobalConfigHub", "updateCurrentPrinter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Unknown error occurred.  Contact Scott Tech for support if this persists."
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
@@ -240,8 +240,8 @@ Public Class GlobalConfigHub
                                                      Try
                                                          RunActionSP("DeletePrinter", "CONFIG", {{"@PrinterName", printer, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("GlobalConfigHub", "deletePrinter", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("GlobalConfigHub", "deletePrinter", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          success = False
                                                      End Try
 
@@ -268,7 +268,7 @@ Public Class GlobalConfigHub
                                                         RunActionSP("DelWS", "CONFIG", {{"@WSID", WSID, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("GlobalConfigHub", "DeleteWS", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("GlobalConfigHub", "DeleteWS", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -294,7 +294,7 @@ Public Class GlobalConfigHub
             Config.AppLicenses = AESCrypter.GetAppPermissions()
             Return numLicenses
         Catch ex As Exception
-            insertErrorMessages("GlobalConfigHub", "SaveValidateLicense", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            insertErrorMessages("GlobalConfigHub", "SaveValidateLicense", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         End Try
         Return -1
     End Function
@@ -317,7 +317,7 @@ Public Class GlobalConfigHub
 
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("GlobalConfigHub", "AddWSApp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("GlobalConfigHub", "AddWSApp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -339,7 +339,7 @@ Public Class GlobalConfigHub
                                                                                                  {"@AppName", App, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("GlobalConfigHub", "DeleteWSApp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("GlobalConfigHub", "DeleteWSApp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -367,7 +367,7 @@ Public Class GlobalConfigHub
                                                             End While
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Close()
@@ -390,7 +390,7 @@ Public Class GlobalConfigHub
                                                     Try
                                                         RunActionSP("updWSDefaultApp", "CONFIG", {{"@WSID", WSID, strVar}, {"@AppName", AppName, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Error"
                                                     End Try
                                                     Return ""
@@ -406,7 +406,7 @@ Public Class GlobalConfigHub
     ''' <param name="exportType">Directly print, export to file, or do both.</param>
     ''' <param name="printers">List of the printers to be included in this test.  Has no effect if exportType is not Print or Both</param>
     ''' <param name="printIsLabel">List of the printer types (matched by index to printers) -> True = Label Printer, else List/Report Printer</param>
-    ''' <returns>New With {.ExpectedResults = List(of TestPrintResult), .Errors = List(of Object[New With {.Message = ex.Message, .Type = ex.GetType(), .sp = Stored Procedure/SQL, .file = file w/out path, .area = failure line #}])}</returns>
+    ''' <returns>New With {.ExpectedResults = List(of TestPrintResult), .Errors = List(of Object[New With {.Message = ex.ToString(), .Type = ex.GetType(), .sp = Stored Procedure/SQL, .file = file w/out path, .area = failure line #}])}</returns>
     ''' <remarks></remarks>
     Public Function TestPrint(type As ServiceTest.ServiceTestOutputType, app As String, allWorkstations As Boolean, _
                             exportType As ServiceTest.ServiceTestPrintExport, printers As List(Of String), printIsLabel As List(Of Boolean)) As Task(Of Object)
@@ -443,8 +443,8 @@ Public Class GlobalConfigHub
                                                          Dim location As String = Context.Request.GetHttpContext.Server.MapPath("~/temp/")
                                                          recursiveDeleteFiles(location, user, WSID)
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("GlobalConfigHub", "DeleteLeftovers", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("GlobalConfigHub", "DeleteLeftovers", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -470,8 +470,8 @@ Public Class GlobalConfigHub
                     ' ignore this, file could be locked, or we don't have permission or it's an exe in use, read-only, etc.
                 Catch ex As Exception
                     ' we have an issue with the path being unmapped or directory not found or delete(nothing) or delete("") or path isn't supported or path is too long
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("LLPreviewExportController", "recursiveDeleteFiles", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("LLPreviewExportController", "recursiveDeleteFiles", ex.ToString(), user, WSID)
                     Exit Sub
                 End Try
             Next
@@ -490,8 +490,8 @@ Public Class GlobalConfigHub
                     recursiveDeleteFiles(d, user, WSID)
                 Catch ex As Exception
                     ' we have an issue with the path being unmapped or directory not found or delete(nothing) or delete("") or path isn't supported or path is too long
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("LLPreviewExportController", "recursiveDeleteFiles", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("LLPreviewExportController", "recursiveDeleteFiles", ex.ToString(), user, WSID)
                     Exit Sub
                 End Try
             Else
@@ -520,7 +520,7 @@ Public Class GlobalConfigHub
                                                         End If
                                                     Catch ex As Exception
                                                         LoginInfo = New With {.User = "Error", .Pass = "Error"}
-                                                        insertErrorMessages("Consolidation Hub", "SelectConnectionUserPass", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("Consolidation Hub", "SelectConnectionUserPass", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Close()
@@ -545,7 +545,7 @@ Public Class GlobalConfigHub
                                                          RunActionSP("updDataSourcesUserPass", "CONFIG", {{"@ConnectionName", Connection, strVar}, {"@User", Username, strVar},
                                                                                                           {"@Pass", Password, strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("Consolidation Hub", "SelectConnectionUserPass", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("Consolidation Hub", "SelectConnectionUserPass", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True

@@ -47,8 +47,8 @@ Public Class ManualTransactionsHub
                                                              End If
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine("saveNewTransaction" & ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "saveNewTransaction", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine("saveNewTransaction" & ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "saveNewTransaction", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
                                                              DataReader.Dispose()
@@ -90,8 +90,8 @@ Public Class ManualTransactionsHub
                                                                      End While
                                                                  End If
                                                              Catch ex As Exception
-                                                                 Debug.WriteLine(ex.Message)
-                                                                 insertErrorMessages("ManualTransactionsHub", "getQty", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 Debug.WriteLine(ex.ToString())
+                                                                 insertErrorMessages("ManualTransactionsHub", "getQty", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Finally
                                                                  If Not IsNothing(datareader) Then
                                                                      datareader.Dispose()
@@ -144,8 +144,8 @@ Public Class ManualTransactionsHub
                                                             datareader.NextResult()
                                                         End While
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("ManualTransactionsHub", "getLocationData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("ManualTransactionsHub", "getLocationData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(datareader) Then
                                                             datareader.Dispose()
@@ -170,8 +170,8 @@ Public Class ManualTransactionsHub
                                                          {{"@ID", TransID, intVar}, {"@User", user, strVar},
                                                           {"@WSID", WSID, strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("ManualTransactionsHub", "deleteTransaction", ex.Message, user, WSID)
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("ManualTransactionsHub", "deleteTransaction", ex.ToString(), user, WSID)
                                          End Try
                                      End Sub)
     End Function
@@ -272,8 +272,8 @@ Public Class ManualTransactionsHub
                                                                                                      {"@Warehouse", warehouse, strVar},
                                                                                                      {"@InvMapID", inv, intVar}})
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("ManualTransactionsHub", "saveTransactions", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("ManualTransactionsHub", "saveTransactions", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -294,8 +294,8 @@ Public Class ManualTransactionsHub
                                                          RunActionSP("insOTManTrans", Context.QueryString.Get("WSID"), {{"@ID", transactionID, intVar}, {"@User", Context.User.Identity.Name, strVar}, {"@Delete", IIf(deleteTrans, 1, 0), intVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                          'GlobalFunctions.checkEmergencyTransactions(user:=Context.User.Identity.Name, WSID:=Context.QueryString.Get("WSID"))
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "postTransaction", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "postTransaction", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -314,8 +314,8 @@ Public Class ManualTransactionsHub
                                                              Return False
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "postTransaction", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "postTransaction", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      Finally
                                                          If Not IsNothing(datareader) Then
@@ -340,8 +340,8 @@ Public Class ManualTransactionsHub
                                                         End If
 
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("ManualTransactionsHub", "SelItemFromVal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("ManualTransactionsHub", "SelItemFromVal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -393,8 +393,8 @@ Public Class ManualTransactionsHub
 
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "InsertTransForOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "InsertTransForOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -442,8 +442,8 @@ Public Class ManualTransactionsHub
 
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "UpdateTransForOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "UpdateTransForOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -456,8 +456,8 @@ Public Class ManualTransactionsHub
                                                      Try
                                                          RunActionSP("delXferOTOrder", Context.QueryString.Get("WSID"), {{"@OrderNum", OrderNumber, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "DeleteManOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "DeleteManOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -472,8 +472,8 @@ Public Class ManualTransactionsHub
                                                                                                                                 {"@User", Context.User.Identity.Name, strVar}})
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("ManualTransactionsHub", "PostManOrder", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("ManualTransactionsHub", "PostManOrder", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

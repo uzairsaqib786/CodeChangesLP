@@ -41,7 +41,7 @@ Namespace Induction.Controllers
                     remainingOrders = GetResultSingleCol("updOTSuperBatchInductionItemNum", Session("WSID"), {{"@Zone", Zone, strVar}, {"@ToteID", ToteID, strVar}, {"@BatchCount", ToBatch, intVar}, {"@BatchID", DateTime.Now().ToString("yyyyMMddhhmm") & "S-", strVar}, {"@ItemNum", ItemNum, strVar}})
                 End If
             Catch ex As Exception
-                insertErrorMessages("SuperBatch", "CreateSuperBatch", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("SuperBatch", "CreateSuperBatch", ex.ToString(), User.Identity.Name, Session("WSID"))
                 remainingOrders = "Error"
             End Try
             Return Json(remainingOrders)
@@ -69,7 +69,7 @@ Namespace Induction.Controllers
                 End If
 
             Catch ex As Exception
-                insertErrorMessages("SuperBatch", "SelectItemZoneData", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("SuperBatch", "SelectItemZoneData", ex.ToString(), User.Identity.Name, Session("WSID"))
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -101,7 +101,7 @@ Namespace Induction.Controllers
                 End If
 
             Catch ex As Exception
-                insertErrorMessages("SuperBatch", "SelectReqDateData", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("SuperBatch", "SelectReqDateData", ex.ToString(), User.Identity.Name, Session("WSID"))
                 Data = New List(Of List(Of String))
                 Data.Add(New List(Of String) From {"Error", "Error", "Error"})
             Finally
@@ -123,7 +123,7 @@ Namespace Induction.Controllers
             Try
                 RunActionSP("insTotePrintSuperBatchNew", Session("WSID"), {{"@toteID", toteID, strVar}})
             Catch ex As Exception
-                insertErrorMessages("SuperBatch", "insTotePrintTable", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("SuperBatch", "insTotePrintTable", ex.ToString(), User.Identity.Name, Session("WSID"))
                 errorMessage = "Error"
             End Try
             Return Json(errorMessage)
@@ -155,8 +155,8 @@ Namespace Induction.Controllers
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SuperBatchController", "PrintSuperBatchLabel", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SuperBatchController", "PrintSuperBatchLabel", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
 
@@ -186,8 +186,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SuperBatchController", "PrintSuperBatchOrderLabel", ex.Message, Username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SuperBatchController", "PrintSuperBatchOrderLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -213,8 +213,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupController", "PrintPrevInZoneCaseLabell", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupController", "PrintPrevInZoneCaseLabell", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

@@ -108,8 +108,8 @@ Namespace Admin.Controllers
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Inventory Map", "selInventoryMap", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Inventory Map", "selInventoryMap", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

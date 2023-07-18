@@ -24,8 +24,8 @@ Namespace WorkManager
                     data = New With {.OpenCount = DataReader("Open Count"), .RefreshTime = DataReader("Refresh Time")}
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("Organize Work", "getOrgainzeWorkData", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("Organize Work", "getOrgainzeWorkData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -117,8 +117,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("OrganizeWork", "getOrgainzeWorkTable", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("OrganizeWork", "getOrgainzeWorkTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -146,8 +146,8 @@ Namespace WorkManager
             Try
                 RunActionSP("wmClearWorkBatch", WSID, {{"@Username", username, strVar}, {"@PickClear", pick, intVar}, {"@PutClear", put, intVar}, {"@CountClear", count, intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("OrganizeWork", "ClearCurrentWork", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("OrganizeWork", "ClearCurrentWork", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -168,8 +168,8 @@ Namespace WorkManager
             Try
                 RunActionSP("wmClearWorkers", WSID, {{"@Username", username, strVar}, {"@PickClear", pick, intVar}, {"@PutClear", put, intVar}, {"@CountClear", count, intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("OrganizeWork", "ClearBatchIDs", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("OrganizeWork", "ClearBatchIDs", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -197,8 +197,8 @@ Namespace WorkManager
                     Return ClearBatchIDs(pick, put, count, username, user, WSID)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("OrganizeWork", "CreateBatchWithUsername", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("OrganizeWork", "CreateBatchWithUsername", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -226,8 +226,8 @@ Namespace WorkManager
                     reader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("OrganizeWork", "GetWorkerTA", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("OrganizeWork", "GetWorkerTA", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()

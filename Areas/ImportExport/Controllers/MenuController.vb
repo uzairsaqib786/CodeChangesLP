@@ -58,7 +58,7 @@ Namespace ImportExport.Controllers
                     RunSP("insInvetoryFromCSV", Session("WSID"), CreateInventoryParameters(ColumnList, currentLine))
                 End While
             Catch ex As Exception
-                insertErrorMessages("ImportExport", "ImportInvCSV", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("ImportExport", "ImportInvCSV", ex.ToString(), User.Identity.Name, Session("WSID"))
                 Return Json(False)
             End Try
 
@@ -88,8 +88,8 @@ Namespace ImportExport.Controllers
                 Next
                 Return parameters
             Catch ex As Exception
-                insertErrorMessages("ImportExport", "ImportInvCSV", ex.Message, User.Identity.Name, Session("WSID"))
-                Debug.WriteLine(ex.Message)
+                insertErrorMessages("ImportExport", "ImportInvCSV", ex.ToString(), User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
             End Try
         End Function
 
@@ -106,7 +106,7 @@ Namespace ImportExport.Controllers
                     RunSP("insInvMapFromCSV", Session("WSID"), CreateInvMapParameters(ColumnList, currentLine))
                 End While
             Catch ex As Exception
-                insertErrorMessages("ImportExport", "ImportInvMapCSV", ex.Message, User.Identity.Name, Session("WSID"))
+                insertErrorMessages("ImportExport", "ImportInvMapCSV", ex.ToString(), User.Identity.Name, Session("WSID"))
                 Return Json(False)
             End Try
 

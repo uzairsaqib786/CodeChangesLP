@@ -33,8 +33,8 @@ Public Class PrintLocations
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("PrintLocations", "getLocationsBegin", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("PrintLocations", "getLocationsBegin", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -75,8 +75,8 @@ Public Class PrintLocations
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("PrintLocations", "getLocationsBegin", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("PrintLocations", "getLocationsBegin", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()

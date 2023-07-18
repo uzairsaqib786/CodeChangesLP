@@ -15,8 +15,8 @@ Namespace Admin.Controllers
                 Try
                     RunActionSP("delReplenQueue", Session("WSID"), {{"nothing"}})
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("SystemReplenishmentsController", "Index", ex.Message, User.Identity.Name, Session("WSID"))
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("SystemReplenishmentsController", "Index", ex.ToString(), User.Identity.Name, Session("WSID"))
                 End Try
             End If
             Return View(New With {.pickCount = countInfo.pickcount, .putCount = countInfo.putcount})
@@ -173,8 +173,8 @@ Namespace Admin.Controllers
                 Clients.Print(m)
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentController", "printReplenishmentReportLabels", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentController", "printReplenishmentReportLabels", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -199,8 +199,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "New Replen Report", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentController", "printNewReplenishmentReport", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentController", "printNewReplenishmentReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

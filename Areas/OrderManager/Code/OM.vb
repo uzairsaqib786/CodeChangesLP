@@ -23,7 +23,7 @@ Namespace OrderManager
                     MaxOrders = DataReader("Max Orders")
                 End If
             Catch ex As Exception
-                insertErrorMessages("OM.vb", "selectMaxOrders", ex.Message, User, WSID)
+                insertErrorMessages("OM.vb", "selectMaxOrders", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -59,8 +59,8 @@ Namespace OrderManager
                                                                         {"@searchCol", searchColumn, strVar},
                                                                         {"@searchStr", searchString, strVar}}, columnOrder:=columnSequence)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("OM.vb", "selectOrderManagerTempDT", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("OM.vb", "selectOrderManagerTempDT", ex.ToString(), User, WSID)
 
             End Try
             Return table
@@ -77,7 +77,7 @@ Namespace OrderManager
             Try
                 RunActionSP("delOrderManagerTemp", WSID, {{"@WSID", WSID, strVar}})
             Catch ex As Exception
-                insertErrorMessages("OrderManager Hub", "delOrderManTemp", ex.Message, User, WSID)
+                insertErrorMessages("OrderManager Hub", "delOrderManTemp", ex.ToString(), User, WSID)
             End Try
         End Sub
 

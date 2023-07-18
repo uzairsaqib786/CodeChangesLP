@@ -57,8 +57,8 @@ Namespace Admin.Controllers
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManagerController", "PrintBatchLabel", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManagerController", "PrintBatchLabel", ex.ToString(), username, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -74,8 +74,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Batch Labels", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManagerController", "PrintBatchLabel", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManagerController", "PrintBatchLabel", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -112,8 +112,8 @@ Namespace Admin.Controllers
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("BatchManagerController", "Zone Label Section", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("BatchManagerController", "Zone Label Section", ex.ToString(), username, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -130,8 +130,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Batch Report", "List", filename, "selBMReportForPrint", Params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Inventory Map", "PrintBatchLabel", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Inventory Map", "PrintBatchLabel", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

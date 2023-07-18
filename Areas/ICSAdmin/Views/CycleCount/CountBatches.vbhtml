@@ -82,19 +82,32 @@ End Code
                                         </div>
                                     </div>
                                     <div id="PickedRangeDiv" hidden="hidden">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <input id="PickedStart" class="form-control date-picker" type="text" placeholder="From Date" maxlength="50" />
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
+                                            <input id="PickedStartTime" class="form-control" type="text" placeholder="12:00AM" maxlength="50" />
+                                        </div>
+                                        <div class="col-md-4">
                                             <input id="PickedEnd" class="form-control date-picker" type="text" placeholder="To Date" maxlength="50" />
                                         </div>
+                                        <div class="col-md-2">
+                                            <input id="PickedEndTime" class="form-control" type="text" placeholder="12:00AM" maxlength="50" />
+                                        </div>
+
                                     </div>
                                     <div id="PutAwayRangeDiv" hidden="hidden">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <input id="PutStart" class="form-control date-picker" type="text" placeholder="From Date" maxlength="50" />
                                         </div>
-                                        <div class="col-md-6">
-                                            <input id="PutEnd" class="form-control date-picker" type="text" placeholder="To Date" maxlength="50" />
+                                        <div class="col-md-2">
+                                            <input id="PutStartTime" class="form-control time" type="text" placeholder="12:00AM" maxlength="7" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input id="PutEnd" class="form-control date-picker" type="text" placeholder="From Date" maxlength="50" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="PutEndTime" class="form-control time" type="text" placeholder="12:00AM" maxlength="7" />
                                         </div>
                                     </div>
                                     <div id="CostRangeDiv" hidden="hidden">

@@ -28,8 +28,8 @@ Public Class ManualTransactions
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ManualTransactions", "manualTransactionsTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ManualTransactions", "manualTransactionsTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -49,7 +49,7 @@ Public Class ManualTransactions
         Try
             transInfo = GetResultListMultiDataSetSingle("selXferOTLL", WSID, {{"@ID", ID, intVar}, {"@User", user, strVar}})
         Catch ex As Exception
-            insertErrorMessages("ManualTransactionsHub", "getTransactionInfo", ex.Message, user, WSID)
+            insertErrorMessages("ManualTransactionsHub", "getTransactionInfo", ex.ToString(), user, WSID)
         End Try
         Return transInfo
     End Function
@@ -90,8 +90,8 @@ Public Class ManualTransactions
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Manual Transactions", "getGenOrderTable", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Manual Transactions", "getGenOrderTable", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -112,8 +112,8 @@ Public Class ManualTransactions
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ManualTransactions", "selManualOrderTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ManualTransactions", "selManualOrderTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then datareader.Dispose()
         End Try

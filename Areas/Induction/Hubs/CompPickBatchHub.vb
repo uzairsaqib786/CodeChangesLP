@@ -25,8 +25,8 @@ Public Class CompPickBatchHub
 
                                                          RunActionSP(SP, Context.QueryString.Get("WSID"), Params)
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CompBatchPickHub", "ShortTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CompBatchPickHub", "ShortTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -39,8 +39,8 @@ Public Class CompPickBatchHub
                                                      Try
                                                          RunActionSP("updOTCompTrans", Context.QueryString.Get("WSID"), {{"@OTID", OTID, intVar}, {"@User", Context.User.Identity.Name, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CompBatchPickHub", "CompleteTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CompBatchPickHub", "CompleteTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -60,8 +60,8 @@ Public Class CompPickBatchHub
                                                          End If
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CompBatchPickHub", "ValidateToteID", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CompBatchPickHub", "ValidateToteID", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
@@ -92,8 +92,8 @@ Public Class CompPickBatchHub
 
 
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CompBatchPickHub", "BlossomTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CompBatchPickHub", "BlossomTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 
@@ -108,8 +108,8 @@ Public Class CompPickBatchHub
                                                          RunActionSP("updOTCompBatch", Context.QueryString.Get("WSID"), {{"@BatchID", BatchID, strVar}, {"@User", Context.User.Identity.Name, strVar}})
 
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("CompBatchPickHub", "CompleteBatch", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("CompBatchPickHub", "CompleteBatch", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

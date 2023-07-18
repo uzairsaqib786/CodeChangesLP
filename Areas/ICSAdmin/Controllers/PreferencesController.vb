@@ -63,8 +63,8 @@ Namespace Admin.Controllers
                 RunActionSP("updateCompanyLogo", Session("WSID"), {{"@Ext", ext, strVar}, {"@User", User.Identity.Name, strVar}, {"@WSID", Session("WSID"), strVar}})
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PreferencesController", "CompanyLogoUpload", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PreferencesController", "CompanyLogoUpload", ex.ToString(), User.Identity.Name, Session("WSID"))
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

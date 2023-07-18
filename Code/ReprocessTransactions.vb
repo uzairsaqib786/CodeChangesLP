@@ -38,8 +38,8 @@ Public Class ReprocessTransactions
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getReprocessTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getReprocessTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(dr) Then dr.Dispose()
         End Try
@@ -74,8 +74,8 @@ Public Class ReprocessTransactions
                                                                     {"@sortOrder", sortOrder, strVar}}, columnOrder:=columnSeq)
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getReprocessTable", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getReprocessTable", ex.ToString(), user, WSID)
         End Try
         Return table
     End Function
@@ -100,8 +100,8 @@ Public Class ReprocessTransactions
             table = GetJQueryDataTableResult(draw, "selOTTempSearchResults", WSID, user, {{"@sRow", sRow, strVar}, {"@eRow", eRow, strVar},
                                                       {"@sortColumn", column.GetValue(sortColumn), strVar}, {"@sortOrder", sortOrder, strVar}, {"@filter", filter, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getReprocTransSearchResults", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getReprocTransSearchResults", ex.ToString(), user, WSID)
         End Try
         Return table
     End Function
@@ -139,8 +139,8 @@ Public Class ReprocessTransactions
                 index += 1
             End While
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getReprocessTransInclude", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getReprocessTransInclude", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(dr) Then dr.Dispose()
         End Try
@@ -161,8 +161,8 @@ Public Class ReprocessTransactions
             RunActionSP("updOTTempInclude", WSID, {{"@ID", ID, intVar}, {"@Field", field, strVar}, {"@Reprocess", IIf(reprocess, 1, 0), intVar},
                                                    {"@PostComplete", IIf(postcomplete, 1, 0), intVar}, {"@SendHist", IIf(sendhist, 1, 0), intVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "setReprocessInclude", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "setReprocessInclude", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -189,8 +189,8 @@ Public Class ReprocessTransactions
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getFilteredOrders", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getFilteredOrders", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -236,8 +236,8 @@ Public Class ReprocessTransactions
                 datareader.NextResult()
             End While
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getOrdersToPost", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getOrdersToPost", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then datareader.Dispose()
         End Try
@@ -278,8 +278,8 @@ Public Class ReprocessTransactions
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getTransaction", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getTransaction", ex.ToString(), user, WSID)
         End Try
         Return transaction
     End Function
@@ -309,8 +309,8 @@ Public Class ReprocessTransactions
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "saveTransaction", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "saveTransaction", ex.ToString(), user, WSID)
         End Try
         Return False
     End Function
@@ -352,8 +352,8 @@ Public Class ReprocessTransactions
                                                                                         {"@ItemNumber", itemNumber, strVar}}, columnOrder:=columnSeq)
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactions", "getReprocessTable", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactions", "getReprocessTable", ex.ToString(), user, WSID)
         End Try
         Return table
     End Function

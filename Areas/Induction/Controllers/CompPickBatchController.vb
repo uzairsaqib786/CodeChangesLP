@@ -42,8 +42,8 @@ Namespace Induction.Controllers
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("CompPickBatchController", "GetPickBatchTransTable", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("CompPickBatchController", "GetPickBatchTransTable", ex.ToString(), User.Identity.Name, Session("WSID"))
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

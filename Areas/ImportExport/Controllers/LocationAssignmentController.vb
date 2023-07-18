@@ -61,7 +61,7 @@ Namespace Controllers
                                          loc = 10
                                      End If
                                  Catch ex As Exception
-                                     insertErrorMessages("LocationAssignmentController", "ExecLA: loc = " + loc.ToString, ex.Message, "AutoLA", ieWSID)
+                                     insertErrorMessages("LocationAssignmentController", "ExecLA: loc = " + loc.ToString, ex.ToString(), "AutoLA", ieWSID)
                                  End Try
                              End Sub
                 loc = 11
@@ -69,7 +69,7 @@ Namespace Controllers
                 loc = 12
                 laThread.Start()
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentController", "ExecLA2: loc = " + loc.ToString, ex.Message, "AutoLA", ieWSID)
+                insertErrorMessages("LocationAssignmentController", "ExecLA2: loc = " + loc.ToString, ex.ToString(), "AutoLA", ieWSID)
             End Try
             Return New HttpStatusCodeResult(Net.HttpStatusCode.OK)
         End Function
@@ -97,7 +97,7 @@ Namespace Controllers
                 Dim laThread = New Threading.Thread(laProc)
                 laThread.Start()
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentController", "ExecPickLA", ex.Message, "AutoLA", ieWSID)
+                insertErrorMessages("LocationAssignmentController", "ExecPickLA", ex.ToString(), "AutoLA", ieWSID)
             End Try
             Return New HttpStatusCodeResult(Net.HttpStatusCode.OK)
         End Function
@@ -125,7 +125,7 @@ Namespace Controllers
                 Dim laThread = New Threading.Thread(laProc)
                 laThread.Start()
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentController", "ExecPutLA", ex.Message, "AutoLA", ieWSID)
+                insertErrorMessages("LocationAssignmentController", "ExecPutLA", ex.ToString(), "AutoLA", ieWSID)
             End Try
             Return New HttpStatusCodeResult(Net.HttpStatusCode.OK)
         End Function
@@ -153,7 +153,7 @@ Namespace Controllers
                 Dim laThread = New Threading.Thread(laProc)
                 laThread.Start()
             Catch ex As Exception
-                insertErrorMessages("LocationAssignmentController", "ExecCountLA", ex.Message, "AutoLA", ieWSID)
+                insertErrorMessages("LocationAssignmentController", "ExecCountLA", ex.ToString(), "AutoLA", ieWSID)
             End Try
             Return New HttpStatusCodeResult(Net.HttpStatusCode.OK)
         End Function

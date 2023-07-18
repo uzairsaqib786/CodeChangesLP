@@ -63,8 +63,8 @@ Namespace Admin
                                                                      Next
                                                                      RunActionSPMulti(Commands, Context.QueryString.Get("WSID"))
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("BatchManagerHub", "createBatch", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("BatchManagerHub", "createBatch", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                      Return New List(Of String) From {"createBatchError"}
                                                                  End Try
                                                                  Return BatchManager.getBMSettings(Context.User.Identity.Name, Context.QueryString.Get("WSID"))
@@ -95,8 +95,8 @@ Namespace Admin
                                                                  success = False
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("BatchManagerHub", "deleteAllBatches", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("BatchManagerHub", "deleteAllBatches", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              success = False
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
@@ -141,8 +141,8 @@ Namespace Admin
 
                                                              RunActionSPMulti(Commands, Context.QueryString.Get("WSID"))
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("BatchManagerHub", "updatePickToteIDs", ex.Message, Context.User.Identity.Name, WSID)
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("BatchManagerHub", "updatePickToteIDs", ex.ToString(), Context.User.Identity.Name, WSID)
                                                              Return False
                                                          End Try
                                                          Return True
@@ -172,8 +172,8 @@ Namespace Admin
                                                                                   End While
                                                                               End If
                                                                           Catch ex As Exception
-                                                                              Debug.WriteLine(ex.Message)
-                                                                              insertErrorMessages("BatchManagerHub", "getDetailView", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                              Debug.WriteLine(ex.ToString())
+                                                                              insertErrorMessages("BatchManagerHub", "getDetailView", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                           Finally
                                                                               If Not IsNothing(datareader) Then
                                                                                   datareader.Dispose()
@@ -212,8 +212,8 @@ Namespace Admin
                                                      End While
                                                  End If
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("BatchManagerHub", "createSuperBatch try#1", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("BatchManagerHub", "createSuperBatch try#1", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(datareader) Then
                                                      datareader.Dispose()
@@ -234,8 +234,8 @@ Namespace Admin
                                                      End If
                                                  Next
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("BatchManagerHub", "createSuperBatch try#2", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("BatchManagerHub", "createSuperBatch try#2", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -251,8 +251,8 @@ Namespace Admin
                                                  RunActionSP("updOTSuperBatch", Context.QueryString.Get("WSID"), {{"@User", Context.User.Identity.Name, strVar}, _
                                                                                                              {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("BatchManagerHub", "clearSuperBatches", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("BatchManagerHub", "clearSuperBatches", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function

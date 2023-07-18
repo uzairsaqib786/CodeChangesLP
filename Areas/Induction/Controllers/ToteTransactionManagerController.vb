@@ -67,8 +67,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PrintPrevToteContents", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PrintPrevToteContents", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -102,8 +102,8 @@ Namespace Induction.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PrintPrevOffCarList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PrintPrevOffCarList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

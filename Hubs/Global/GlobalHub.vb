@@ -124,8 +124,8 @@ Public Class GlobalHub
                                                  insertErrorMessages("GlobalHub", "workClick", "Hit else", Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End If
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("GlobalHub", "workClick", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("GlobalHub", "workClick", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
 
                                      End Sub)
@@ -421,8 +421,8 @@ Public Class GlobalHub
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("InventoryMapHub", "itemQty", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("InventoryMapHub", "itemQty", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -457,7 +457,7 @@ Public Class GlobalHub
                                                              End If
                                                          End If
                                                      Catch ex As Exception
-                                                         insertErrorMessages("Inventory Map", "selQtySelected", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("Inventory Map", "selQtySelected", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
                                                              DataReader.Dispose()
@@ -520,8 +520,8 @@ Public Class GlobalHub
                                                              Return True
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("GlobalHub", "itemExists", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("GlobalHub", "itemExists", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(datareader) Then
                                                              datareader.Dispose()
@@ -560,8 +560,8 @@ Public Class GlobalHub
                                              Clients.Group(PrintService.PrintServiceHubName).TestPrint( _
                                                  New TestPrintModel(reportDesign, user, userDirectory, WSID, LLType, printerName, printerAddress, isLabel))
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("GlobalHub", "TestPrint", ex.GetType.ToString() & ": " & ex.Message, _
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("GlobalHub", "TestPrint", ex.GetType.ToString() & ": " & ex.ToString(), _
                                                                  Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
@@ -602,10 +602,10 @@ Public Class GlobalHub
                                                                     End If
                                                                 Next
                                                             Catch ex As Exception
-                                                                Debug.Print(ex.Message)
+                                                                Debug.Print(ex.ToString())
                                                                 result.success = False
                                                                 result.message = ex.Message
-                                                                insertErrorMessages("GlobalHub", "GetSTPageExample", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                insertErrorMessages("GlobalHub", "GetSTPageExample", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             Finally
                                                                 If Not IsNothing(reader) Then reader.Dispose()
                                                             End Try
@@ -634,8 +634,8 @@ Public Class GlobalHub
             Dim User As String = Context.User.Identity.Name
             RunSPArray("updWSPrefsPrinters", WSID, {{"@ReportPrinter", ReportPrinter, strVar}, {"@LabelPrinter", LabelPrinter, strVar}, {"@WSID", WSID, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalHub", "GetSTPageExample", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalHub", "GetSTPageExample", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         End Try
     End Sub
 
@@ -675,8 +675,8 @@ Public Class GlobalHub
                                                         End If
 
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("GlobalHub", "TestPrint", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("GlobalHub", "TestPrint", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(reader) Then reader.Dispose()
 

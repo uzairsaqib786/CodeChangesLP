@@ -29,7 +29,7 @@ Public Class ManageDataHub
                     End If
 
                 Catch ex As Exception
-                    insertErrorMessages("ManageDataHub", "getXferFileFieldMapData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    insertErrorMessages("ManageDataHub", "getXferFileFieldMapData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     data = New List(Of Object)
                     data.Add(New With {.field = "Error", .system = "Error"})
                 Finally
@@ -57,7 +57,7 @@ Public Class ManageDataHub
                                                          {"@FieldName", field, strVar}, _
                                                          {"@SystemFieldName", systemfield, strVar}})
                 Catch ex As Exception
-                    insertErrorMessages("ManageDataHub", "updateXferFieldMapData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    insertErrorMessages("ManageDataHub", "updateXferFieldMapData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -78,7 +78,7 @@ Public Class ManageDataHub
                     RunActionSP("delIEInvMaps", "IE", {{"@Table", table, strVar}, _
                                                        {"@IDS", String.Join(",", ids.ToArray), strVar}})
                 Catch ex As Exception
-                    insertErrorMessages("ManageDataHub", "deleteInvMapDataMan", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    insertErrorMessages("ManageDataHub", "deleteInvMapDataMan", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -106,7 +106,7 @@ Public Class ManageDataHub
                     End If
 
                 Catch ex As Exception
-                    insertErrorMessages("ManageDataHub", "deleteInvDataMan", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    insertErrorMessages("ManageDataHub", "deleteInvDataMan", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -123,8 +123,8 @@ Public Class ManageDataHub
                 Try
                     RunActionSP("ExportInventoryMap", "IE", {{"nothing"}})
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("ManageDataHub", "ExportInventoryMap", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("ManageDataHub", "ExportInventoryMap", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -141,8 +141,8 @@ Public Class ManageDataHub
                 Try
                     RunActionSP("ExportInventory", "IE", {{"nothing"}})
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("ManageDataHub", "ExportInventory", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("ManageDataHub", "ExportInventory", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -160,7 +160,7 @@ Public Class ManageDataHub
                                                      Try
                                                          RunActionSP("insIEExpInvMap", Context.QueryString.Get("WSID"), {{"@AllLocs", allLocs, intVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "getInvMapLocations", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "getInvMapLocations", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -177,7 +177,7 @@ Public Class ManageDataHub
                                                      Try
                                                          RunActionSP("insIEExpInv", Context.QueryString.Get("WSID"), {{"nothing"}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "getInvRecords", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "getInvRecords", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -195,7 +195,7 @@ Public Class ManageDataHub
                                                      Try
                                                          RunActionSP("insIEExpInvScanCode", Context.QueryString.Get("WSID"), {{"@filter", filter, strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "exportScanCodes", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "exportScanCodes", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -220,7 +220,7 @@ Public Class ManageDataHub
                                                         RunActionSP("ImportInvMap", "IE", {{"nothing"}})
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ManageDataHub", "importInvMapLocModal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ManageDataHub", "importInvMapLocModal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Error"
                                                     End Try
                                                     Return "Imported"
@@ -245,7 +245,7 @@ Public Class ManageDataHub
 
                                                         RunActionSP("ImportInventory", "IE", {{"nothing"}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ManageDataHub", "procInventoryRecordsModal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ManageDataHub", "procInventoryRecordsModal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Error"
                                                     End Try
                                                     Return "Proccessed"
@@ -267,7 +267,7 @@ Public Class ManageDataHub
                                                                  End If
 
                                                              Catch ex As Exception
-                                                                 insertErrorMessages("ManageDataHub", "selPickOTXMLData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                 insertErrorMessages("ManageDataHub", "selPickOTXMLData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Data = New List(Of Object)
                                                                  Data.Add(New With {.ID = 0, .OTField = "Error", .XMLNode = "Error", .Field = "Error"})
                                                              Finally
@@ -285,7 +285,7 @@ Public Class ManageDataHub
                                                      Try
                                                          RunActionSP("delXferFieldMap", "IE", {{"@ID", ID, intVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "delPickOTXMLData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "delPickOTXMLData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True
@@ -307,7 +307,7 @@ Public Class ManageDataHub
                                                          End If
 
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "insPickOTXMLData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "insPickOTXMLData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return RetID
                                                      Finally
                                                          If Not IsNothing(Datareader) Then
@@ -324,7 +324,7 @@ Public Class ManageDataHub
                                                      Try
                                                          RunActionSP("updIEXferFieldMapXMLNode", "IE", {{"@ID", ID, intVar}, {"@Node", Node, strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("ManageDataHub", "updPickOTXMLData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("ManageDataHub", "updPickOTXMLData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
                                                      Return True

@@ -36,8 +36,8 @@ Public Class ReprocessTransactionsHub
         Try
             data = GetResultMap("selOTTempData", Context.QueryString.Get("WSID"), {{"@id", id, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ReprocessTransactionsHub", "getReprocTransData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ReprocessTransactionsHub", "getReprocTransData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
         End Try
         Return data
     End Function
@@ -76,8 +76,8 @@ Public Class ReprocessTransactionsHub
                                                                                       {"@User", Context.User.Identity.Name, strVar},
                                                                                       {"@History", IIf(history, 1, 0), intVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("ReprocessTransactionsHub", "deleteReprocessTransactions", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("ReprocessTransactionsHub", "deleteReprocessTransactions", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
     End Function
@@ -154,7 +154,7 @@ Public Class ReprocessTransactionsHub
                 RunActionSPMulti(SPs, Context.QueryString.Get("WSID"))
                 Return "Success"
             Catch ex As Exception
-                insertErrorMessages("Reprocess Transactions", "postReprocessTransactions", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                insertErrorMessages("Reprocess Transactions", "postReprocessTransactions", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 Return "Error"
             End Try
 
@@ -227,10 +227,31 @@ Public Class ReprocessTransactionsHub
                                          Try
                                              RunActionSP("updateAllReprocessCols", Context.QueryString.Get("WSID"), {{"@Col", column, strVar}, {"@Val", IIf(markAsTrue, 1, 0), intVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("ReprocessTransactionsHub", "markAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("ReprocessTransactionsHub", "markAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
+    End Function
+
+
+    Public Function SetReprocessIDs(OrderNum As String, ItemNum As String, Hold As Integer, searchCol As String, searchString As String, field As String) As Task(Of Boolean)
+        Return Task.Factory.StartNew(Function() As Boolean
+                                         Try
+                                             RunActionSP("updOTTempIncludeSpecific", Context.QueryString.Get("WSID"), {{"@OrderNumber", OrderNum, strVar},
+                                                                                                                       {"@ItemNumber", ItemNum, strVar},
+                                                                                                                       {"@Hold", Hold, boolVar},
+                                                                                                                       {"@searchColumn", searchCol, strVar},
+                                                                                                                       {"@searchString", searchString, strVar},
+                                                                                                                       {"@field", field, strVar}})
+
+                                             Clients.All.updatePostOrders()
+                                             Return True
+                                         Catch ex As Exception
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("ReprocessTransactionsHub", "SetReprocessIDs", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Return False
+                                         End Try
+                                     End Function)
     End Function
 
 End Class

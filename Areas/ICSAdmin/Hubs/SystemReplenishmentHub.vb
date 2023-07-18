@@ -44,8 +44,8 @@ Namespace Admin
                                                                  success = False
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("SystemReplenishmentHub", "deleteReplenishmentsBy", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("SystemReplenishmentHub", "deleteReplenishmentsBy", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -71,8 +71,8 @@ Namespace Admin
 
                                                  Clients.Others.updatedReplenishments()
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishment", "updateReplenishmentInclude", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishment", "updateReplenishmentInclude", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -95,8 +95,8 @@ Namespace Admin
 
                                                  Clients.Others.updatedReplenishments()
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "updateReplenishmentIncludeAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "updateReplenishmentIncludeAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -116,8 +116,8 @@ Namespace Admin
 
                                                  RunActionSP("insReplenishmentQueue", Context.QueryString.Get("WSID"), {{"@Kanban", CastAsSqlBool(kanban), intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "createNewReplenishments", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "createNewReplenishments", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -137,8 +137,8 @@ Namespace Admin
 
                                                  Clients.Others.updatedReplenishments()
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "editTransactionQtyReplenishmentQueue", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "editTransactionQtyReplenishmentQueue", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -173,8 +173,8 @@ Namespace Admin
                                                                                                     {"@EventCode", "", strVar}, {"@Location", Context.QueryString.Get("WSID"), strVar}, {"@TransactionID", 0, intVar}, _
                                                                                                     {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "processReplenishments", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "processReplenishments", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
 
                                              Finally
                                                  ' if the stop button was used to halt replenishments
@@ -215,8 +215,8 @@ Namespace Admin
                                                                 {"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@Location", Context.QueryString.Get("WSID"), strVar},
                                                                 {"@User", Context.User.Identity.Name, strVar}, {"@EventCode", "0", strVar}, {"@TransactionID", 0, intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "haltReplenishments", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "haltReplenishments", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -232,8 +232,8 @@ Namespace Admin
 
 
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("SystemReplenishmentHub", "AddFilterItemNums", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("SystemReplenishmentHub", "AddFilterItemNums", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
 

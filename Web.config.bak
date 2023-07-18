@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+<configuration>
+  <configSections>
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+  </configSections>
+  <connectionStrings>
+    <!--<add name="ADConnectionString" connectionString="LDAP://scotttech.co/DC=scotttech,DC=co" />-->
+    <add name="ADPath" connectionString="LDAP://enterprise.local" />
+    <add name="ADLDSPath" connectionString="LDAP://localhost:50001/CN=entapp,DC=enterprise,DC=local" />
+    <add name="AZUREADPath" connectionString="LDAP://ldaps.testenterprise.onmicrosoft.com:636/DC=testenterprise,DC=onmicrosoft,DC=com" />
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-Transaction_Info-20140611154425;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-Transaction_Info-20140611154425.mdf"
+      providerName="System.Data.SqlClient" />
+    <!--<add name="ConfigConnection" connectionString="Data Source=DEV-SQL\INSTANCEDEV2016;Initial Catalog=PickPro_Config;Integrated Security=False;User ID=scotttechdevtest;Password=devPass01!"
+      providerName="System.Data.SqlClient" />
+    <add name="IEConnection" connectionString="Data Source=DEV-SQL\INSTANCEDEV2016;Initial Catalog=PickProIE_Development;Integrated Security=False;User ID=scotttechdevtest;Password=devPass01!"
+      providerName="System.Data.SqlClient" />-->
+    <add name="ConfigConnection" connectionString="Data Source=WIN-INV71VGR833\SQLEXPRESS;Initial Catalog=PickPro_Config;Integrated Security=SSPI;"
+  providerName="System.Data.SqlClient" />
+    <add name="IEConnection" connectionString="Data Source=WIN-INV71VGR833\SQLEXPRESS;Initial Catalog=PickProIE;Integrated Security=SSPI;"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="webpages:Version" value="2.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="PreserveLoginUrl" value="true"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="CompanyCode" value="xXCJ/pwXYI/pt29HsD7Flw=="/>
+    <add key="IE_WSID" value="IEWSID"/>
+
+
+
+    <add key="SecurityEnvironment" value="AD"/>
+    <add key="AzureADConnectionUserName" value="aduser1"/>
+    <add key="AzureADConnectionPassword" value="Cl@minto123!"/>
+    <add key="ADAttributes" value="SamAccountName|EmployeeId"/>
+  </appSettings>
+  <!--
+    For a description of web.config changes see http://go.microsoft.com/fwlink/?LinkId=235367.
+
+    The following attributes can be set on the <httpRuntime> tag.
+      <system.Web>
+        <httpRuntime targetFramework="4.8" />
+      </system.Web>
+  -->
+  <system.web>
+    <!--<customErrors mode="Off"/>-->
+    <!--<httpHandlers>
+      -->
+    <!-- combit: handlers required by the controls -->
+    <!--
+      <add verb="*" path="*.ll" type="System.Web.StaticFileHandler"/>
+      <add verb="*" path="*.ll*" type="combit.ListLabel21.Web.DesignerControlFileHandler"/>
+    </httpHandlers>-->
+    <httpRuntime maxRequestLength="2097151" maxQueryStringLength="2097151" targetFramework="4.5"/>
+    <compilation debug="true" targetFramework="4.8"/>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Logon/" timeout="10" slidingExpiration="true"/>
+    </authentication>
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Helpers"/>
+        <add namespace="System.Web.Mvc"/>
+        <add namespace="System.Web.Mvc.Ajax"/>
+        <add namespace="System.Web.Mvc.Html"/>
+        <add namespace="System.Web.Optimization"/>
+        <add namespace="System.Web.Routing"/>
+        <add namespace="System.Web.WebPages"/>
+      </namespaces>
+    </pages>
+    <profile defaultProvider="DefaultProfileProvider">
+      <providers>
+        <add name="DefaultProfileProvider" type="System.Web.Providers.DefaultProfileProvider, System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/"/>
+      </providers>
+    </profile>
+
+    <!--<membership defaultProvider="MyADMembershipProvider">
+      <providers>
+        <add name="MyADMembershipProvider" type="System.Web.Security.ActiveDirectoryMembershipProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" connectionStringName="ADConnectionString"/>
+      </providers>
+    </membership>-->
+    <membership defaultProvider="MyADMembershipProvider">
+      <providers>
+        <add name="MyADMembershipProvider"
+        type="System.Web.Security.ActiveDirectoryMembershipProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+        enableSearchMethods="true"
+        connectionStringName="ADPath"
+     connectionUsername="e64peaklogix@enterprise.local"
+    connectionPassword="e64pe@klog!x"
+        connectionProtection="None"/>
+      </providers>
+    </membership>
+    <!--<membership defaultProvider="MyADLDSMembershipProvider">
+      <providers>
+        <add name="MyADLDSMembershipProvider"
+        type="System.Web.Security.ActiveDirectoryMembershipProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+        enableSearchMethods="true"
+        connectionStringName="ADLDSPath"
+        connectionUsername="murtaza"
+        connectionPassword="Abc@1234"
+        connectionProtection="None"/>
+      </providers>
+    </membership>-->
+    <roleManager defaultProvider="DefaultRoleProvider">
+      <providers>
+        <add name="DefaultRoleProvider" type="System.Web.Providers.DefaultRoleProvider, System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/"/>
+      </providers>
+    </roleManager>
+    <!--
+            If you are deploying to a cloud environment that has multiple web server instances,
+            you should change session state mode from "InProc" to "Custom". In addition,
+            change the connection string named "DefaultConnection" to connect to an instance
+            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+      -->
+    <sessionState mode="InProc" customProvider="DefaultSessionProvider" timeout="2880">
+      <providers>
+        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection"/>
+      </providers>
+    </sessionState>
+  </system.web>
+  <system.webServer>
+    <modules>
+      <add name="SignalRFormsAuthCleanerModule" type="PickPro_Web.SignalRFormsAuthCleanerModule"/>
+    </modules>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <handlers>
+      <add name="LL" verb="*" path="*.ll" type="System.Web.StaticFileHandler"/>
+      <add name="DesignerControlFileHandler" verb="*" path="*.ll*" type="combit.ListLabel21.Web.DesignerControlFileHandler"/>
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit"/>
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit"/>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0"/>
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0a" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+
+      <remove name="OPTIONSVerbHandler"/>
+      <remove name="TRACEVerbHandler"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0b" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+    </handlers>
+    <staticContent>
+      <mimeMap fileExtension=".ll" mimeType="application/ll"/>
+      <mimeMap fileExtension=".pic" mimeType="image/jpeg"/>
+      <mimeMap fileExtension=".*" mimeType="application/octet-stream"/>
+    </staticContent>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="2147483648" maxQueryString="100000"/>
+      </requestFiltering>
+    </security>
+    <httpProtocol>
+      <customHeaders>
+        <add name="Cache-Control" value="no-cache"/>
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http.WebHost" publicKeyToken="31BF3856AD364E35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="EntityFramework" publicKeyToken="b77a5c561934e089"/>
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin.Security" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-7.0.0.0" newVersion="7.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Razor" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages.Razor" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.AspNet.SignalR.Core" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-2.2.0.0" newVersion="2.2.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework"/>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+    </providers>
+  </entityFramework>
+</configuration>

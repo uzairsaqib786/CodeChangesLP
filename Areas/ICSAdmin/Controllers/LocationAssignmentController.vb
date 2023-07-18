@@ -41,8 +41,8 @@ Namespace Admin.Controllers
                 Dim m As ExportServiceModel = ListLabelHelperFunctions.GetStandardLLExportProperties(username, WSID, Server, "preview", sp, params, filename)
                 Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("LocationAssignmentController", "PreviewLocAssPickShort", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("LocationAssignmentController", "PreviewLocAssPickShort", ex.ToString(), username, WSID)
 
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -66,8 +66,8 @@ Namespace Admin.Controllers
                 Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
 
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("LocationAssignmentController", "PreviewLocAssPickShortFPZ", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("LocationAssignmentController", "PreviewLocAssPickShortFPZ", ex.ToString(), username, WSID)
 
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

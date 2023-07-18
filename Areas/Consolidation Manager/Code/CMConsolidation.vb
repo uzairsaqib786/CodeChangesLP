@@ -140,7 +140,7 @@ Namespace Consolidation
 
 
             Catch ex As Exception
-                insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.Message, User, WSID)
+                insertErrorMessages("Consolidation Hub", "selConsolLeftTableData", ex.ToString(), User, WSID)
                 Return "Error"
             Finally
                 If Not IsNothing(DataReader) Then
@@ -174,7 +174,7 @@ Namespace Consolidation
                 End If
                 Return New List(Of String) From {DataReader(0)}
             Catch ex As Exception
-                insertErrorMessages("Consolidation Hub", "VerifyOrderTote", ex.Message, User, WSID)
+                insertErrorMessages("Consolidation Hub", "VerifyOrderTote", ex.ToString(), User, WSID)
 
             Finally
                 If Not IsNothing(DataReader) Then
@@ -199,7 +199,7 @@ Namespace Consolidation
                 DataReader.Read()
                 Return CheckDBNull(DataReader(0))
             Catch ex As Exception
-                insertErrorMessages("Consolidation Hub", "SelectOrderByTote", ex.Message, User, WSID)
+                insertErrorMessages("Consolidation Hub", "SelectOrderByTote", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -231,7 +231,7 @@ Namespace Consolidation
 
 
             Catch ex As Exception
-                insertErrorMessages("CMConsolidation.vb", "selConsoleItemsTA", ex.Message, User, WSID)
+                insertErrorMessages("CMConsolidation.vb", "selConsoleItemsTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -266,7 +266,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("CMConsolidation.vb", "selItemSelModelData", ex.Message, User, WSID)
+                insertErrorMessages("CMConsolidation.vb", "selItemSelModelData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -297,7 +297,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("CmConsolidation.vb", "insShipLabelData", ex.Message, user, WSID)
+                insertErrorMessages("CmConsolidation.vb", "insShipLabelData", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -324,7 +324,7 @@ Namespace Consolidation
                     look = DataReader(0)
                 End If
             Catch ex As Exception
-                insertErrorMessages("CmConsolidation.vb", "selDefLookupType", ex.Message, User, WSID)
+                insertErrorMessages("CmConsolidation.vb", "selDefLookupType", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

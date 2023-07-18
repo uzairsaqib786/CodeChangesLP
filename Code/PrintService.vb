@@ -78,7 +78,7 @@ Public Class PrintService
                                         {"@type", reportlabel, strVar},
                                         {"@location", location, strVar}})
         Catch ex As Exception
-            insertErrorMessages("Print Service", "insertPrintLog", ex.Message, user, WSID)
+            insertErrorMessages("Print Service", "insertPrintLog", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -95,7 +95,7 @@ Public Class PrintService
             running = Not service.Status.Equals(ServiceControllerStatus.Stopped)
         Catch ex As Exception
             PrintService.insertPrintLog(1, "Print Service Status Query failed.  Service may not be installed correctly. Error: " _
-                                        & ex.Message, "PickPro", "None", "", "PickPro", 0, "PickPro")
+                                        & ex.ToString(), "PickPro", "None", "", "PickPro", 0, "PickPro")
         Finally
             If Not IsNothing(service) Then
                 service.Dispose()
@@ -129,8 +129,8 @@ Public Class PrintService
                 stopped = True
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertPrintLog(1, "Error attempting to stop the Print Service" & IIf(restart, " (during restart call)", "") & ":  " & ex.Message, user, WSID, "", "", 0, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertPrintLog(1, "Error attempting to stop the Print Service" & IIf(restart, " (during restart call)", "") & ":  " & ex.ToString(), user, WSID, "", "", 0, WSID)
             Return False ' service may not be running, but there was a problem anyway
         Finally
             If Not IsNothing(service) Then
@@ -165,8 +165,8 @@ Public Class PrintService
                 started = True
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertPrintLog(1, "Error attempting to stop the Print Service" & IIf(restart, " (during restart call)", "") & ": " & ex.Message, user, WSID, "", "", 0, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertPrintLog(1, "Error attempting to stop the Print Service" & IIf(restart, " (during restart call)", "") & ": " & ex.ToString(), user, WSID, "", "", 0, WSID)
             Return False ' service may be running, but there was a problem anyway
         Finally
             If Not IsNothing(service) Then

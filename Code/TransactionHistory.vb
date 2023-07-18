@@ -51,8 +51,8 @@ Public Class TransactionHistory
                                                                     {"@filter", filter, strVar}}, columnOrder:=columnSeq)
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Transaction History", "updateTransHistTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Transaction History", "updateTransHistTable", ex.ToString(), user, WSID)
             End Try
         End If
         Return table
@@ -81,8 +81,8 @@ Public Class TransactionHistory
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Transaction History", "getNextOrderNumbersTrans", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Transaction History", "getNextOrderNumbersTrans", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -102,8 +102,8 @@ Public Class TransactionHistory
         Try
             oldest = GetResultSingleCol("selTHItemOldestDate", WSID, {{"@ItemNum", itemNumber, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Transaction Hisotry", "getOldestDate", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Transaction Hisotry", "getOldestDate", ex.ToString(), user, WSID)
         End Try
         Return oldest
     End Function

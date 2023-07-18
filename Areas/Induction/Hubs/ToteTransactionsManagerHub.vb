@@ -20,7 +20,7 @@ Public Class ToteTransactionsManagerHub
                                                         RunActionSP("updOTClearPickTotes", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ToteTransactionsManagerHub", "clearPickToteInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ToteTransactionsManagerHub", "clearPickToteInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
 
                                                     Return success

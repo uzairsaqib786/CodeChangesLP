@@ -2,6 +2,10 @@
 <!--Copyright Peaklogix 2022-->
 
 @modeltype PickPro_Web.TransactionsModel
+@Code
+    Dim permissions As List(Of String) = TryCast(Session("Permissions"), List(Of String))
+End Code
+
 <div class="row">
     <div class="col-md-12" id="TransactionsInReprocess">
         <div class="panel panel-info" style="margin-bottom:0">
@@ -62,8 +66,8 @@
                             @If Model.toShow = "Reprocess Transactions" Then
                                 @<input Class="form-control" type="text" id="ROrder" placeholder="Order Number" maxlength="50" value="@Model.defaultValues(3)" />
                             Else
-                                @<input Class="form-control" type="text" id="ROrder" placeholder="Order Number" maxlength="50"/>
-                            End If      
+                                @<input Class="form-control" type="text" id="ROrder" placeholder="Order Number" maxlength="50" />
+                            End If
                         </div>
                     </div>
                     <div class="col-md-3" style="margin-left:20px">
@@ -71,8 +75,8 @@
                             @If Model.toShow = "Reprocess Transactions" Then
                                 @<input Class="form-control" type="text" id="RItem" placeholder="@Model.aliases.ItemNumber" value="@Model.defaultValues(4)" maxlength="50" />
                             Else
-                                @<input Class="form-control" type="text" id="RItem" placeholder="@Model.aliases.ItemNumber"  maxlength="50" />
-                            End If 
+                                @<input Class="form-control" type="text" id="RItem" placeholder="@Model.aliases.ItemNumber" maxlength="50" />
+                            End If
                         </div>
                     </div>
                     <div class="col-md-2" style="margin-left:20px;">
@@ -95,8 +99,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="btn-group"  data-toggle="tooltip"  data-placement="top" title="Preview (Top ~50 pages only)">
-                            <button id="PreviewPrint" type="button" data-toggle="dropdown"class="btn btn-primary dropdown-toggle">
+                        <div class="btn-group" data-toggle="tooltip" data-placement="top" title="Preview (Top ~50 pages only)">
+                            <button id="PreviewPrint" type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
                                 <span class="glyphicon glyphicon-list-alt"></span> <span class="caret"></span>
                             </button>
                             <ul style="margin-top:-10px;" role="menu" class="dropdown-menu">
@@ -119,7 +123,9 @@
                             <ul style="margin-top:-10px;" role="menu" class="dropdown-menu">
                                 <li>
                                     <a href="#" id="RPdeleteSelected" style="display:none;" class="OrderSelectedOnly">Delete Selected</a>
-                                    <a href="#" id="RPdeleteAll" style="display:none;">Delete All Records</a>
+                                    @If permissions.Contains("Reprocess Delete All Orders") Then
+                                        @<a href="#" id="RPdeleteAll">Delete All Records</a>
+                                    End If
                                     <a href="#" id="RPdeleteReason" style="display:none;" class="OrderSelectedOnly">Delete By Selected Reason</a>
                                     <a href="#" id="RPdeleteMessage" style="display:none;" class="OrderSelectedOnly">Delete By Selected Message</a>
                                     <a href="#" id="RPdeleteDate" style="display:none;" class="OrderSelectedOnly">Delete By Date/Time</a>
@@ -265,7 +271,25 @@
         <div class="col-md-12" style="padding-left:0; margin-top:10px">
             <div class="panel panel-info" id="reprocessChoicesPanel" style="margin-bottom:0;">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Reprocess Choices</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <button id="MarkDisplayed" type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                                    Mark Table <span class="caret"></span>
+                                </button>
+                                <ul style="margin-top:-10px;" role="menu" class="dropdown-menu">
+                                    <li>
+                                        <a href="#" id="MarkReprocDisplay">Mark for Reprocess</a>
+                                        <a href="#" id="MarkCompDisplay">Mark for Post as Complete</a>
+                                        <a href="#" id="MarkHistoryDisplay">Mark to Send to History</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="panel-title">Reprocess Choices</h3>
+                        </div>
+                    </div>
                 </div>
                 <div id="reprocessChoices" class="panel-body" style="padding:0;">
                     <div class="row" style="margin-bottom:10px;">

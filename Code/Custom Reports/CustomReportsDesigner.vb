@@ -39,8 +39,8 @@ Public Class CustomReportsDesigner
 
             ds.Load(reader, LoadOption.PreserveChanges, {"Data"})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReportsDesigner", "getDataSource", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReportsDesigner", "getDataSource", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()
@@ -102,8 +102,8 @@ Public Class CustomReportsDesigner
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReportsDesigner", "validateNewDesignFilename", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReportsDesigner", "validateNewDesignFilename", ex.ToString(), user, WSID)
             errObj.success = False
             errObj.errs.Add("Unknown error occurred in filename validation.  Please contact Scott Tech support if the issue persists.")
         Finally
@@ -143,8 +143,8 @@ Public Class CustomReportsDesigner
 
                         errObj.sqlError = IsNothing(reader)
                     Catch ex As Exception
-                        Debug.WriteLine(ex.Message)
-                        insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL: SP", ex.Message, user, WSID)
+                        Debug.WriteLine(ex.ToString())
+                        insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL: SP", ex.ToString(), user, WSID)
                         errObj.sqlError = True
                     End Try
                 Else
@@ -160,8 +160,8 @@ Public Class CustomReportsDesigner
                     ' if there was a sql error then the reader comes back empty from RunSPArray
                     errObj.sqlError = IsNothing(reader)
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL: SQLString", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL: SQLString", ex.ToString(), user, WSID)
                     errObj.sqlError = True
                 End Try
             End If
@@ -178,8 +178,8 @@ Public Class CustomReportsDesigner
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReportsDesigner", "validateNewDesignSQL", ex.ToString(), user, WSID)
             errObj.success = False
         Finally
             If Not IsNothing(reader) Then

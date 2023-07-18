@@ -35,8 +35,8 @@ Public Class LLExportController
                 returnFile.Content.Headers.ContentDisposition = New Http.Headers.ContentDispositionHeaderValue("attachment") With {.FileName = fileName}
             End If
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("LLExportController", "GetFile", ex.Message, "Export Controller", WSID)
+            Debug.Print(ex.ToString())
+            insertErrorMessages("LLExportController", "GetFile", ex.ToString(), "Export Controller", WSID)
         End Try
         Return returnFile
     End Function

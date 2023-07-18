@@ -22,7 +22,7 @@ Public Class ToteTransViewHub
                                                                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ToteTransViewHub", "clearItemFromTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ToteTransViewHub", "clearItemFromTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -43,7 +43,7 @@ Public Class ToteTransViewHub
                                                                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ToteTransViewHub", "deAlloItemFromTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ToteTransViewHub", "deAlloItemFromTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -67,7 +67,7 @@ Public Class ToteTransViewHub
                                                                                                                                    {"@BatchID", BatchID, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("ToteTransViewHub", "deAlloItemFromTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ToteTransViewHub", "deAlloItemFromTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)

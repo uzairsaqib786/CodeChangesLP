@@ -41,8 +41,8 @@ Public Class ColumnSequenceHub
                                                              {{"@User", user, strVar}, {"@View", viewName, strVar}, {"@Column", columnPrefs(x), strVar}, {"@Location", x, intVar}})
                                              Next
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("Column Sequence", "saveColumns", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("Column Sequence", "saveColumns", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
     End Function
@@ -59,7 +59,7 @@ Public Class ColumnSequenceHub
                                              RunActionSP("delTJColSeq", Context.QueryString.Get("WSID"), _
                                                          {{"@User", Context.User.Identity.Name, strVar}, {"@ViewName", viewName, strVar}})
                                          Catch ex As Exception
-                                             insertErrorMessages("Column Sequence", "clearAllColumns", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             insertErrorMessages("Column Sequence", "clearAllColumns", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
     End Function
@@ -83,8 +83,8 @@ Public Class ColumnSequenceHub
                                                  End While
                                              End If
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("Column Sequence", "restoreDefaults", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("Column Sequence", "restoreDefaults", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          Finally
                                              If Not IsNothing(DataReader) Then
                                                  DataReader.Dispose()

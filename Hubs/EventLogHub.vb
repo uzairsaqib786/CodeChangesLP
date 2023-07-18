@@ -39,8 +39,8 @@ Imports System.Threading.Tasks
                                              {"@eLocation", eLocation, strVar}, _
                                              {"@nStamp", nStamp, strVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("Event Log Manager", "deleteRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("Event Log Manager", "deleteRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -58,8 +58,8 @@ Imports System.Threading.Tasks
                                              Try
                                                  RunActionSP("delEventLogEID", Context.QueryString.Get("WSID"), {{"@eID", eID, intVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Event Log Manager", "deleteSelected", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Event Log Manager", "deleteSelected", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -84,8 +84,8 @@ Imports System.Threading.Tasks
                                                                          End If
                                                                      End If
                                                                  Catch ex As Exception
-                                                                     Debug.WriteLine(ex.Message)
-                                                                     insertErrorMessages("Event Log", "modalInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     Debug.WriteLine(ex.ToString())
+                                                                     insertErrorMessages("Event Log", "modalInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                  Finally
                                                                      If Not IsNothing(DataReader) Then
                                                                          DataReader.Dispose()

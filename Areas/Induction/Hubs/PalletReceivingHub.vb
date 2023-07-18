@@ -22,7 +22,7 @@ Public Class PalletReceivingHub
 
                                                      Catch ex As Exception
                                                          ValidTote = False
-                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
                                                              DataReader.Dispose()
@@ -47,7 +47,7 @@ Public Class PalletReceivingHub
 
                                                      Catch ex As Exception
                                                          ValidItem = False
-                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
                                                              DataReader.Dispose()
@@ -67,7 +67,7 @@ Public Class PalletReceivingHub
 
 
                                                      Catch ex As Exception
-                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("PalletReceivingHub", "validateTote", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

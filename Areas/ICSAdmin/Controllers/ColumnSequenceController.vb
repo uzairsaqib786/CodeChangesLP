@@ -27,7 +27,7 @@ Namespace Admin.Controllers
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

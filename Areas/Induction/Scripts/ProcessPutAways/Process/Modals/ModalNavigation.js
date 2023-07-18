@@ -5,6 +5,11 @@ $(document).ready(function () {
     // assign a transaction to a tote
     $('#AssignTrans').click(function () {
 
+        if ($('#BatchID').val() == "") {
+            MessageModal('Empty Batch ID Value', 'No batch ID present. Please select a batch vlaue form the typeahead to ensure you are inducting against the correct batch');
+            return;
+        };
+
         var item$ = $('#Item');
         var itype = $('#InputType').val().trim().toLowerCase();
         // apply any necessary strip scan

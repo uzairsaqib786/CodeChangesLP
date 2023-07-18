@@ -28,8 +28,8 @@ Public Class UserFields
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("UserFields", "getUserFields", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("UserFields", "getUserFields", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -61,8 +61,8 @@ Public Class UserFields
                              {"@UF9", userfields(8), strVar}, _
                              {"@UF10", userfields(9), strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("UserFields", "saveUserFields", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("UserFields", "saveUserFields", ex.ToString(), user, WSID)
         End Try
     End Sub
 
@@ -90,8 +90,8 @@ Public Class UserFields
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("UserFields", "getTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("UserFields", "getTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()

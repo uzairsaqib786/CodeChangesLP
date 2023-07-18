@@ -63,8 +63,8 @@ Namespace Admin
                                                                                     .samplequantity = weigh.SampleQuan, .usescale = weigh.UseScale, .minusescalequantity = weigh.MinUseScale, _
                                                                                     .minimumrtsreelquantity = reel.MinRTSReelQuan}
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("InventoryDetailHub", "selectItemNumberInfo", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("InventoryDetailHub", "selectItemNumberInfo", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         End Try
                                                         Return desiredData
                                                     End Function)

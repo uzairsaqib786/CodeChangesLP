@@ -52,8 +52,8 @@ Imports System.IO
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("InventoryMapHub", "getItemDetails", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("InventoryMapHub", "getItemDetails", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -80,8 +80,8 @@ Imports System.IO
                 End If
             End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("InventoryMapHub", "getDateWarehouseSensitive", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("InventoryMapHub", "getDateWarehouseSensitive", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -109,8 +109,8 @@ Imports System.IO
                                                           {"@UF1", entry.UF1, strVar}, {"@UF2", entry.UF2, strVar}, {"@DateSensitive", CastAsSqlBool(entry.DateSensitive), intVar}, _
                                                           {"@Dedicated", CastAsSqlBool(entry.Dedicated), intVar}, {"@LaserX", entry.LaserX, intVar}, {"@LaserY", entry.LaserY, intVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("InventoryMapHub", "addNewInvMap", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("InventoryMapHub", "addNewInvMap", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
         End Function
@@ -150,8 +150,8 @@ Imports System.IO
 
                                              Clients.Group(Context.QueryString.Get("ConnectionName")).tableUpdated(New With {.columns = columns, .update = update, .invMapId = entry.InvMapID})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("InventoryMapHub", "editInvMap", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("InventoryMapHub", "editInvMap", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                          End Try
                                      End Sub)
         End Function
@@ -171,8 +171,8 @@ Imports System.IO
                                                         {"@XferBy", Context.User.Identity.Name, strVar},
                                                         {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Inventory Map", "quarantineInventory", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Inventory Map", "quarantineInventory", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
 
                                          End Sub)
@@ -193,8 +193,8 @@ Imports System.IO
                                                         {"@XferBy", Context.User.Identity.Name, strVar},
                                                         {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Inventory Map", "unQuarantineInventory", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Inventory Map", "unQuarantineInventory", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
 
                                          End Sub)
@@ -217,8 +217,8 @@ Imports System.IO
                                                      RunActionSP("insInvMapDuplicate", Context.QueryString.Get("WSID"), {{"@mapID", invMapID, intVar}})
                                                  End If
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Inventory Map", "duplicateItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Inventory Map", "duplicateItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -261,8 +261,8 @@ Imports System.IO
                                                                  End If
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Map", "clearInventoryMap", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Map", "clearInventoryMap", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -318,8 +318,8 @@ Imports System.IO
                                                                                     {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("Inventory Map", "deleteInvMapID", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("Inventory Map", "deleteInvMapID", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      Finally
                                                          If Not IsNothing(DataReader) Then
                                                              DataReader.Dispose()
@@ -350,7 +350,7 @@ Imports System.IO
                                                              End If
                                                          Catch ex As Exception
                                                              Debug.WriteLine(ex)
-                                                             insertErrorMessages("Inventory Map", "dateSensitiveChange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("Inventory Map", "dateSensitiveChange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -384,7 +384,7 @@ Imports System.IO
                                                                  End If
                                                              End If
                                                          Catch ex As Exception
-                                                             insertErrorMessages("Inventory Map", "selQtySelected", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("Inventory Map", "selQtySelected", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -423,7 +423,7 @@ Imports System.IO
                                                              End If
                                                          Catch ex As Exception
                                                              Debug.WriteLine(ex)
-                                                             insertErrorMessages("Inventory Map", "selectMasterMapID", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("Inventory Map", "selectMasterMapID", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -452,7 +452,7 @@ Imports System.IO
                                                               {"@XferBy", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@User", Context.User.Identity.Name, strVar}})
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Inventory Map", "updateItemQuan", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Inventory Map", "updateItemQuan", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function

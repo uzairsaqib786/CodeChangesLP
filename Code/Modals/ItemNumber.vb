@@ -44,7 +44,7 @@ Public Class ItemNumber
 
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Inventory Map", "getItemNum", ex.Message, user, WSID)
+            insertErrorMessages("Inventory Map", "getItemNum", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -84,8 +84,8 @@ Public Class ItemNumber
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("ItemNumber", "getItemInfo", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("ItemNumber", "getItemInfo", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()

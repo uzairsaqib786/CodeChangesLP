@@ -40,7 +40,7 @@ Namespace Consolidation
                                                             RunActionSP("insConsolTrans", Context.QueryString.Get("WSID"), {{"@ID", ID, intVar}, _
                                                                                                                             {"@User", Context.User.Identity.Name, strVar}})
                                                         Catch ex As Exception
-                                                            insertErrorMessages("Consolidation Hub", "verifyItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "verifyItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
 
@@ -62,7 +62,7 @@ Namespace Consolidation
                                                                                                                             {"@User", Context.User.Identity.Name, strVar}})
                                                             Next
                                                         Catch ex As Exception
-                                                            insertErrorMessages("Consolidation Hub", "verifyAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "verifyAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success
@@ -82,7 +82,7 @@ Namespace Consolidation
                                                         Try
                                                             RunActionSP("delVerItem", Context.QueryString.Get("WSID"), {{"@ID", ID, intVar}})
                                                         Catch ex As Exception
-                                                            insertErrorMessages("Consolidation Hub", "deleteVerifiedItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "deleteVerifiedItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success
@@ -102,7 +102,7 @@ Namespace Consolidation
                                                                 RunActionSP("delVerItem", Context.QueryString.Get("WSID"), {{"@ID", id, intVar}})
                                                             Next
                                                         Catch ex As Exception
-                                                            insertErrorMessages("Consolidation Hub", "unVerifyAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "unVerifyAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                             success = "Fail"
                                                         End Try
                                                         Return success
@@ -162,7 +162,7 @@ Namespace Consolidation
                                                                      End If
 
                                                                  Catch ex As Exception
-                                                                     insertErrorMessages("Consolidation Hub", "updateStagingLocation", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                     insertErrorMessages("Consolidation Hub", "updateStagingLocation", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                      success.Add("Fail")
                                                                  Finally
                                                                      If Not IsNothing(DataReader) Then
@@ -194,7 +194,7 @@ Namespace Consolidation
                                                                  confPack = DataReader(0)
                                                              End If
                                                          Catch ex As Exception
-                                                             insertErrorMessages("Consolidation Hub", "selectConfirmPackingPref", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("Consolidation Hub", "selectConfirmPackingPref", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -222,7 +222,7 @@ Namespace Consolidation
                                                                  display = CInt(DataReader(0))
                                                              End If
                                                          Catch ex As Exception
-                                                             insertErrorMessages("Consolidation Hub", "setShippingButt", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             insertErrorMessages("Consolidation Hub", "setShippingButt", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -251,7 +251,7 @@ Namespace Consolidation
                                                             End If
                                                         Catch ex As Exception
                                                             result = "Fail"
-                                                            insertErrorMessages("Consolidation Hub", "showCMPackPrintModal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "showCMPackPrintModal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -283,7 +283,7 @@ Namespace Consolidation
 
                                                         Catch ex As Exception
                                                             result = "Error"
-                                                            insertErrorMessages("Consolidation Hub", "insertEmailTrans", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            insertErrorMessages("Consolidation Hub", "insertEmailTrans", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()

@@ -6,7 +6,7 @@
 @Code
     ViewData("Title") = "Global Config"
     Dim running As Boolean = PickPro_Web.PrintService.PrintServiceRunning
-    Dim STERunning As Boolean = PickPro_Web.PrintService.PrintServiceRunning
+    Dim STERunning As Boolean = PickPro_Web.STEService.ServiceStatus
     Dim ccsifRunning As Boolean = PickPro_Web.CCSIFService.ServiceStatus
 End Code
 

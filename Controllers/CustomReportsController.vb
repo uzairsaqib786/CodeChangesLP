@@ -38,8 +38,8 @@ Namespace Controllers
                 fileData.SaveAs(fPath)
                 Return Json("")
             Catch ex As Exception
-                insertErrorMessages("CustomReportsController", "importFile", ex.Message, User.Identity.Name, Session("WSID"))
-                Debug.WriteLine(ex.Message)
+                insertErrorMessages("CustomReportsController", "importFile", ex.ToString(), User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
                 Return Json(ex.Message)
             End Try
         End Function
@@ -84,8 +84,8 @@ Namespace Controllers
                                                                 {"@OutputType", IIf(data.outputType = LlProject.List, "Report", "Label"), strVar},
                                                                 {"@ExportFilename", data.exportFilename, strVar}, {"@Application", data.appName, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("LLPreviewExportController", "getLLDesignerNewDesign", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("LLPreviewExportController", "getLLDesignerNewDesign", ex.ToString(), User.Identity.Name, Session("WSID"))
             End Try
 
             Dim ds As DataSet = CustomReportsDesigner.getDataSource(data.filename, User.Identity.Name, Session("WSID"))
@@ -116,8 +116,8 @@ Namespace Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Categories Report", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("CustomReportsController", "PrintCategoriesReport", ex.Message, username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("CustomReportsController", "PrintCategoriesReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -179,8 +179,8 @@ Namespace Controllers
 
                 Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ExportReport", "ExportReport", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ExportReport", "ExportReport", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

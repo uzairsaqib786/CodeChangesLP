@@ -21,7 +21,7 @@ Public Class TransferSettingsHub
                                                      Try
                                                          RunActionSP("IE_Jobs", "IE", {{"@IEType", Type, strVar}, {"@JobType", Job, strVar}})
                                                      Catch ex As Exception
-                                                         insertErrorMessages("TransferSettingsHub", "ImportExportAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("TransferSettingsHub", "ImportExportAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

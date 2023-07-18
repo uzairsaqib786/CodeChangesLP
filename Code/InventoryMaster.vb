@@ -26,8 +26,8 @@ Public Class InventoryMaster
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Master", "stockCodeTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Master", "stockCodeTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -61,8 +61,8 @@ Public Class InventoryMaster
         Try
             table = GetJQueryDataTableResult(draw, "selVInvMapDT", WSID, user, {{"@ItemNum", itemNum, strVar}, {"@Start", sRow, intVar}, {"@End", eRow, intVar}, {"@Sort", sort, strVar}}, 0, 0, 1)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Master", "selInventoryMasterLocations", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Master", "selInventoryMasterLocations", ex.ToString(), user, WSID)
         End Try
 
         Return table
@@ -132,8 +132,8 @@ Public Class InventoryMaster
                 DataReader.NextResult()
             End While
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Master", "selInventoryMasterData", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Master", "selInventoryMasterData", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -181,8 +181,8 @@ Public Class InventoryMaster
             ItemNum = GetResultSingleCol("selInventoryItemNumFilt", WSID, {{"@ItemNumber", CurrItemNum, strVar}, {"@filter", filter, strVar}, _
                                                                        {"@FirstFilt", direct, intVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Master", "selectNextItemNum", ex.Message, User, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Master", "selectNextItemNum", ex.ToString(), User, WSID)
         End Try
         Return ItemNum
     End Function
@@ -209,8 +209,8 @@ Public Class InventoryMaster
                 CountData = New With {.Pos = CheckDBNull(DataReader(0)), .Total = CheckDBNull(DataReader(1)), .ItemNumber = CheckDBNull(DataReader(2))}
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Master", "selectItemNumFilterCount", ex.Message, User, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Master", "selectItemNumFilterCount", ex.ToString(), User, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try

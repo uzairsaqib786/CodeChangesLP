@@ -232,8 +232,8 @@ Public Class TransactionsController
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Transactions: " & table, "nextSuggestionsTrans", ex.Message, User.Identity.Name, Session("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Transactions: " & table, "nextSuggestionsTrans", ex.ToString(), User.Identity.Name, Session("WSID"))
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -322,8 +322,8 @@ Public Class TransactionsController
             Clients.Print(m)
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("TransactionsController", "printOSReport", ex.Message, username, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("TransactionsController", "printOSReport", ex.ToString(), username, WSID)
         End Try
         Return Json(True, JsonRequestBehavior.AllowGet)
     End Function
@@ -353,8 +353,8 @@ Public Class TransactionsController
             Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Reprocess Transactions Report", LLType, filename, sp, params)
             Clients.Print(m)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("TransactionsController", "printReprocessTransactions", ex.Message, username, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("TransactionsController", "printReprocessTransactions", ex.ToString(), username, WSID)
         End Try
         Return Json(True, JsonRequestBehavior.AllowGet)
     End Function
@@ -378,8 +378,8 @@ Public Class TransactionsController
             Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Cycle Count Report", LLType, filename, sp, params)
             Clients.Print(m)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("OpenTransactionsHub", "printCycleCountReport", ex.Message, username, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("OpenTransactionsHub", "printCycleCountReport", ex.ToString(), username, WSID)
         End Try
         Return Json(True, JsonRequestBehavior.AllowGet)
     End Function

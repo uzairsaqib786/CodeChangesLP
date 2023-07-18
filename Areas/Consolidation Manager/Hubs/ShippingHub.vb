@@ -27,7 +27,7 @@ Public Class ShippingHub
                                                                                                                          {"@User", Context.User.Identity.Name, strVar}, {"@OrderNum", orderNum, strVar}, _
                                                                                                                          {"@contID", contId, strVar}, {"@carrier", carrier, strVar}, {"@trackingNum", trackingNum, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ShippingHub", "deleteShipmentItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ShippingHub", "deleteShipmentItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Fail"
                                                     End Try
                                                     Return success
@@ -59,7 +59,7 @@ Public Class ShippingHub
                                                                 {"@freight1", Freight1, strVar}, {"@freight2", Freight2, strVar}, {"@weight", Weight, decVar}, {"@length", Length, decVar}, {"@width", Width, decVar},
                                                                 {"@height", Height, decVar}, {"@cube", Cube, decVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ShippingHub", "updateShipmentItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ShippingHub", "updateShipmentItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Fail"
                                                     End Try
                                                     Return success
@@ -82,7 +82,7 @@ Public Class ShippingHub
                                                                                                                          {"@User", Context.User.Identity.Name, strVar}})
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ShippingHub", "addShippingItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ShippingHub", "addShippingItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Fail"
                                                     End Try
 
@@ -122,7 +122,7 @@ Public Class ShippingHub
                                                         RunActionSPMulti(SPs, Context.QueryString.Get("WSID"))
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ShippingHub", "completeShipment", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ShippingHub", "completeShipment", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Return "Fail"
                                                     End Try
 
@@ -146,7 +146,7 @@ Public Class ShippingHub
                                                             count = dataReader(0)
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ShippingTransactionsHub", "selCountOpenTransactionsTemp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ShippingTransactionsHub", "selCountOpenTransactionsTemp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         count = -1
                                                     Finally
                                                         If Not IsNothing(dataReader) Then

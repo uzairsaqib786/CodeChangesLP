@@ -62,7 +62,7 @@ Public Class Config
                 End If
             Next
         Catch ex As Exception
-            insertErrorMessages("Config", "checkIdleUsers", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "checkIdleUsers", ex.ToString(), "CONFIG", "CONFIG")
         End Try
     End Sub
 
@@ -118,7 +118,7 @@ Public Class Config
                 Return True
             End If
         Catch ex As Exception
-            insertErrorMessages("Config", "getWSAppPermission", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "getWSAppPermission", ex.ToString(), "CONFIG", "CONFIG")
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -144,7 +144,7 @@ Public Class Config
                 End While
             End If
         Catch ex As Exception
-            insertErrorMessages("Config", "getWSAppPermission", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "getWSAppPermission", ex.ToString(), "CONFIG", "CONFIG")
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -167,7 +167,7 @@ Public Class Config
                 Return New With {.Username = DataReader(0), .Password = DataReader(1)}
             End If
         Catch ex As Exception
-            insertErrorMessages("Config", "GetLogonInfo", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "GetLogonInfo", ex.ToString(), "CONFIG", "CONFIG")
         Finally
 
             If Not IsNothing(DataReader) Then
@@ -391,7 +391,7 @@ Public Class Config
                 End While
             End If
         Catch ex As Exception
-            insertErrorMessages("Config", "GetAllWorkstations", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "GetAllWorkstations", ex.ToString(), "CONFIG", "CONFIG")
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()
@@ -417,7 +417,7 @@ Public Class Config
                 End While
             End If
         Catch ex As Exception
-            insertErrorMessages("Config", "getWSDefaultApp", ex.Message, "CONFIG", "CONFIG")
+            insertErrorMessages("Config", "getWSDefaultApp", ex.ToString(), "CONFIG", "CONFIG")
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()

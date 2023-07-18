@@ -57,8 +57,8 @@ Public Class OpenTransactions
                                                                 {"@sortOrder", sortOrder, strVar},
                                                                 {"@filter", filter, strVar}}, columnOrder:=columnSeq)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Open Transactions", "updateOpenTransTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Open Transactions", "updateOpenTransTable", ex.ToString(), user, WSID)
             End Try
         End If
         Return table
@@ -86,8 +86,8 @@ Public Class OpenTransactions
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Open Transactions", "getNextOrderNumbers", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Open Transactions", "getNextOrderNumbers", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -107,8 +107,8 @@ Public Class OpenTransactions
         Try
             oldest = GetResultSingleCol("selOTItemOldestDate", WSID, {{"@ItemNum", itemNumber, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Open Transactions", "getOldestDate", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Open Transactions", "getOldestDate", ex.ToString(), user, WSID)
         End Try
         Return oldest
     End Function

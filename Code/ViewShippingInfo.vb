@@ -28,7 +28,7 @@ Public Class ViewShippingInfo
                 End While
             End If
         Catch ex As Exception
-            insertErrorMessages("ViewShipping.vb", "GetOrderStatPack", ex.Message, User, WSID)
+            insertErrorMessages("ViewShipping.vb", "GetOrderStatPack", ex.ToString(), User, WSID)
         Finally
             If Not IsNothing(dataReader) Then
                 dataReader.Close()
@@ -60,7 +60,7 @@ Public Class ViewShippingInfo
                 End While
             End If
         Catch ex As Exception
-            insertErrorMessages("ViewShipping.vb", "GetOrderStatShip", ex.Message, User, WSID)
+            insertErrorMessages("ViewShipping.vb", "GetOrderStatShip", ex.ToString(), User, WSID)
         Finally
             If Not IsNothing(dataReader) Then
                 dataReader.Close()

@@ -75,12 +75,12 @@ Public Class ListAndLabel
 
             Catch ex As Exception
 
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
             End Try
 
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
+            Debug.WriteLine(ex.ToString())
         End Try
 
     End Sub

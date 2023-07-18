@@ -30,7 +30,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackToteTable", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackToteTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -65,7 +65,7 @@ Namespace Consolidation
                 End If
 
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackShipTransTable", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackShipTransTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -97,7 +97,7 @@ Namespace Consolidation
                 End If
 
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackContIDDrop", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackContIDDrop", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -125,7 +125,7 @@ Namespace Consolidation
                     retVal = CheckDBNull(DataReader(0))
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -151,7 +151,7 @@ Namespace Consolidation
                     contID = CheckDBNull(dataReader(0))
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selContIDConfirmPack", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selContIDConfirmPack", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -194,7 +194,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackScanItemNum", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackScanItemNum", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(dataReader) Then
                     dataReader.Close()
@@ -222,7 +222,7 @@ Namespace Consolidation
                     retVal = CheckDBNull(DataReader(0))
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -254,7 +254,7 @@ Namespace Consolidation
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.Message, User, WSID)
+                insertErrorMessages("ConfirmAndPacking", "selConfPackShipComp", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

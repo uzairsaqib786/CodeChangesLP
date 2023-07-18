@@ -53,7 +53,7 @@ Namespace OrderManager
                 End While
 
             Catch ex As Exception
-                insertErrorMessages("OrderManager Menu", "selectOMCountData", ex.Message, User, WSID)
+                insertErrorMessages("OrderManager Menu", "selectOMCountData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()

@@ -711,7 +711,7 @@
         },
         dropdown: {
             position: "absolute",
-            top: "100%",
+            top: "1%",
             left: "0",
             zIndex: "100",
             display: "none"

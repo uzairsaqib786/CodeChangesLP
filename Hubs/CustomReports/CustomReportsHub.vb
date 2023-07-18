@@ -48,8 +48,8 @@ Public Class CustomReportsHub
                                                         RunActionSP("insPushLLReport", Context.QueryString.Get("WSID"), {{"@WSID", Context.QueryString.Get("WSID"), strVar}, {"@Filename", fileName, strVar}})
 
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("CustomReportsHub", "PushReportChanges", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("CustomReportsHub", "PushReportChanges", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "error"
                                                     End Try
                                                     Return success
@@ -85,8 +85,8 @@ Public Class CustomReportsHub
                                                          {{"@RT1", titles(0), strVar}, {"@RT2", titles(1), strVar}, {"@RT3", titles(2), strVar}, {"@RT4", titles(3), strVar}, _
                                                           {"@WSID", WSID, strVar}, {"@Report", report, strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("CustomReportsHub", "saveReportTitles", ex.Message, user, WSID)
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("CustomReportsHub", "saveReportTitles", ex.ToString(), user, WSID)
                                          End Try
                                      End Sub)
     End Function
@@ -108,8 +108,8 @@ Public Class CustomReportsHub
                                                                                        {"@E4", exps(3), strVar}, {"@E5", exps(4), strVar}, {"@E6", exps(5), strVar}, _
                                                                                        {"@WSID", WSID, strVar}, {"@Report", report, strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("CustomReportsHub", "saveReportFieldExps", ex.Message, user, WSID)
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("CustomReportsHub", "saveReportFieldExps", ex.ToString(), user, WSID)
                                          End Try
                                      End Sub)
     End Function
@@ -131,8 +131,8 @@ Public Class CustomReportsHub
                                                                                        {"@V4A", v2(3), strVar}, {"@V5A", v2(4), strVar}, {"@V6A", v2(5), strVar}, _
                                                                                        {"@WSID", WSID, strVar}, {"@Report", report, strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("CustomReportsHub", "saveFieldValues", ex.Message, user, WSID)
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("CustomReportsHub", "saveFieldValues", ex.ToString(), user, WSID)
                                          End Try
                                      End Sub)
     End Function
@@ -160,9 +160,9 @@ Public Class CustomReportsHub
                     ' sends print request to the windows service
                     Clients.Group(PrintService.PrintServiceHubName).PrintCustomReport(reportObj)
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     insertErrorMessages("CustomReportsHub", "PrintCustomReport", _
-                                        ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                        ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                 End Try
             End Sub)
     End Function
@@ -198,8 +198,8 @@ Public Class CustomReportsHub
                     End If
 
                 Catch ex As Exception
-                    Debug.Print(ex.Message)
-                    insertErrorMessages("ExportReport", "ExportReport", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                    Debug.Print(ex.ToString())
+                    insertErrorMessages("ExportReport", "ExportReport", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                     Return False
                 End Try
                 Return True
@@ -290,8 +290,8 @@ Public Class CustomReportsHub
                                                           {"@Description", description, strVar}, {"@DataSource", datasource, strVar}, {"@OutputType", output, strVar}, _
                                                           {"@TestDataType", testDataType, strVar}, {"@ExportFilename", eFilename, strVar}})
                                          Catch ex As Exception
-                                             Debug.WriteLine(ex.Message)
-                                             insertErrorMessages("CustomReportsHub", "updateReportDetails", ex.Message, Context.User.Identity.Name, WSID)
+                                             Debug.WriteLine(ex.ToString())
+                                             insertErrorMessages("CustomReportsHub", "updateReportDetails", ex.ToString(), Context.User.Identity.Name, WSID)
                                          End Try
                                      End Sub)
     End Function
@@ -331,8 +331,8 @@ Public Class CustomReportsHub
                                                         statusObj.fileObj = validFileCheckResult
                                                         statusObj.sqlObj = validSQL
                                                     Catch ex As Exception
-                                                        Debug.WriteLine(ex.Message)
-                                                        insertErrorMessages("CustomReportsHub", "saveNewDesign", ex.Message, user, WSID)
+                                                        Debug.WriteLine(ex.ToString())
+                                                        insertErrorMessages("CustomReportsHub", "saveNewDesign", ex.ToString(), user, WSID)
                                                         statusObj.errs.Add("Unknown error occurred in validation of sql/filename for add new.  If this continues please contact Scott Tech.")
                                                         statusObj.success = False
                                                     End Try
@@ -382,8 +382,8 @@ Public Class CustomReportsHub
                                                              End If
                                                          End If
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CustomReportsHub", "deleteReport", ex.Message, user, WSID)
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CustomReportsHub", "deleteReport", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
 
@@ -407,8 +407,8 @@ Public Class CustomReportsHub
                                                             {"@OutputType", IIf(data.outputType = LlProject.List, "Report", "Label"), strVar}, _
                                                             {"@ExportFilename", data.exportFilename, strVar}, {"@All", CastAsSqlBool(all), intVar}})
                                                      Catch ex As Exception
-                                                         Debug.WriteLine(ex.Message)
-                                                         insertErrorMessages("CustomReportsHub", "restoreDesign", ex.Message, Context.User.Identity.Name, WSID)
+                                                         Debug.WriteLine(ex.ToString())
+                                                         insertErrorMessages("CustomReportsHub", "restoreDesign", ex.ToString(), Context.User.Identity.Name, WSID)
                                                          Return False
                                                      End Try
 

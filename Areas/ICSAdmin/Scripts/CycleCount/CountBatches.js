@@ -45,12 +45,14 @@ $(document).ready(function () {
                 if ($('#CostStart').val() != "") {
                     FillBatchResultTable();
                 }
+            } else if (/(Put|Picked)(Start|End)Time/.test($(this).attr('id'))) {
+                if (isValidTime($(this).val())) {
+                    FillBatchResultTable();
+                }
             } else {
                 FillBatchResultTable();
             }
-
-        }
-        else {
+        } else {
             clearTimeout(updateInterval);
             updateInterval = setTimeout(function () { FillBatchResultTable();; }, 200)
         }
@@ -137,10 +139,10 @@ function BuildBatchQueryObject() {
         Category: $('#Category').val(),
         SubCategory: $('#SubCategory').val(),
         NotCounted: $('#NotCounted').val() == '' ? '1/11/1111' : $('#NotCounted').val(),
-        PickStart: $('#PickedStart').val() == '' ? '1/11/1111' : $('#PickedStart').val(),
-        PickEnd: $('#PickedEnd').val() == '' ? '1/11/1111' : $('#PickedEnd').val(),
-        PutAwayStart: $('#PutStart').val() == '' ? '1/11/1111' : $('#PutStart').val(),
-        PutAwayEnd: $('#PutEnd').val() == '' ? '1/11/1111' : $('#PutEnd').val(),
+        PickStart: $('#PickedStart').val() == '' ? '1/11/1111' : $('#PickedStart').val() + ' ' + $('#PickedStartTime').val(),
+        PickEnd: $('#PickedEnd').val() == '' ? '1/11/1111' : $('#PickedEnd').val() + ' ' + $('#PickedEndTime').val(),
+        PutAwayStart: $('#PutStart').val() == '' ? '1/11/1111' : $('#PutStart').val() + ' ' + $('#PutStartTime').val(),
+        PutAwayEnd: $('#PutEnd').val() == '' ? '1/11/1111' : $('#PutEnd').val() + ' ' + $('#PutEndTime').val(),
         CostStart: $('#CostStart').val(),
         CostEnd: $('#CostEnd').val(),
         WarehouseFilter: $('#Warehouse').val()
@@ -225,3 +227,10 @@ function cycleCountBackBtn() {
         };
     });
 };
+
+function isValidTime(timeString) {
+    var ampmRegex = /^(0?[1-9]|1[0-2]):[0-5]\d\s?[AP]M$/i;
+    var militaryRegex = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+
+    return (ampmRegex.test(timeString) || militaryRegex.test(timeString));
+}

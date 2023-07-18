@@ -17,7 +17,7 @@ Namespace ImportExport
                 ret = GetResultMap("SelImportTransactionStatus", wsid)
                 ret.Add("Import Count", importCount)
             Catch ex As Exception
-                insertErrorMessages("StatusLogic", "GetStatus", ex.Message, "", wsid)
+                insertErrorMessages("StatusLogic", "GetStatus", ex.ToString(), "", wsid)
             End Try
             Return ret
         End Function

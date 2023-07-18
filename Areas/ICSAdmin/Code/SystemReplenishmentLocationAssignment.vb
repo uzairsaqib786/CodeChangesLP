@@ -50,9 +50,9 @@ Namespace Admin
             Try
                 reproc = LocAssReplen(WSID, user)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 Throw ex
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "processSystemReplenishments", ex.Message, user, WSID)
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "processSystemReplenishments", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -85,8 +85,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                Throw New Exception(ex.Message)
+                Debug.WriteLine(ex.ToString())
+                Throw New Exception(ex.ToString())
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -106,8 +106,8 @@ Namespace Admin
             Try
                 RunActionSP("delESCReplenishments", WSID, {{"@RPOrder", StartingReplenishmentOrderNumber, strVar}, {"@User", user, strVar}, {"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReplenishmentsAborted", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "ReplenishmentsAborted", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -146,8 +146,8 @@ Namespace Admin
             Try
                 RunActionSP("updateRPWarehouse", WSID, {{"nothing"}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "updateRPWarehouse", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "updateRPWarehouse", ex.ToString(), user, WSID)
             End Try
 
             Clients.All.updateReplenishmentStatus(replenishmentNumber, "Inserting Put Away Replenishments")
@@ -190,8 +190,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocAssReplen", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocAssReplen", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -214,8 +214,8 @@ Namespace Admin
                 RunActionSP("insEventLogAlloc", WSID, {{"@Message", message, strVar}, {"@EventCode", eventCode, strVar}, {"@EventLocation", WSID, strVar}, _
                                                        {"@User", user, strVar}, {"@Notes", WSID, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "EventLogAlloc", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "EventLogAlloc", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -229,8 +229,8 @@ Namespace Admin
             Try
                 RunActionSP("QtyAllocReset", WSID, {{"@LoginName", user, strVar}, {"@DynWhse", "Yes", strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "QtyAllocReset", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "QtyAllocReset", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -262,10 +262,10 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "LocReplenOT"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOT", ex.Message, user, WSID)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOT", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -319,8 +319,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "GetSettingLM", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "GetSettingLM", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -343,8 +343,8 @@ Namespace Admin
             Try
                 RunActionSP("updateSettingLM", wsid, {{"@Program", program, strVar}, {"@Section", section, strVar}, {"@Name", keynameLM, strVar}, {"@Setting", setting, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "SaveSettingLM", ex.Message, user, wsid)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "SaveSettingLM", ex.ToString(), user, wsid)
             End Try
         End Sub
 
@@ -358,8 +358,8 @@ Namespace Admin
             Try
                 RunActionSP("insOTReplenishmentPuts", WSID, {{"@User", user, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOTPutAway", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenOTPutAway", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -386,10 +386,10 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "getOTPutReplenishments"
-                exMessage = ex.Message
-                insertErrorMessages("SystemRelenishmentLocationAssignment", "LocReplenPutODBC", ex.Message, user, wsid)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemRelenishmentLocationAssignment", "LocReplenPutODBC", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -494,10 +494,10 @@ Namespace Admin
                         End If
                     Next I
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "LocReplenPutODBC"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "NextOT: for loop", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "NextOT: for loop", ex.ToString(), user, WSID)
                 End Try
                 If SplitCount <= 0 Then
                     Exit While
@@ -603,10 +603,10 @@ Namespace Admin
                                 End While
                             End If
                         Catch ex As Exception
-                            Debug.WriteLine(ex.Message)
+                            Debug.WriteLine(ex.ToString())
                             errorOccured = "LocAssPutAway StartLoc"
-                            exMessage = ex.Message
-                            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                            exMessage = ex.ToString()
+                            insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                         Finally
                             If Not IsNothing(rstInvMap) Then
                                 rstInvMap.Dispose()
@@ -661,10 +661,10 @@ Namespace Admin
                                     End If
                                 End If
                             Catch ex As Exception
-                                Debug.WriteLine(ex.Message)
+                                Debug.WriteLine(ex.ToString())
                                 errorOccured = "selDynWhse Startloc"
-                                exMessage = ex.Message
-                                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                                exMessage = ex.ToString()
+                                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                             Finally
                                 If Not IsNothing(rst) Then
                                     rst.Dispose()
@@ -724,10 +724,10 @@ Namespace Admin
                                     RunActionSP("insOTReplenSplitTrans", WSID, {{"@OTID", OTData(I)(OTFields.IndexOf("ID")), intVar}, {"@SplitID", SplitID, intVar}, {"@OrderCount", OrderCount, intVar}, _
                                                                                 {"@SplitQty", SplitQty, intVar}})
                                 Catch ex As Exception
-                                    Debug.WriteLine(ex.Message)
+                                    Debug.WriteLine(ex.ToString())
                                     errorOccured = "insOTReplenSplitTrans StartLoc"
-                                    exMessage = ex.Message
-                                    insertErrorMessages("SystemReplenishmentLocationAssigment", "StartLoc", ex.Message, user, WSID)
+                                    exMessage = ex.ToString()
+                                    insertErrorMessages("SystemReplenishmentLocationAssigment", "StartLoc", ex.ToString(), user, WSID)
                                 End Try
                                 ' increment split count since we just split a transaction
                                 SplitCount += 1
@@ -743,10 +743,10 @@ Namespace Admin
                 ' we ran out of inventory map records to try to assign to, so this transaction needs to be reprocessed
                 Call ReProcess(AutoCmpShort, OTData(I)(OTFields.IndexOf("ID")), OrderCount, SplitID, user, WSID)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "StartLoc"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
             End Try
             Return False
         End Function
@@ -768,17 +768,17 @@ Namespace Admin
                 Try
                     RunActionSP("updateOTReplenAutoComplete", WSID, {{"@OTID", OTID, intVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.Message, user, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.ToString(), user, WSID)
                 End Try
             Else
                 Try
                     RunActionSP("insOTTempReplen", WSID, {{"@OTID", OTID, intVar}, {"@OrderCount", OrderCount, intVar}, {"@SplitID", SplitID, intVar}, {"@User", user, strVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "ReProcess PutAway"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "ReProcess", ex.ToString(), user, WSID)
                 End Try
             End If
         End Sub
@@ -858,10 +858,10 @@ Namespace Admin
                     RunActionSP("HPAUpdateMaxQty", WSID, {{"@MaxQty", MaxQty1, intVar}, {"@MinQty", MinQty, intVar}, _
                                                           {"@InvMapID", InvMapID, intVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updateOTReplen"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                 End Try
             End If
             ' if the inventory map location doesn't have an item number then we need to update it to include the item we're placing
@@ -873,10 +873,10 @@ Namespace Admin
                                                             {"@UM", UM, strVar}, _
                                                             {"@Exp", ExpDate, dteVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updateOTReplen"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
                 End Try
             End If
 
@@ -902,10 +902,10 @@ Namespace Admin
                                                            {"@OTID", OTID, intVar}, {"@TransQty", AvailQty, intVar}})
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "updateOTReplen"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.Message, user, WSID)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "StartLoc", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -932,10 +932,10 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "getOTPickReplens"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: selOpenTransReplenishments", ex.Message, user, wsid)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: selOpenTransReplenishments", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(OTReader) Then
                     OTReader.Dispose()
@@ -1038,8 +1038,8 @@ Namespace Admin
                         InvMapIndex = 0
                     Catch ex As Exception
                         errorOccured = "LocReplenPick"
-                        exMessage = ex.Message
-                        insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: LocAssPickInvMap", ex.Message, user, WSID)
+                        exMessage = ex.ToString()
+                        insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, SP: LocAssPickInvMap", ex.ToString(), user, WSID)
                     Finally
                         If Not IsNothing(InvMapReader) Then
                             InvMapReader.Dispose()
@@ -1056,10 +1056,10 @@ Namespace Admin
                                      OrderCount:=OrderCount, ReasonText:=ReasonText, PickCaseQty:=PickCaseQty, AvailCaseQty:=AvailCaseQty, PickQty:=PickQty)
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "LocReplenPick"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, For Each OTRow", ex.Message, user, WSID)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "LocReplenPick, For Each OTRow", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -1110,10 +1110,10 @@ Namespace Admin
                                                               {"@AutoCmp", "No", strVar}, _
                                                           {"@DateStamp", Now(), dteVar}})
                     Catch ex As Exception
-                        Debug.WriteLine(ex.Message)
+                        Debug.WriteLine(ex.ToString())
                         errorOccured = "ReProcessOT FIFONextLocation"
-                        exMessage = ex.Message
-                        insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: ReProcessOT", ex.Message, user, WSID)
+                        exMessage = ex.ToString()
+                        insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: ReProcessOT", ex.ToString(), user, WSID)
                     End Try
                     Return
                 End If
@@ -1144,10 +1144,10 @@ Namespace Admin
                         End If
                     End If
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "selCarouselByZone FIFONextLocation"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: selCarouselByZone", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, SP: selCarouselByZone", ex.ToString(), user, WSID)
                 Finally
                     If Not IsNothing(rst3) Then
                         rst3.Dispose()
@@ -1166,10 +1166,10 @@ Namespace Admin
                                      NewOrder:=NewOrder, LastOrder:=LastOrder, SplitID:=SplitID, SplitQty:=SplitQty, _
                                      OrderCount:=OrderCount, ReasonText:=ReasonText, PickCaseQty:=PickCaseQty, AvailCaseQty:=AvailCaseQty, PickQty:=PickQty)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
+                Debug.WriteLine(ex.ToString())
                 errorOccured = "FIFONextLocation"
-                exMessage = ex.Message
-                insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, outer try/catch block", ex.Message, user, WSID)
+                exMessage = ex.ToString()
+                insertErrorMessages("SystemReplenishmentLocationAssignment", "FIFONextLocation, outer try/catch block", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -1245,10 +1245,10 @@ Namespace Admin
                                 End If
                             End If
                         Catch ex As Exception
-                            Debug.WriteLine(ex.Message)
+                            Debug.WriteLine(ex.ToString())
                             errorOccured = "selCarouselByZone Pickfence"
-                            exMessage = ex.Message
-                            insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFence, SP: selCarouselByZone", ex.Message, user, WSID)
+                            exMessage = ex.ToString()
+                            insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFence, SP: selCarouselByZone", ex.ToString(), user, WSID)
                         Finally
                             If Not IsNothing(rst3) Then
                                 rst3.Dispose()
@@ -1397,10 +1397,10 @@ Namespace Admin
                                                             {"@Qty", nullVar, nullVar}})
                     Return
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updOTLAPickReplen DoSplitCase"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen avail>=trans", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen avail>=trans", ex.ToString(), user, WSID)
                 End Try
             Else
                 ' split the pick transaction
@@ -1416,10 +1416,10 @@ Namespace Admin
                                                                  {"@LineNum", OrderCount + 1, intVar}, _
                                                                  {"@OrdNum", NewOrder, strVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "insOTLASplitPickReplen DoSplitCase"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: insOTLASplitPickReplen", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: insOTLASplitPickReplen", ex.ToString(), user, WSID)
                 End Try
                 ' update the transaction that was split from
                 Try
@@ -1449,10 +1449,10 @@ Namespace Admin
                     LastOrder = NewOrder
                     Return
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updOTLAPickReplen DoSplitCase"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen in Else", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "DoSplitCase, SP: updOTLAPickReplen in Else", ex.ToString(), user, WSID)
                 End Try
             End If
         End Sub
@@ -1615,10 +1615,10 @@ Namespace Admin
                                                             {"@Qty", nullVar, nullVar}})
                     Return
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updOTLAPickReplen PickFullCases"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.ToString(), user, WSID)
                 End Try
             Else
                 SplitID = getOTValueAsInt(OTRow(OTColumns.IndexOf("Master Record ID")))
@@ -1631,10 +1631,10 @@ Namespace Admin
                                                                  {"@LineNum", OrderCount, intVar}, _
                                                                  {"@OrdNum", NewOrder, strVar}})
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "insOTLASplitPickReplen PickFullCases"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: insOTLASplitPickReplen", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: insOTLASplitPickReplen", ex.ToString(), user, WSID)
                 End Try
                 Try
                     RunActionSP("updOTLAPickReplen", WSID, {{"@ID", getOTValueAsInt(OTRow(OTColumns.IndexOf("ID"))), intVar}, _
@@ -1662,10 +1662,10 @@ Namespace Admin
                                                             {"@Qty", PickQty, intVar}})
                     Return
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
+                    Debug.WriteLine(ex.ToString())
                     errorOccured = "updOTLAPickReplen PickFullCases"
-                    exMessage = ex.Message
-                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.Message, user, WSID)
+                    exMessage = ex.ToString()
+                    insertErrorMessages("SystemReplenishmentLocationAssignment", "PickFullCases, SP: updOTLAPickReplen", ex.ToString(), user, WSID)
                 End Try
             End If
         End Sub

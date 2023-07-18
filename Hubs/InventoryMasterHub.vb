@@ -36,8 +36,8 @@ Namespace Admin
                                                                  Return False
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "addNewItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "addNewItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -72,8 +72,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP(SP, Context.QueryString.Get("WSID"), params)
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Inventory Master", "quarantineItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Inventory Master", "quarantineItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -102,8 +102,8 @@ Namespace Admin
                                                                  End If
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "deleteItem", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "deleteItem", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -225,8 +225,8 @@ Namespace Admin
                                                                     End If
                                                             End Select
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Inventory Master", "getEditView", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Inventory Master", "getEditView", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -259,8 +259,8 @@ Namespace Admin
                                                          RunActionSP("delScanCodeTypes", Context.QueryString.Get("WSID"), {{"@Type", sender(1), strVar}})
                                                  End Select
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("Inventory Master", "deletePopUp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("Inventory Master", "deletePopUp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -341,8 +341,8 @@ Namespace Admin
                                                                      End If
                                                              End Select
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updatePopUp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updatePopUp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -382,8 +382,8 @@ Namespace Admin
                                                                 End While
                                                             End If
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Inventory Master", "refreshKits", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Inventory Master", "refreshKits", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -417,8 +417,8 @@ Namespace Admin
                                                              End If
                                                          Catch ex As Exception
                                                              save = False
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "addKit", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "addKit", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -451,8 +451,8 @@ Namespace Admin
                                                             End If
 
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Inventory Master", "selDescription", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Inventory Master", "selDescription", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsDBNull(DataReader) Then
                                                                 DataReader.Dispose()
@@ -490,8 +490,8 @@ Namespace Admin
                                                                 End While
                                                             End If
                                                         Catch ex As Exception
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Inventory Master", "refreshScanCode", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Inventory Master", "refreshScanCode", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()
@@ -524,8 +524,8 @@ Namespace Admin
                                                                                                     {"@CodeLen", CodeLen, intVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "addScanCode", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "addScanCode", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -547,8 +547,8 @@ Namespace Admin
                                                                                             {"@WSID", Context.QueryString.Get("WSID"), strVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "deleteKit", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "deleteKit", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -570,8 +570,8 @@ Namespace Admin
                                                                                               {"@WSID", Context.QueryString.Get("WSID"), strVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "deleteScanCode", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "deleteScanCode", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -596,8 +596,8 @@ Namespace Admin
                                                                                            {"@SpecFeats", SpecFeats, strVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updateKit", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updateKit", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -628,8 +628,8 @@ Namespace Admin
                                                                                                {"@OldCodeLen", OldCodeLen, strVar}, {"@CodeLength", CodeLen, intVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updateKit", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updateKit", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
                                                          Return True
@@ -883,8 +883,8 @@ Namespace Admin
                                                                                                                            {"@AvgWeight", AvgWeight, decVar}, {"@SampQuant", SampleQuant, intVar}, {"@MinUseScalQuant", UseScaleQuant, intVar},
                                                                                                                            {"@User", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updateInvMastAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updateInvMastAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
 
@@ -908,8 +908,8 @@ Namespace Admin
 
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updateReelQuant", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updateReelQuant", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
 
@@ -931,8 +931,8 @@ Namespace Admin
                                                              RunActionSP("updInventoryReelTrackAll", Context.QueryString.Get("WSID"), {{"@RTSAmount", RTSAmount, decVar}, {"@RTSQuant", RTSQuant, intVar}})
 
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "updateReelAll", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "updateReelAll", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                              Return False
                                                          End Try
 
@@ -960,8 +960,8 @@ Namespace Admin
                                                                  End If
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "refreshRTS", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "refreshRTS", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -988,8 +988,8 @@ Namespace Admin
                                                                  Return True
                                                              End If
                                                          Catch ex As Exception
-                                                             Debug.WriteLine(ex.Message)
-                                                             insertErrorMessages("Inventory Master", "validateKit", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                             Debug.WriteLine(ex.ToString())
+                                                             insertErrorMessages("Inventory Master", "validateKit", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Finally
                                                              If Not IsNothing(DataReader) Then
                                                                  DataReader.Dispose()
@@ -1022,8 +1022,8 @@ Namespace Admin
                                                             End If
                                                         Catch ex As Exception
                                                             result = "Error"
-                                                            Debug.WriteLine(ex.Message)
-                                                            insertErrorMessages("Inventory Master", "updItemNumber", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                            Debug.WriteLine(ex.ToString())
+                                                            insertErrorMessages("Inventory Master", "updItemNumber", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         Finally
                                                             If Not IsNothing(DataReader) Then
                                                                 DataReader.Dispose()

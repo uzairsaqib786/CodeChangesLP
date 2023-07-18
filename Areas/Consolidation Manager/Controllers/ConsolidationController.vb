@@ -64,8 +64,8 @@ Namespace Consolidation.Controllers
                 End If
 
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("ConsolidationController", "PrintPrevNotVerified", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("ConsolidationController", "PrintPrevNotVerified", ex.ToString(), username, WSID)
 
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -93,8 +93,8 @@ Namespace Consolidation.Controllers
                         PackListPref = DataReader(0)
                     End If
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("ConsolidationController", "PrintPrevCMPackList: Inner Try", ex.Message, username, WSID)
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("ConsolidationController", "PrintPrevCMPackList: Inner Try", ex.ToString(), username, WSID)
                 Finally
                     If Not IsNothing(DataReader) Then
                         DataReader.Close()
@@ -121,8 +121,8 @@ Namespace Consolidation.Controllers
                 End If
 
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CustomReportsHub", "PreviewCMPackList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CustomReportsHub", "PreviewCMPackList", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function

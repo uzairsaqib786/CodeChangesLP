@@ -43,8 +43,8 @@ Namespace Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(Username, WSID, Server, "Super Batch Label", "Label", filename, spname, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PrintController", "printPickLabel", ex.Message, Username, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PrintController", "printPickLabel", ex.ToString(), Username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

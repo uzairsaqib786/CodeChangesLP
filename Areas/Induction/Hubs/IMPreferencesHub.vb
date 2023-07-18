@@ -21,7 +21,7 @@ Public Class IMPreferencesHub
                                                         CompName = getPCName(Context.QueryString.Get("WSID"))
                                                     Catch ex As Exception
                                                         CompName = "Error"
-                                                        insertErrorMessages("IMPreferencesHub", "getCompName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("IMPreferencesHub", "getCompName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return CompName
                                                 End Function)
@@ -107,7 +107,7 @@ Public Class IMPreferencesHub
                                                                                                                             {"@ShortMethod", ShortMethod, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("IMPreferencesHub", "updIMSytemSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("IMPreferencesHub", "updIMSytemSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -152,7 +152,7 @@ Public Class IMPreferencesHub
                                                                                                                              {"@AutoPrintPickBatchList", AutoPrintPickBatchList, boolVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("IMPreferencesHub", "updIMPrintSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("IMPreferencesHub", "updIMPrintSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -182,7 +182,7 @@ Public Class IMPreferencesHub
                                                                                                                              {"@superBatchFilt", superBatchFilt, boolVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("IMPreferencesHub", "updIMMiscSetup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("IMPreferencesHub", "updIMMiscSetup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)
@@ -224,7 +224,7 @@ Public Class IMPreferencesHub
                                                                                                                              {"@OrderNumPre", OrderNumPre, strVar}})
                                                     Catch ex As Exception
                                                         success = "Error"
-                                                        insertErrorMessages("IMPreferencesHub", "updRTSUserData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("IMPreferencesHub", "updRTSUserData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     End Try
                                                     Return success
                                                 End Function)

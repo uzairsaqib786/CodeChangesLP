@@ -156,11 +156,8 @@ $(document).ready(function () {
                 Direct: printDirect
             }
 
-            getLLPreviewOrPrint('/IM/ProcessPutAways/CompleteCrossDocks', requestData, printDirect, 'list', 'Cross Dock Pick List');
-            while (printDirect && !confirm('Press OK if print was successful')) {
-                MessageModal("Print Request", "Resending Print");
-                getLLPreviewOrPrint('/IM/ProcessPutAways/CompleteCrossDocks', requestData, printDirect, 'list', 'Cross Dock Pick List');
-            };
+            getLLPreviewOrPrint('/IM/ProcessPutAways/CompleteCrossDocks', requestData, printDirect, 'report', 'Cross Dock Pick List');
+
             $('#NumberToAssign').val(availableQty);
             $.each($recordsToUpdate, function() {
                 $(this).closest(".cd").remove();

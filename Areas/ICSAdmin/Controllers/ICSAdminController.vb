@@ -36,7 +36,8 @@ Namespace Admin
                 Dim result As List(Of String) = ICSAdminFunctions.InitializeSession(user:=User.Identity.Name, permission:=permission, _
                                                               sessionRef:=Session, tempRef:=TempData, WSID:=Session("WSID"), clientCert:=Request.ClientCertificate)
                 If Not IsNothing(result) And Not isRedirecting Then
-                    filterContext.Result = RedirectToAction(result(0), result(1), New With {.Area = "ICSAdmin"})
+                    Dim routeValues = New With {.Area = "ICSAdmin"}
+                    filterContext.Result = RedirectToAction(result(0), result(1), routeValues)
                 End If
             End If
 

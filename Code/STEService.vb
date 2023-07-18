@@ -24,7 +24,7 @@ Public Class STEService
             service = New ServiceController(STEServiceName)
             running = Not service.Status.Equals(ServiceControllerStatus.Stopped)
         Catch ex As Exception
-            insertErrorMessages("STEService", "ServiceStatus", ex.Message, "", "")
+            insertErrorMessages("STEService", "ServiceStatus", ex.ToString(), "", "")
         Finally
             If Not IsNothing(service) Then
                 service.Dispose()
@@ -58,8 +58,8 @@ Public Class STEService
                 stopped = True
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("STEService", "ServiceStatus", ex.Message, "", "")
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("STEService", "ServiceStatus", ex.ToString(), "", "")
             Return False ' service may not be running, but there was a problem anyway
         Finally
             If Not IsNothing(service) Then
@@ -94,8 +94,8 @@ Public Class STEService
                 started = True
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("STEService", "ServiceStatus", ex.Message, "", "")
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("STEService", "ServiceStatus", ex.ToString(), "", "")
             Return False ' service may be running, but there was a problem anyway
         Finally
             If Not IsNothing(service) Then

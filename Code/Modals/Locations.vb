@@ -26,7 +26,7 @@ Public Class Locations
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Inventory Map", "getLocationDrop", ex.Message, user, WSID)
+            insertErrorMessages("Inventory Map", "getLocationDrop", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -56,8 +56,8 @@ Public Class Locations
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("GlobalHub", "getZones", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("GlobalHub", "getZones", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()

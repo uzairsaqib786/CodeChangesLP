@@ -28,8 +28,8 @@ Public Class Reprocessed
                                                                     {"@sortOrder", sortOrder, strVar}}, columnOrder:=columnSeq)
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Reprocessed", "getReprocessedTable", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Reprocessed", "getReprocessedTable", ex.ToString(), user, WSID)
         End Try
         Return table
     End Function

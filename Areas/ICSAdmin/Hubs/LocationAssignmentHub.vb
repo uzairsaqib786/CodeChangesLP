@@ -93,7 +93,7 @@ Public Class LocationAssignmentHub
                                                          RunActionSPMulti(SPs, Context.QueryString.Get("WSID"))
                                                          Return True
                                                      Catch ex As Exception
-                                                         insertErrorMessages("LocationAssignmentHub", "InsertOrdersForLocAss", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("LocationAssignmentHub", "InsertOrdersForLocAss", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                          Return False
                                                      End Try
 

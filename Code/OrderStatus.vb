@@ -47,8 +47,8 @@ Public Class OrderStatus
             End If
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Order Status", "LineMath", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Order Status", "LineMath", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try
@@ -117,8 +117,8 @@ Public Class OrderStatus
 
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Order Status", "OrderInfo", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Order Status", "OrderInfo", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataRead) Then
                 DataRead.Dispose()
@@ -210,8 +210,8 @@ Public Class OrderStatus
 
 
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Order Status", "OrderInfo", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Order Status", "OrderInfo", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReads) Then
                 DataReads.Dispose()
@@ -274,7 +274,7 @@ Public Class OrderStatus
             totalResult = GetResultSingleCol("selOrderStatusDT", WSID, totalParms)
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Order Status", "OrderCounter", ex.Message, user, WSID)
+            insertErrorMessages("Order Status", "OrderCounter", ex.ToString(), user, WSID)
         End Try
         Return New With {.Filter = filtResult, .Total = totalResult}
     End Function
@@ -299,7 +299,7 @@ Public Class OrderStatus
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Order Status", "GrabAllTheOrders", ex.Message, user, WSID)
+            insertErrorMessages("Order Status", "GrabAllTheOrders", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then datareader.Dispose()
         End Try

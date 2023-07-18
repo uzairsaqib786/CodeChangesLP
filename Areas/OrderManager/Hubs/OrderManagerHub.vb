@@ -38,7 +38,7 @@ Public Class OrderManagerHub
                                                                                                                              {"@WSID", Context.QueryString.Get("WSID"), strVar}})
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "fillOrderManTempData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "fillOrderManTempData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success
@@ -132,7 +132,7 @@ Public Class OrderManagerHub
                                                                                                                                   {"@CheckLabel", CheckLabel, boolVar},
                                                                                                                                  {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "updateOrderManagerRecords", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "updateOrderManagerRecords", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
 
@@ -170,7 +170,7 @@ Public Class OrderManagerHub
                                                             End While
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "selectCreateOrdersDT", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "selectCreateOrdersDT", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Close()
                                                         End If
@@ -201,7 +201,7 @@ Public Class OrderManagerHub
                                                             End While
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OMPreferencesHub", "selUserFieldData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OMPreferencesHub", "selUserFieldData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Close()
@@ -235,7 +235,7 @@ Public Class OrderManagerHub
                                                                                                                           {"@UserField5", UserField5, strVar}, {"@UserField6", UserField6, strVar}, {"@UserField7", UserField7, strVar}, _
                                                                                                                           {"@UserField8", UserField8, strVar}, {"@UserField9", UserField9, strVar}, {"@UserField10", UserField10, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManagerHub", "updUserFieldData", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManagerHub", "updUserFieldData", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success
@@ -259,7 +259,7 @@ Public Class OrderManagerHub
                                                                                                                    {"@WSID", Context.QueryString.Get("WSID"), strVar}})
 
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "deleteOTPend", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "deleteOTPend", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
 
@@ -284,7 +284,7 @@ Public Class OrderManagerHub
             End If
 
         Catch ex As Exception
-            insertErrorMessages("OrderManager", "ReleaseOrders", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+            insertErrorMessages("OrderManager", "ReleaseOrders", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
             Return "Error"
         End Try
         Return "Success"
@@ -304,7 +304,7 @@ Public Class OrderManagerHub
                                                                                                                      {"@WSID", Context.QueryString.Get("WSID"), strVar}, _
                                                                                                                      {"@ViewType", ViewType, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "deleteOTPend", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "deleteOTPend", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success
@@ -404,7 +404,7 @@ Public Class OrderManagerHub
                                                                                                                    {"@ImportDate", ImportDate, dteVar}, _
                                                                                                                    {"@ImportFileName", ImportFileName, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "insertOTTemp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "insertOTTemp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success
@@ -501,7 +501,7 @@ Public Class OrderManagerHub
                                                                                                                    {"@ImportDate", ImportDate, dteVar}, _
                                                                                                                    {"@ImportFileName", ImportFileName, strVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("OrderManager Hub", "updateOTTemp", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("OrderManager Hub", "updateOTTemp", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Error"
                                                     End Try
                                                     Return success

@@ -1,0 +1,1317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6025F4D-4AE9-4C4C-92CB-3348621E64FC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PickPro_Web</RootNamespace>
+    <AssemblyName>PickPro Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Text</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PickPro Web.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PickPro Web.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugSymbols>true</DebugSymbols>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="combit.ListLabel21, Version=21.0.5777.28991, Culture=neutral, PublicKeyToken=a7a30592cb4a94be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependencies\combit.ListLabel21.dll</HintPath>
+    </Reference>
+    <Reference Include="combit.ListLabel21.Web, Version=21.0.5777.28998, Culture=neutral, PublicKeyToken=a7a30592cb4a94be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependencies\combit.ListLabel21.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PeakLogix.PickProLib.ActiveDirectorySecurityDriver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeakLogix.PickProLib.ActiveDirectorySecurityDriver.1.0.3\lib\net48\PeakLogix.PickProLib.ActiveDirectorySecurityDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.12.0\lib\net47\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.1.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.4.1.0\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=5.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.5.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\AESCrypter.vb" />
+    <Compile Include="Code\AppBuildInfo.vb" />
+    <Compile Include="Code\CCSIFService.vb" />
+    <Compile Include="Code\Certificates.vb" />
+    <Compile Include="Code\Config.vb" />
+    <Compile Include="Code\Custom Reports\CreateDataSet.vb" />
+    <Compile Include="Code\Custom Reports\CustomReports.vb" />
+    <Compile Include="Code\Custom Reports\CustomReportsDesigner.vb" />
+    <Compile Include="Code\EventLog.vb" />
+    <Compile Include="Code\InventoryMap.vb" />
+    <Compile Include="Code\InventoryMaster.vb" />
+    <Compile Include="Code\ListLabelHelperFunctions.vb" />
+    <Compile Include="Code\ManualTransactions.vb" />
+    <Compile Include="Code\Reprocessed.vb" />
+    <Compile Include="Code\ServiceTest\ServiceTest.vb" />
+    <Compile Include="Code\SignalRFormsAuthCleanerModule.vb" />
+    <Compile Include="Code\SQLCommandInfo.vb" />
+    <Compile Include="Code\SQLHelpers.vb" />
+    <Compile Include="Code\STEService.vb" />
+    <Compile Include="Code\ViewShippingInfo.vb" />
+    <Compile Include="Controllers\CertificatesController.vb" />
+    <Compile Include="Controllers\EventLogController.vb" />
+    <Compile Include="Controllers\InventoryMapController.vb" />
+    <Compile Include="Controllers\InventoryMasterController.vb" />
+    <Compile Include="Controllers\LLExportController.vb" />
+    <Compile Include="Controllers\ManualTransactionsController.vb" />
+    <Compile Include="Controllers\MenuController.vb" />
+    <Compile Include="Controllers\PickProController.vb" />
+    <Compile Include="Controllers\PrintController.vb" />
+    <Compile Include="Controllers\ViewShippingInfoController.vb" />
+    <Compile Include="Hubs\CustomReports\CustomReportsBroadcaster.vb" />
+    <Compile Include="Hubs\EventLogHub.vb" />
+    <Compile Include="Hubs\InventoryMapHub.vb" />
+    <Compile Include="Hubs\InventoryMasterHub.vb" />
+    <Compile Include="Hubs\ManualTransactionsHub.vb" />
+    <Compile Include="Models\CellSizeModel.vb" />
+    <Compile Include="Models\Config Models\TestPrintResult.vb" />
+    <Compile Include="Models\CustomReportsValidationModel.vb" />
+    <Compile Include="Models\CycleCount\BatchResultQuery.vb" />
+    <Compile Include="Models\CycleCount\ccSetting.vb" />
+    <Compile Include="Models\CycleCount\CreateCountBatchesModel.vb" />
+    <Compile Include="Models\CycleCount\CycleCountModel.vb" />
+    <Compile Include="Models\Inventory Map\InventoryMapModel.vb" />
+    <Compile Include="Models\Inventory Map\InvMapRowObj.vb" />
+    <Compile Include="Models\Inventory Master\InventoryMasterTypeaheadModel.vb" />
+    <Compile Include="Models\Inventory Master\InvMastItemSetupObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastKitItemObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastOtherObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastReelTrackObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastScanCodeObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastTopObj.vb" />
+    <Compile Include="Models\Inventory Master\InvMastWeighScaleObj.vb" />
+    <Compile Include="Models\NewLLDesignModel.vb" />
+    <Compile Include="Models\PrintExportModels\CustomReportsModel.vb" />
+    <Compile Include="Models\PrintExportModels\ExportServiceModel.vb" />
+    <Compile Include="Models\PrintExportModels\LLReportModel.vb" />
+    <Compile Include="Code\GlobalFunctions.vb" />
+    <Compile Include="Code\Modals\Category.vb" />
+    <Compile Include="Code\Modals\CellSize.vb" />
+    <Compile Include="Code\Modals\ItemNumber.vb" />
+    <Compile Include="Code\Modals\Locations.vb" />
+    <Compile Include="Code\Modals\PrintLocations.vb" />
+    <Compile Include="Code\Modals\ScanCodes.vb" />
+    <Compile Include="Code\Modals\SupplierItemID.vb" />
+    <Compile Include="Code\Modals\UnitOfMeasure.vb" />
+    <Compile Include="Code\Modals\UserFields.vb" />
+    <Compile Include="Code\Modals\VelocityCode.vb" />
+    <Compile Include="Code\Modals\Warehouse.vb" />
+    <Compile Include="Code\OpenTransactions.vb" />
+    <Compile Include="Code\PrintService.vb" />
+    <Compile Include="Code\ReprocessTransactions.vb" />
+    <Compile Include="Code\TransactionHistory.vb" />
+    <Compile Include="App_Start\BundleConfig.vb" />
+    <Compile Include="App_Start\FilterConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\GlobalConfigController.vb" />
+    <Compile Include="Controllers\HelpController.vb" />
+    <Compile Include="Controllers\CustomReportsController.vb" />
+    <Compile Include="Controllers\TransactionsController.vb" />
+    <Compile Include="Controllers\TypeaheadController.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Code\OrderStatus.vb" />
+    <Compile Include="Hubs\GlobalConfig\GlobalConfigBroadcaster.vb" />
+    <Compile Include="Hubs\Global\GlobalBroadcaster.vb" />
+    <Compile Include="Hubs\GlobalConfig\GlobalConfigHub.vb" />
+    <Compile Include="Hubs\Global\GlobalHub.vb" />
+    <Compile Include="Hubs\LogonHub.vb" />
+    <Compile Include="Hubs\OpenTransactionsHub.vb" />
+    <Compile Include="Hubs\Order Status\OrderStatusBroadcaster.vb" />
+    <Compile Include="Hubs\ColumnSequenceHub.vb" />
+    <Compile Include="Hubs\Order Status\OrderStatusHub.vb" />
+    <Compile Include="Hubs\CustomReports\CustomReportsHub.vb" />
+    <Compile Include="Hubs\ReprocessTransactionsHub.vb" />
+    <Compile Include="Hubs\Startup.vb" />
+    <Compile Include="Models\AliasModel.vb" />
+    <Compile Include="Models\Config Models\ConfigModel.vb" />
+    <Compile Include="Models\Config Models\ConnectedUser.vb" />
+    <Compile Include="Models\DataTables Models\TableObjectSent.vb" />
+    <Compile Include="Models\PrintExportModels\EventLogExportModel.vb" />
+    <Compile Include="Models\PrintExportModels\PreviewExportPrintModels.vb" />
+    <Compile Include="Models\PrintExportModels\TestPrintModel.vb" />
+    <Compile Include="Models\ReprocCompleteHistOrdersObj.vb" />
+    <Compile Include="Models\STPagingResult.vb" />
+    <Compile Include="Models\Typeahead Models\CellSizeDropObj.vb" />
+    <Compile Include="Models\EmployeesModel.vb" />
+    <Compile Include="Models\Typeahead Models\ItemNumberDropObj.vb" />
+    <Compile Include="Models\Typeahead Models\LocationDropObj.vb" />
+    <Compile Include="Models\OrderStatInfo.vb" />
+    <Compile Include="Models\TransactionsModel.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Code\SQLFunctions.vb" />
+    <Compile Include="Models\DataTables Models\TableObject.vb" />
+    <Compile Include="Controllers\LogonController.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\dependencies\combit.ListLabel21.ClientProfile.dll" />
+    <Content Include="..\dependencies\combit.ListLabel21.dll" />
+    <Content Include="..\dependencies\combit.ListLabel21.Web.dll" />
+    <Content Include="..\dependencies\cxbr21.dll" />
+    <Content Include="..\dependencies\cxct21.dll" />
+    <Content Include="..\dependencies\cxdw21.dll" />
+    <Content Include="..\dependencies\cxll21.dll" />
+    <Content Include="..\dependencies\cxll21pr.dll" />
+    <Content Include="..\dependencies\cxll21xl.dll" />
+    <Content Include="..\dependencies\cxls21.dll" />
+    <Content Include="..\dependencies\cxmx21.dll" />
+    <Content Include="..\dependencies\Cxsc21.dll" />
+    <Content Include="..\dependencies\cxut21.dll" />
+    <Content Include="..\dependencies\DocumentFormat.OpenXml.dll" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\cmll19id.cab" />
+    <Content Include="Content\cmll19v.cab" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery.mobile-1.4.5.min.css" />
+    <Content Include="Content\jquery.numpad.css" />
+    <Content Include="Content\scotttech.numpad.css" />
+    <Content Include="Content\Scotttech.png" />
+    <Content Include="Content\ST.ico" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\toggles-modern.css" />
+    <Content Include="Content\toggles.css" />
+    <Content Include="Content\typeahead-style.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="images\CompanyLogo\logo.png" />
+    <Content Include="images\Help\Batch\bm_controls.PNG" />
+    <Content Include="images\Help\Batch\bm_orders.PNG" />
+    <Content Include="images\Help\Batch\bm_selectedorders.PNG" />
+    <Content Include="images\Help\Certificates\cert1.PNG" />
+    <Content Include="images\Help\Certificates\cert2.PNG" />
+    <Content Include="images\Help\Certificates\cert3.PNG" />
+    <Content Include="images\Help\Certificates\cert4.PNG" />
+    <Content Include="images\Help\Certificates\cert5.PNG" />
+    <Content Include="images\Help\Certificates\cert6.PNG" />
+    <Content Include="images\Help\Certificates\cert7.PNG" />
+    <Content Include="images\Help\Certificates\cert8.PNG" />
+    <Content Include="images\Help\Certificates\ClientCert1.PNG" />
+    <Content Include="images\Help\Certificates\ClientCert2.PNG" />
+    <Content Include="images\Help\Certificates\ClientCert3.PNG" />
+    <Content Include="images\Help\Certificates\ClientCert4.jpg" />
+    <Content Include="images\Help\Certificates\ClientCertStep1.PNG" />
+    <Content Include="images\Help\Certificates\ClientCertStep2.PNG" />
+    <Content Include="images\Help\Certificates\ClientCertStep3.PNG" />
+    <Content Include="images\Help\Certificates\ClientCertStep4.PNG" />
+    <Content Include="images\Help\Certificates\ClientCertStep5.PNG" />
+    <Content Include="images\Help\ColumnSequence\colseq.PNG" />
+    <Content Include="images\Help\CycleCount\batch.PNG" />
+    <Content Include="images\Help\CycleCount\batchqueue.PNG" />
+    <Content Include="images\Help\CycleCount\configure.PNG" />
+    <Content Include="images\Help\CycleCount\cyclecount.PNG" />
+    <Content Include="images\Help\DatePicker\datepicker.png" />
+    <Content Include="images\Help\DeAllocate\DeAlloAllPopUp.PNG" />
+    <Content Include="images\Help\DeAllocate\DeAlloSelPopUp.PNG" />
+    <Content Include="images\Help\DeAllocate\FiltersSection.PNG" />
+    <Content Include="images\Help\DeAllocate\InitialScreen.PNG" />
+    <Content Include="images\Help\DeAllocate\ItemNumberDropDown.PNG" />
+    <Content Include="images\Help\DeAllocate\OrderInfoSection.PNG" />
+    <Content Include="images\Help\DeAllocate\OrderNumHighlight.PNG" />
+    <Content Include="images\Help\Employees\AddAllButt.PNG" />
+    <Content Include="images\Help\Employees\AddAllFunctionsButt.PNG" />
+    <Content Include="images\Help\Employees\AddNewButt.PNG" />
+    <Content Include="images\Help\Employees\AddNewEmployeeModal.PNG" />
+    <Content Include="images\Help\Employees\AddNewGroupPopUp.PNG" />
+    <Content Include="images\Help\Employees\AddNewZoneRow.PNG" />
+    <Content Include="images\Help\Employees\BPLocations.PNG" />
+    <Content Include="images\Help\Employees\BPOrders.PNG" />
+    <Content Include="images\Help\Employees\BPSettTabs.PNG" />
+    <Content Include="images\Help\Employees\BPZone.PNG" />
+    <Content Include="images\Help\Employees\ButtonAccessTab.PNG" />
+    <Content Include="images\Help\Employees\ClearButt.PNG" />
+    <Content Include="images\Help\Employees\ClearSelectedButt.PNG" />
+    <Content Include="images\Help\Employees\ControlNameModal.PNG" />
+    <Content Include="images\Help\Employees\ControlNameTypeahead.PNG" />
+    <Content Include="images\Help\Employees\DeleteButt.PNG" />
+    <Content Include="images\Help\Employees\DeleteEmployeeButt.PNG" />
+    <Content Include="images\Help\Employees\DeleteEmployeePop.PNG" />
+    <Content Include="images\Help\Employees\DeleteGroupPopUp.PNG" />
+    <Content Include="images\Help\Employees\DeleteModal.PNG" />
+    <Content Include="images\Help\Employees\DeleteZonePopUp.PNG" />
+    <Content Include="images\Help\Employees\EmployeeLookup.PNG" />
+    <Content Include="images\Help\Employees\EmployeeLookupTypeAhead.PNG" />
+    <Content Include="images\Help\Employees\EmployeePickLevels.PNG" />
+    <Content Include="images\Help\Employees\EmployeesTab.PNG" />
+    <Content Include="images\Help\Employees\EndLocationTypeAhead.PNG" />
+    <Content Include="images\Help\Employees\FunctionsAllowed.PNG" />
+    <Content Include="images\Help\Employees\FunctionsAllowedDeletePopUp.PNG" />
+    <Content Include="images\Help\Employees\GroupPrintDropDown.PNG" />
+    <Content Include="images\Help\Employees\GroupTab.PNG" />
+    <Content Include="images\Help\Employees\InitialScreen.PNG" />
+    <Content Include="images\Help\Employees\InsGroupsPopUp.PNG" />
+    <Content Include="images\Help\Employees\LocationsAddNewPopUp.PNG" />
+    <Content Include="images\Help\Employees\LocationsDeletePopUp.PNG" />
+    <Content Include="images\Help\Employees\PickLevelDeletePopUp.PNG" />
+    <Content Include="images\Help\Employees\PrintButt.PNG" />
+    <Content Include="images\Help\Employees\RemoveAllFunctionsButt.PNG" />
+    <Content Include="images\Help\Employees\SaveChangesButt.PNG" />
+    <Content Include="images\Help\Employees\SelectAllButt.PNG" />
+    <Content Include="images\Help\Employees\SelectGroupTypeahead.PNG" />
+    <Content Include="images\Help\Employees\SetDateButt.PNG" />
+    <Content Include="images\Help\Employees\StartLocationTypeahead.PNG" />
+    <Content Include="images\Help\Employees\StatsTab.PNG" />
+    <Content Include="images\Help\Employees\SubmitButt.PNG" />
+    <Content Include="images\Help\Employees\UpdateEmployeesButt.PNG" />
+    <Content Include="images\Help\EventLog\elclearbutton.png" />
+    <Content Include="images\Help\EventLog\eldelete.png" />
+    <Content Include="images\Help\EventLog\eldelete_confirm.PNG" />
+    <Content Include="images\Help\EventLog\elexport.PNG" />
+    <Content Include="images\Help\EventLog\elfilters.png" />
+    <Content Include="images\Help\EventLog\elhighlight.PNG" />
+    <Content Include="images\Help\EventLog\elmodal.PNG" />
+    <Content Include="images\Help\EventLog\elmodalprint.PNG" />
+    <Content Include="images\Help\EventLog\elmodal_delete.png" />
+    <Content Include="images\Help\EventLog\elmodal_delete_confirm.PNG" />
+    <Content Include="images\Help\EventLog\elprint.PNG" />
+    <Content Include="images\Help\EventLog\elprint_expanded.PNG" />
+    <Content Include="images\Help\EventLog\elrefresh.PNG" />
+    <Content Include="images\Help\EventLog\load.png" />
+    <Content Include="images\Help\GlobalConfig\ConfigConnection.PNG" />
+    <Content Include="images\Help\GlobalConfig\connection.PNG" />
+    <Content Include="images\Help\GlobalConfig\home.PNG" />
+    <Content Include="images\Help\GlobalConfig\licenses.PNG" />
+    <Content Include="images\Help\GlobalConfig\printers.PNG" />
+    <Content Include="images\Help\GlobalConfig\workstations.PNG" />
+    <Content Include="images\Help\HoldTrans\FiltersSection.PNG" />
+    <Content Include="images\Help\HoldTrans\FilterTypeDropDown.PNG" />
+    <Content Include="images\Help\HoldTrans\HoldDeallDropDown.PNG" />
+    <Content Include="images\Help\HoldTrans\HoldDeallModal.PNG" />
+    <Content Include="images\Help\HoldTrans\HoldDellButt.PNG" />
+    <Content Include="images\Help\HoldTrans\InitialScreen.PNG" />
+    <Content Include="images\Help\HoldTrans\OrderNumberTypeahead.PNG" />
+    <Content Include="images\Help\HoldTrans\SelectExample.PNG" />
+    <Content Include="images\Help\HoldTrans\TransactionsSection.PNG" />
+    <Content Include="images\Help\HoldTrans\TransTypeButts.PNG" />
+    <Content Include="images\Help\HoldTrans\ViewHoldButt.PNG" />
+    <Content Include="images\Help\InventoryMap\AddNewButt.PNG" />
+    <Content Include="images\Help\InventoryMap\AdjustLocQuantModal.PNG" />
+    <Content Include="images\Help\InventoryMap\AdjustQuantButt.PNG" />
+    <Content Include="images\Help\InventoryMap\BackInvMapButt.PNG" />
+    <Content Include="images\Help\InventoryMap\CancelButt.PNG" />
+    <Content Include="images\Help\InventoryMap\ClearButt.PNG" />
+    <Content Include="images\Help\InventoryMap\ClearPopUp.PNG" />
+    <Content Include="images\Help\InventoryMap\ColSeqButt.PNG" />
+    <Content Include="images\Help\InventoryMap\DelLocButt.PNG" />
+    <Content Include="images\Help\InventoryMap\DelPopUp.PNG" />
+    <Content Include="images\Help\InventoryMap\DuplicateButt.PNG" />
+    <Content Include="images\Help\InventoryMap\DuplicatePopUp.PNG" />
+    <Content Include="images\Help\InventoryMap\EditLocButt.PNG" />
+    <Content Include="images\Help\InventoryMap\InvMapPage.PNG" />
+    <Content Include="images\Help\InventoryMap\LocDetailsModal.PNG" />
+    <Content Include="images\Help\InventoryMap\PrintButt.PNG" />
+    <Content Include="images\Help\InventoryMap\PrintRangeButt.PNG" />
+    <Content Include="images\Help\InventoryMap\PrintRangeModal.PNG" />
+    <Content Include="images\Help\InventoryMap\PrintSelButt.PNG" />
+    <Content Include="images\Help\InventoryMap\QuarButt.PNG" />
+    <Content Include="images\Help\InventoryMap\QuarPopUp.PNG" />
+    <Content Include="images\Help\InventoryMap\SaveChanges2Butt.PNG" />
+    <Content Include="images\Help\InventoryMap\SaveChangesButt.PNG" />
+    <Content Include="images\Help\InventoryMap\SaveColSeqDefButt.PNG" />
+    <Content Include="images\Help\InventoryMap\SinglePrintModal.PNG" />
+    <Content Include="images\Help\InventoryMap\UnquarButt.PNG" />
+    <Content Include="images\Help\InventoryMap\UnquarPopUp.PNG" />
+    <Content Include="images\Help\InventoryMap\ViewLocButt.PNG" />
+    <Content Include="images\Help\InventoryMap\ViewRecButt.PNG" />
+    <Content Include="images\Help\InventoryMaster\AddNewItemModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\CategoryAndSubCategoryModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\CellSizeModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\DeletePopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\DescriptionModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\DetailsTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\EditItemNumModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\EditItemNumModalPopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\EditItemNumModalPopUp2.PNG" />
+    <Content Include="images\Help\InventoryMaster\EditItemNumModalSaveButt.PNG" />
+    <Content Include="images\Help\InventoryMaster\InitialLoadScreen.PNG" />
+    <Content Include="images\Help\InventoryMaster\ItemNumberDropDown.PNG" />
+    <Content Include="images\Help\InventoryMaster\ItemSetupTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitItemDeletePopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitItemDescriptionModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitItemItemNumberModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitItemsItemNumberDropDown.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitItemsTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\KitTag.PNG" />
+    <Content Include="images\Help\InventoryMaster\LocationsTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\NextItemNumButt.PNG" />
+    <Content Include="images\Help\InventoryMaster\OtherTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\QuarantinePopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\QuarantineShown.PNG" />
+    <Content Include="images\Help\InventoryMaster\QuarIdent.PNG" />
+    <Content Include="images\Help\InventoryMaster\ReelTrackingTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\ScanCodeDeletePopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\ScanCodesTab.PNG" />
+    <Content Include="images\Help\InventoryMaster\ScanTypeModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\UnitOfMeasureModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\UnQuarantinePopUp.PNG" />
+    <Content Include="images\Help\InventoryMaster\UnQuarantineShown.PNG" />
+    <Content Include="images\Help\InventoryMaster\UpdateRTSModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\VelocityCodeModal.PNG" />
+    <Content Include="images\Help\InventoryMaster\WeighScaleTab.PNG" />
+    <Content Include="images\Help\LocationAssignment\counts.PNG" />
+    <Content Include="images\Help\LocationAssignment\InitialScreen.PNG" />
+    <Content Include="images\Help\LocationAssignment\LocAssQuantModal.PNG" />
+    <Content Include="images\Help\LocationAssignment\picks.PNG" />
+    <Content Include="images\Help\LocationAssignment\puts.PNG" />
+    <Content Include="images\Help\Logon\ChangePassButt.PNG" />
+    <Content Include="images\Help\Logon\ChangePasswordModal.PNG" />
+    <Content Include="images\Help\Logon\InitialScreen.PNG" />
+    <Content Include="images\Help\Logon\LogonButt.PNG" />
+    <Content Include="images\Help\ManualTrans\AddNewModal.PNG" />
+    <Content Include="images\Help\ManualTrans\DeletePopUp.PNG" />
+    <Content Include="images\Help\ManualTrans\DescriptionModal.PNG" />
+    <Content Include="images\Help\ManualTrans\InitialScreen.PNG" />
+    <Content Include="images\Help\ManualTrans\ItemDetails.PNG" />
+    <Content Include="images\Help\ManualTrans\LocationSection.PNG" />
+    <Content Include="images\Help\ManualTrans\ModalDeleteButt.PNG" />
+    <Content Include="images\Help\ManualTrans\NotesModal.PNG" />
+    <Content Include="images\Help\ManualTrans\OrderNumberDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\PostDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\SKUModal.PNG" />
+    <Content Include="images\Help\ManualTrans\SKUModalItemNumberDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\SKUModalLocDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\SuppItemIDModal.PNG" />
+    <Content Include="images\Help\ManualTrans\SuppItemIDModalDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\TempManOrderNumScreen.PNG" />
+    <Content Include="images\Help\ManualTrans\TransactionDetailsSection.PNG" />
+    <Content Include="images\Help\ManualTrans\TransTypeDropDown.PNG" />
+    <Content Include="images\Help\ManualTrans\UnitOfMeasureModal.PNG" />
+    <Content Include="images\Help\ManualTrans\UserFieldsModal.PNG" />
+    <Content Include="images\Help\ManualTrans\WarehouseModal.PNG" />
+    <Content Include="images\Help\Modals\uom.PNG" />
+    <Content Include="images\Help\MoveItems\CreateMoveTransButt.PNG" />
+    <Content Include="images\Help\MoveItems\InitialScreen.PNG" />
+    <Content Include="images\Help\MoveItems\LocationDetails.PNG" />
+    <Content Include="images\Help\MoveItems\MoveLocations.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AddButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AddNewDeviceModal.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AddOneButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AdjustLookup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AltLightSett.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\AssignDevWSButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\BrowseButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\BulkHandheldSettings.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\CarLights.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\CFLights.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\CheckButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ClearToteButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ClearTotePop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\CloseButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\CompanyInfo.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DataAuth.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DeleteButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DeleteDropButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DeleteLocZonePop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DelScanVerifyPop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DevicePrefs.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DevPrefTable.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\DisplayLightButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\EditDeviceButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\EditDeviceModal.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\EditDeviceModal2.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\FieldNameMapping.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\GeneralSetup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\InitialScreen.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\InterfaceZone.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\LightTreeSetup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\LocationZones.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\LookListDelPop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\LookListSetup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\LTSetupSec.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ManScanVerifyButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\PodSetupSyst.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ResetAltLightButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ResetButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ResetLightButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SaveButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SaveCloseButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SaveOpenButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ScanVerifyDefModal.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ScanVerifySetup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SendAllSortButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SendLightCommandsButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SendSpinButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SendToteButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SetAllOffButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SetAllOnButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SetupTrayTiltButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SortBarLights.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\StartInterButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\StopInterButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SubOneButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\SystLogicPref.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ToteSetup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\TrashButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\TrayTiltModal.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UncheckButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UpdateAllDevicesButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UpdateAllZoneButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UpdDevPop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UpdShelvesPop.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UpdShelvesZoneButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\UploadButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\User1Lookup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\User2Lookup.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ViewAllButt.PNG" />
+    <Content Include="images\Help\Preferences\SystPrefs\ViewLogoButt.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\AddButt.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\BulkZones.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\CustomApps.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\DeleteButt.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\InactiveCarNo1.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\InactiveCarNo2.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\InactiveCarYes1.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\InactiveCarYes2.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\InitialScreen.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\MiscSettings.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\NoDeleteButt.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\PickLevelDeletePopUp.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\PickLevels.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\PODSetup.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\SaveButt.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\SortBarSetup.PNG" />
+    <Content Include="images\Help\Preferences\WSPrefs\WorkstatSetup.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ClearButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ClosePrevButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ExampleFilter.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ExportButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ExportModal.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ExpressionDropdown.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\FieldDropdown.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\HtmlButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\InitialScreen.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\PdfButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\PreviewButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\PrintButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\PrintPop.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ReportDetail.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ReportDropdown.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ReportFilters.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\RtfButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\TxtButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\ValueDropdown.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\XlsButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\XlsxButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\XmlButt.PNG" />
+    <Content Include="images\Help\Reports\BasicReports\XpsButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\AddButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\AddReportModal.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\CustomReports.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\DeleteButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\DeletePop.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\DeleteReportModal.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\DesignButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\ExportButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\PrintButt.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\ReportDetails.PNG" />
+    <Content Include="images\Help\Reports\CustomReports\ReportsDescription.PNG" />
+    <Content Include="images\Help\SystemReplenishment\sysreplen_current.PNG" />
+    <Content Include="images\Help\SystemReplenishment\sysreplen_landing.PNG" />
+    <Content Include="images\Help\SystemReplenishment\tqty_modal.PNG" />
+    <Content Include="images\Help\Transactions\OpenTransactions\ByStatusDropDown.png" />
+    <Content Include="images\Help\Transactions\OpenTransactions\BytransTypeDropDown.png" />
+    <Content Include="images\Help\Transactions\OpenTransactions\DeleteDropDown.png" />
+    <Content Include="images\Help\Transactions\OpenTransactions\DeletePopUp.PNG" />
+    <Content Include="images\Help\Transactions\OpenTransactions\DeletePopUpByType.PNG" />
+    <Content Include="images\Help\Transactions\OpenTransactions\displayInfo.png" />
+    <Content Include="images\Help\Transactions\OpenTransactions\InitialScreen.png" />
+    <Content Include="images\Help\Transactions\OpenTransactions\OrderNumberTypeAhead.png" />
+    <Content Include="images\Help\Transactions\OrderStatus\clear.png" />
+    <Content Include="images\Help\Transactions\OrderStatus\delete.png" />
+    <Content Include="images\Help\Transactions\OrderStatus\delete_confirm.PNG" />
+    <Content Include="images\Help\Transactions\OrderStatus\OrderStatusHome.PNG" />
+    <Content Include="images\Help\Transactions\OrderStatus\select.png" />
+    <Content Include="images\Help\Transactions\OrderStatus\select_expanded.png" />
+    <Content Include="images\Help\Transactions\OrderStatus\ViewShippingInfo.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\CompMarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\CompUnmarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\DeleteDropDown.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\DeletePopUp.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\DeleteReplenPopUp.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\EditTransModal.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\HistMarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\HistUnmarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\InitialScreen.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\PrintDropDown.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\ReProcMarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\ReProcUnMarkPop.PNG" />
+    <Content Include="images\Help\Transactions\Reprocess\SelTransInfo.PNG" />
+    <Content Include="images\Help\Transactions\TransactionHistory\filters.PNG" />
+    <Content Include="images\Help\Transactions\TransactionHistory\load.png" />
+    <Content Include="Reports\LLDesign\AllTrans.lst" />
+    <Content Include="Reports\LLDesign\BMCountList.lst" />
+    <Content Include="Reports\LLDesign\BMPickList.lst" />
+    <Content Include="Reports\LLDesign\BMPutList.lst" />
+    <Content Include="Reports\LLDesign\Categories.lst" />
+    <Content Include="Reports\LLDesign\AllLocationsCellVelocityCheck.lst" />
+    <Content Include="Reports\LLDesign\AllReports.lst" />
+    <Content Include="Reports\LLDesign\CarouselBatchTimes.lst" />
+    <Content Include="Reports\LLDesign\CMOrderPL.lst" />
+    <Content Include="Reports\LLDesign\CMPackList.lst" />
+    <Content Include="Reports\LLDesign\CMPackList2.lst" />
+    <Content Include="Reports\LLDesign\CMPackListNV.lst" />
+    <Content Include="Reports\LLDesign\CycleCountDetail.lst" />
+    <Content Include="Reports\LLDesign\CycleCountDiscrepancy.lst" />
+    <Content Include="Reports\LLDesign\EmployeeStatsReport.lst" />
+    <Content Include="Reports\LLDesign\EventLogExport.lst" />
+    <Content Include="Reports\LLDesign\IMOCPick.lst" />
+    <Content Include="Reports\LLDesign\IMOCPut.lst" />
+    <Content Include="Reports\LLDesign\IMOrderStatus.lst" />
+    <Content Include="Reports\LLDesign\IMPickList.lst" />
+    <Content Include="Reports\LLDesign\IMPutContents.lst" />
+    <Content Include="Reports\LLDesign\IMPutList.lst" />
+    <Content Include="Reports\LLDesign\IMToteList.lst" />
+    <Content Include="Reports\LLDesign\InventoryDetail.lst" />
+    <Content Include="Reports\LLDesign\InventoryMap.lst" />
+    <Content Include="Reports\LLDesign\InventoryMapWithUserFields.lst" />
+    <Content Include="Reports\LLDesign\InventorySummary.lst" />
+    <Content Include="Reports\LLDesign\ItemQty.lst" />
+    <Content Include="Reports\LLDesign\KitDetail.lst" />
+    <Content Include="Reports\LLDesign\LocAssPickShortage.lst" />
+    <Content Include="Reports\LLDesign\LocationAssignmentReProcess.lst" />
+    <Content Include="Reports\LLDesign\LotNumberCurrentQuantity.lst" />
+    <Content Include="Reports\LLDesign\OnHandValues.lst" />
+    <Content Include="Reports\LLDesign\OpenTransactionsSpreadsheet.lst" />
+    <Content Include="Reports\LLDesign\OrderMan.lst" />
+    <Content Include="Reports\LLDesign\OrderStatusPL.lst" />
+    <Content Include="Reports\LLDesign\PendIngOrders.lst" />
+    <Content Include="Reports\LLDesign\PickCountsByZone.lst" />
+    <Content Include="Reports\LLDesign\LocAssPickShortageFPZ.lst" />
+    <Content Include="Reports\LLDesign\PickShortageReport.lst" />
+    <Content Include="Reports\LLDesign\QuarantinedItems.lst" />
+    <Content Include="Reports\LLDesign\ReelsOutToManufacturing.lst" />
+    <Content Include="Reports\LLDesign\ReleaseOrder.lst" />
+    <Content Include="Reports\LLDesign\ReorderReport.lst" />
+    <Content Include="Reports\LLDesign\ReplenishmentSummary.lst" />
+    <Content Include="Reports\LLDesign\ShipVariance.lst" />
+    <Content Include="Reports\LLDesign\test_page.lst" />
+    <Content Include="Reports\LLDesign\ToteMan.lst" />
+    <Content Include="Reports\LLDesign\ToteReport.lst" />
+    <Content Include="Reports\LLDesign\TransactionHistory.lst" />
+    <Content Include="Reports\LLDesign\TransactionHistorySpreadsheet.lst" />
+    <Content Include="Reports\LLDesign\TransactionRatesSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByCarousel.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByCarouselBinSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByCarouselByOperatorSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByCarouselShelfSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByCarouselSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByEmployee.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByEmployeeSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByZone.lst" />
+    <Content Include="Reports\LLDesign\TransactionsByZoneSummary.lst" />
+    <Content Include="Reports\LLDesign\TransactionsReadyToProcess.lst" />
+    <Content Include="Reports\LLDesign\TransactionsWaitingToBeCleared.lst" />
+    <Content Include="Reports\LLDesign\CycleCount.lst" />
+    <Content Include="Reports\LLDesign\Employees.lst" />
+    <Content Include="Reports\LLDesign\EventLog.lst" />
+    <Content Include="Reports\LLDesign\LocLabel.lbl" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="App_Code\GlobalHTMLHelpers.vbhtml" />
+    <Content Include="Content\jquery.contextMenu.css" />
+    <Content Include="..\dependencies\cmll2100.chm" />
+    <Content Include="..\dependencies\cmll2100.ltpl" />
+    <Content Include="..\dependencies\cmLL2101.chm" />
+    <Content Include="..\dependencies\cmll2101.ltpl" />
+    <Content Include="..\dependencies\cxLL2100.lng" />
+    <Content Include="..\dependencies\cxLL2101.lng" />
+    <Content Include="..\dependencies\cxLL2109.lng" />
+    <Content Include="..\dependencies\cxLL210B.lng" />
+    <Content Include="..\dependencies\cxLL210D.lng" />
+    <Content Include="..\dependencies\cxLL2112.lng" />
+    <Content Include="..\dependencies\cxLL2118.lng" />
+    <Content Include="..\dependencies\cxLL211E.lng" />
+    <Content Include="..\dependencies\cxLL211F.lng" />
+    <Content Include="..\dependencies\cxLL2121.lng" />
+    <Content Include="..\dependencies\cxLL2122.lng" />
+    <Content Include="..\dependencies\cxLL2124.lng" />
+    <Content Include="..\dependencies\cxLL2125.lng" />
+    <Content Include="..\dependencies\cxLL212A.lng" />
+    <Content Include="..\dependencies\cxll21bc.llx" />
+    <Content Include="..\dependencies\cxll21ex.llx" />
+    <Content Include="..\dependencies\cxll21ht.llx" />
+    <Content Include="..\dependencies\Cxll21oc.llx" />
+    <Content Include="..\dependencies\cxLS2100.lng" />
+    <Content Include="..\dependencies\cxLS2101.lng" />
+    <Content Include="..\dependencies\cxLS2109.lng" />
+    <Content Include="..\dependencies\cxLS210B.lng" />
+    <Content Include="..\dependencies\cxLS210D.lng" />
+    <Content Include="..\dependencies\cxLS2112.lng" />
+    <Content Include="..\dependencies\cxLS2118.lng" />
+    <Content Include="..\dependencies\cxLS211E.lng" />
+    <Content Include="..\dependencies\cxLS211F.lng" />
+    <Content Include="..\dependencies\cxLS2121.lng" />
+    <Content Include="..\dependencies\cxLS2122.lng" />
+    <Content Include="..\dependencies\cxLS2124.lng" />
+    <Content Include="..\dependencies\cxLS2125.lng" />
+    <Content Include="..\dependencies\cxLS212A.lng" />
+    <Content Include="..\dependencies\ne_110m_admin_0_countries.dbf" />
+    <Content Include="..\dependencies\ne_110m_admin_0_countries.shp" />
+    <Content Include="..\dependencies\ne_110m_lakes.dbf" />
+    <Content Include="..\dependencies\ne_110m_lakes.shp" />
+    <Content Include="..\dependencies\ne_110m_ocean.dbf" />
+    <Content Include="..\dependencies\ne_110m_ocean.shp" />
+    <Content Include="..\dependencies\ne_50m_admin_0_countries.dbf" />
+    <Content Include="..\dependencies\ne_50m_admin_0_countries.shp" />
+    <Content Include="..\dependencies\ne_50m_lakes.dbf" />
+    <Content Include="..\dependencies\ne_50m_lakes.shp" />
+    <Content Include="..\dependencies\ne_50m_ocean.dbf" />
+    <Content Include="..\dependencies\ne_50m_ocean.shp" />
+    <Content Include="Scripts\GlobalConfig\GCCCSIF.js" />
+    <Content Include="Scripts\GlobalConfig\SQLAuthModalPartial.js" />
+    <Content Include="Scripts\GlobalConfig\STEService.js" />
+    <Content Include="Scripts\Global\autocompleteoff.js" />
+    <Content Include="Scripts\Global\PrinterConfig.js" />
+    <Content Include="Scripts\Global\TestPrint.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
+    <Content Include="Scripts\jquery.numpad.js" />
+    <Content Include="Scripts\ManualTransactions\ManualOrder.js" />
+    <Content Include="Scripts\Modals\PromptModal.js" />
+    <Content Include="Scripts\scotttech.numpad.js" />
+    <Content Include="Scripts\Transaction Journal\Reprocessed.js" />
+    <Content Include="WebDesigner\LL21WebDesignerSetup.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\CertTest.pubxml" />
+    <None Include="My Project\PublishProfiles\PickPro Without List and Label.pubxml" />
+    <None Include="My Project\PublishProfiles\PickProPublish.pubxml" />
+    <None Include="My Project\PublishProfiles\PickProWeb Production.pubxml" />
+    <None Include="My Project\PublishProfiles\Release Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\Web5.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\dataTables.bootstrap.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\sort_desc.png" />
+    <Content Include="Content\PickProCustom.css" />
+    <Content Include="Reports\LLDesign\OrderStatus.lst" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\LLDesign\PrintFunctionsAllGroups.lst" />
+    <Content Include="Reports\LLDesign\PrintFunctionsByGroup.lst" />
+    <Content Include="Reports\LLDesign\ReplenOrder.lst" />
+    <Content Include="Reports\LLDesign\ReplenList.lst" />
+    <Content Include="Reports\LLDesign\ReprocessTransactions.lst" />
+    <Content Include="Reports\LLDesign\TransByDay.lst" />
+    <Content Include="Reports\LLDesign\TransByDaySum.lst" />
+    <Content Include="Reports\LLDesign\TrvBulk.lst" />
+    <Content Include="Reports\LLDesign\TrvBuOrd.lst" />
+    <Content Include="Reports\LLDesign\TrvCar.lst" />
+    <Content Include="Reports\LLDesign\TrvHotPick.lst" />
+    <Content Include="Reports\LLDesign\TrvHotPut.lst" />
+    <Content Include="Reports\LLDesign\UserRange.lst" />
+    <Content Include="Reports\LLDesign\wmLocRanges.lst" />
+    <Content Include="Reports\LLDesign\wmUsers.lst" />
+    <Content Include="Reports\LLDesign\WorkCountOrders.lst" />
+    <Content Include="Reports\LLDesign\WorkPickOrders.lst" />
+    <Content Include="Reports\LLDesign\WorkPutOrders.lst" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\Certificates\Certificates.js" />
+    <Content Include="Scripts\dataTables.bootstrap.js" />
+    <Content Include="Reports\LLDesign\BMPickLabel.lbl" />
+    <Content Include="Reports\LLDesign\BMPutLabel.lbl" />
+    <Content Include="Reports\LLDesign\ManTran.lbl" />
+    <Content Include="Reports\LLDesign\Replen.lbl" />
+    <Content Include="Reports\LLDesign\CPAItem.lbl" />
+    <Content Include="Reports\LLDesign\CPItem.lbl" />
+    <Content Include="Reports\LLDesign\CPTote.lbl" />
+    <Content Include="Reports\LLDesign\HPAItem.lbl" />
+    <Content Include="Reports\LLDesign\HPItem.lbl" />
+    <Content Include="Reports\LLDesign\OCPItem.lbl" />
+    <Content Include="Reports\LLDesign\BMTote.lbl" />
+    <Content Include="Reports\LLDesign\test_label.lbl" />
+    <Content Include="Scripts\Event Log\EventLog.js" />
+    <Content Include="Scripts\Event Log\EventLogDetailModal.js" />
+    <Content Include="Scripts\Event Log\EventLogFilters.js" />
+    <Content Include="Scripts\Event Log\EventLogHub.js" />
+    <Content Include="Scripts\Event Log\EventLogShortcuts.js" />
+    <Content Include="Scripts\FilterMenu\FilterMenu.js" />
+    <Content Include="Scripts\FilterMenu\FilterMenuNonTable.js" />
+    <Content Include="Scripts\FilterMenu\jquery.contextMenu.js" />
+    <Content Include="Scripts\FilterMenu\MultiLinePaging.js" />
+    <Content Include="Scripts\GlobalConfig\AppLicense.js" />
+    <Content Include="Scripts\GlobalConfig\GCTestPrint.js" />
+    <Content Include="Scripts\GlobalConfig\General.js" />
+    <Content Include="Scripts\GlobalConfig\PrintServiceTestModal.js" />
+    <Content Include="Scripts\Global\BarcodeScanner.js" />
+    <Content Include="Scripts\Global\IdleTimer.js" />
+    <Content Include="Scripts\Global\KeyOverride.js" />
+    <Content Include="Scripts\GlobalConfig\ConnectedUsers.js" />
+    <Content Include="Scripts\GlobalConfig\GCPrintService.js" />
+    <Content Include="Scripts\GlobalConfig\Connections.js" />
+    <Content Include="Scripts\GlobalConfig\GlobalConfigPrinters.js" />
+    <Content Include="Scripts\GlobalConfig\Logon.js" />
+    <Content Include="Scripts\Global\GlobalHub.js" />
+    <Content Include="Scripts\Global\GlobalPostInitialization.js" />
+    <Content Include="Scripts\Global\LLPreviewModal.js" />
+    <Content Include="Scripts\Global\MessageModal.js" />
+    <Content Include="Scripts\Help\DataTablesExample.js" />
+    <Content Include="Scripts\Help\SharedHelp.js" />
+    <Content Include="Scripts\Help\ModalExample.js" />
+    <Content Include="Scripts\Help\STPagingExample.js" />
+    <Content Include="Scripts\Help\TypeaheadExample.js" />
+    <Content Include="Scripts\handlebars.js" />
+    <Content Include="Reports\LLDesign\CMItem.lbl" />
+    <Content Include="Reports\LLDesign\CMContID.lbl" />
+    <Content Include="Scripts\FilterMenu\jquery.ui.position.js" />
+    <Content Include="Reports\LLDesign\IMCDItem.lbl" />
+    <Content Include="Reports\LLDesign\IMCDTote.lbl" />
+    <Content Include="Reports\LLDesign\IMInvMap.lbl" />
+    <Content Include="Reports\LLDesign\IMLocLabel.lbl" />
+    <Content Include="Reports\LLDesign\IMManTrans.lbl" />
+    <Content Include="Reports\LLDesign\IMPALabel.lbl" />
+    <Content Include="Reports\LLDesign\IMPickItem.lbl" />
+    <Content Include="Reports\LLDesign\IMPickTote.lbl" />
+    <Content Include="Reports\LLDesign\IMPutLoc.lbl" />
+    <Content Include="Reports\LLDesign\IMPutTote.lbl" />
+    <Content Include="Reports\LLDesign\IMReelLabel.lbl" />
+    <Content Include="Reports\LLDesign\IMToteLabel.lbl" />
+    <Content Include="Reports\LLDesign\CountLabel.lbl" />
+    <Content Include="Reports\LLDesign\PickLabel.lbl" />
+    <Content Include="Reports\LLDesign\PickToteLabel.lbl" />
+    <Content Include="Reports\LLDesign\PutLabel.lbl" />
+    <Content Include="Reports\LLDesign\PutToteLabel.lbl" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\Inventory Master\InventoryMaster.js" />
+    <Content Include="Scripts\Inventory Master\InventoryMasterHub.js" />
+    <Content Include="Scripts\Inventory Master\InventoryMasterModals.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterFilters.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterItemSetup.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterKitItems.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterSave.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterScanCodes.js" />
+    <Content Include="Scripts\Inventory Master\InvMasterShortcuts.js" />
+    <Content Include="Scripts\Inventory Master\UpdateItemNumModal.js" />
+    <Content Include="Scripts\InventoryMap\InventoryMap.js" />
+    <Content Include="Scripts\InventoryMap\InvMapDataTable.js" />
+    <Content Include="Scripts\InventoryMap\InvMapFilters.js" />
+    <Content Include="Scripts\InventoryMap\InvMapTypeaheads.js" />
+    <Content Include="Scripts\InventoryMap\ItemQtyModal.js" />
+    <Content Include="Scripts\InventoryMap\PrintModal.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-sortable.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\Logon\Logon.js" />
+    <Content Include="Scripts\ManualTransactions\AddNewModal.js" />
+    <Content Include="Scripts\ManualTransactions\ItemLocationModal.js" />
+    <Content Include="Scripts\ManualTransactions\ManualTransactions.js" />
+    <Content Include="Scripts\ManualTransactions\ManualTransactionsHub.js" />
+    <Content Include="Scripts\Menu\Menu.js" />
+    <Content Include="Scripts\Menu\MenuHub.js" />
+    <Content Include="Scripts\Menu\MenuKeyShortcuts.js" />
+    <Content Include="Scripts\Modals\CategoryModal.js" />
+    <Content Include="Scripts\Modals\CellSizeModal.js" />
+    <Content Include="Scripts\Modals\DescriptionModal.js" />
+    <Content Include="Scripts\Modals\FieldMapModal.js" />
+    <Content Include="Scripts\Modals\GlobalModal.js" />
+    <Content Include="Scripts\Modals\ItemNumberModal.js" />
+    <Content Include="Scripts\Modals\ItemQtyModal.js" />
+    <Content Include="Scripts\Modals\LocationModal.js" />
+    <Content Include="Scripts\Myo\myo.js" />
+    <Content Include="Scripts\Modals\NotesModal.js" />
+    <Content Include="Scripts\Modals\PrintModal.js" />
+    <Content Include="Scripts\Modals\ScanCodeModal.js" />
+    <Content Include="Scripts\Modals\SupplierItemIDModal.js" />
+    <Content Include="Scripts\Modals\UnitOfMeasureModal.js" />
+    <Content Include="Scripts\Modals\UserFieldsModal.js" />
+    <Content Include="Scripts\Modals\VelocityCodeModal.js" />
+    <Content Include="Scripts\Modals\WarehouseModal.js" />
+    <Content Include="Scripts\Reports\AddNewDesign.js" />
+    <Content Include="Scripts\Reports\BasicReports.js" />
+    <Content Include="Scripts\Reports\BasicReportsTypeAhead.js" />
+    <Content Include="Scripts\Reports\ComplexReports.js" />
+    <Content Include="Scripts\Reports\DeleteReport.js" />
+    <Content Include="Scripts\Reports\ReportsHub.js" />
+    <Content Include="Scripts\toggles.min.js" />
+    <Content Include="Scripts\Transaction Journal\keyShortcutsTransactions.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\Transaction Journal\openTransactions.js" />
+    <Content Include="Scripts\Transaction Journal\OpenTransactionsHub.js" />
+    <Content Include="Scripts\Transaction Journal\OpenTransFilters.js" />
+    <Content Include="Scripts\Transaction Journal\OrderStatFilters.js" />
+    <Content Include="Scripts\Transaction Journal\orderStatus.js" />
+    <Content Include="Scripts\Transaction Journal\OrderStatusHub.js" />
+    <Content Include="Scripts\Transaction Journal\PriorityModal.js" />
+    <Content Include="Scripts\Transaction Journal\Reprocess\ReprocessModal.js" />
+    <Content Include="Scripts\Transaction Journal\Reprocess\ReprocessTransactions.js" />
+    <Content Include="Scripts\Transaction Journal\rightClickDeleteOT.js" />
+    <Content Include="Scripts\Transaction Journal\transactionHistory.js" />
+    <Content Include="Scripts\Transaction Journal\Transactions.js" />
+    <Content Include="Scripts\Transaction Journal\TransHistFilters.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\uploader\jquery.form.js" />
+    <Content Include="Scripts\uploader\jquery.uploadfile.js" />
+    <Content Include="Scripts\UserRightsCheck\ll19webcheck.exe" />
+    <Content Include="Scripts\UserRightsCheck\readme.txt" />
+    <Content Include="Scripts\ViewShippingInfo\ViewShippingInfo.js" />
+    <Content Include="Views\Transactions\Index.vbhtml" />
+    <Content Include="Views\Transactions\OrderStatusPartial.vbhtml" />
+    <Content Include="Views\Transactions\OpenTransPartial.vbhtml" />
+    <Content Include="Views\Transactions\TransHistoryPartial.vbhtml" />
+    <Content Include="Views\Logon\Index.vbhtml" />
+    <Content Include="Views\Help\Index.vbhtml" />
+    <Content Include="Views\Help\Transactions\OrderStatusPartial.vbhtml" />
+    <Content Include="Views\Help\Transactions\TransactionsPartial.vbhtml" />
+    <Content Include="Views\Help\Transactions\OpenTransactionsPartial.vbhtml" />
+    <Content Include="Views\Help\Transactions\TransactionHistoryPartial.vbhtml" />
+    <Content Include="Views\Help\Transactions\TransPartial.vbhtml" />
+    <Content Include="Views\Help\Transactions\ReprocessPartial.vbhtml" />
+    <Content Include="Views\Help\EventLogPartial.vbhtml" />
+    <Content Include="Views\Help\InventoryMapPartial.vbhtml" />
+    <Content Include="Views\Help\HelpPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\UnitOfMeasureModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\DescriptionModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\NotesModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\CategoryModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\VelocityCodeModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\WarehouseModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\LocationsModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\UserFieldsModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\PrintModalPartial.vbhtml" />
+    <Content Include="Views\Help\InventoryMasterPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\CellSizeModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\ItemNumberModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\SupplierItemIDModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\ItemQuantityModalPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\ScanCodeModalPartial.vbhtml" />
+    <Content Include="Views\Help\LogonPartial.vbhtml" />
+    <Content Include="Views\ModalPartials\EmergencyOrdersModalPartial.vbhtml" />
+    <Content Include="Views\Help\EmployeesPartial.vbhtml" />
+    <Content Include="Views\Transactions\ReprocessTransPartial.vbhtml" />
+    <Content Include="Views\Transactions\ReprocessModalPartial.vbhtml" />
+    <Content Include="Views\Help\ManualTransPartial.vbhtml" />
+    <Content Include="Views\Help\Plugins\TypeaheadPartial.vbhtml" />
+    <Content Include="Views\Help\Plugins\DataTablePartial.vbhtml" />
+    <Content Include="Views\Help\Plugins\ModalPartial.vbhtml" />
+    <Content Include="Views\Help\HoldTransPartial.vbhtml" />
+    <Content Include="Views\Help\DeAllocatePartial.vbhtml" />
+    <Content Include="Views\Help\Preferences\PreferencesPartial.vbhtml" />
+    <Content Include="Views\Help\Preferences\WSPrefsPartial.vbhtml" />
+    <Content Include="Views\Help\Preferences\SystPrefsPartial.vbhtml" />
+    <Content Include="Views\GlobalConfig\Index.vbhtml" />
+    <Content Include="Views\GlobalConfig\Menu.vbhtml" />
+    <Content Include="Views\Help\SystemReplenishment\SysReplenNew.vbhtml" />
+    <Content Include="Views\Help\SystemReplenishment\SysReplenCurrent.vbhtml" />
+    <Content Include="Views\Help\SystemReplenishment\SystemReplenishmentPartial.vbhtml" />
+    <Content Include="Views\Help\BatchManager\BatchManager.vbhtml" />
+    <Content Include="Views\Help\BatchManager\SBMPartial.vbhtml" />
+    <Content Include="Views\Help\BatchManager\BMPartial.vbhtml" />
+    <Content Include="Views\CustomReports\Index.vbhtml" />
+    <Content Include="Views\CustomReports\BasicReports.vbhtml" />
+    <Content Include="Views\CustomReports\_LLViewer.vbhtml" />
+    <Content Include="Views\CustomReports\_LLDesigner.vbhtml" />
+    <Content Include="Views\CustomReports\DesignReports.vbhtml" />
+    <Content Include="Views\CustomReports\TestDataPartial.vbhtml" />
+    <Content Include="Views\CustomReports\ExportTypePartial.vbhtml" />
+    <Content Include="Views\CustomReports\NewReportDesignPartial.vbhtml" />
+    <Content Include="Views\CustomReports\DeleteReportModalPartial.vbhtml" />
+    <Content Include="Views\Certificates\Index.vbhtml" />
+    <Content Include="Views\Help\CustomReports\CustomReports.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCOverview.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCHome.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCConnectionSetup.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCPrinterSetup.vbhtml" />
+    <Content Include="Views\Transactions\MultiDateModalPartial.vbhtml" />
+    <Content Include="Views\Shared\MessageModal.vbhtml" />
+    <Content Include="Views\ModalPartials\LocAssCountModal.vbhtml" />
+    <Content Include="Views\ModalPartials\ImportFieldMapModal.vbhtml" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Menu\Index.vbhtml" />
+    <Content Include="Views\ViewShippingInfo\Index.vbhtml" />
+    <Content Include="Views\InventoryMap\Index.vbhtml" />
+    <Content Include="Views\InventoryMap\InvMapModal.vbhtml" />
+    <Content Include="Views\InventoryMap\ItemQuantityModalPartial.vbhtml" />
+    <Content Include="Views\InventoryMap\PrintModal.vbhtml" />
+    <Content Include="Views\Help\LocationAssignmentPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\Index.vbhtml" />
+    <Content Include="Views\InventoryMaster\InvLocationsPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\ItemOptionsPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\ItemSetupPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\KitItemsPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\OtherPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\ReelTrackingPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\ScanCodesPartial.vbhtml" />
+    <Content Include="Views\InventoryMaster\WeighScalePartial.vbhtml" />
+    <Content Include="Views\EventLog\EventLogDetailModal.vbhtml" />
+    <Content Include="Views\EventLog\Index.vbhtml" />
+    <Content Include="Views\Transactions\UpdatePriorityModal.vbhtml" />
+    <Content Include="Views\InventoryMaster\UpdateItemNumModal.vbhtml" />
+    <Content Include="Views\Shared\LLPreviewModal.vbhtml" />
+    <Content Include="Views\ManualTransactions\AddNewModalPartial.vbhtml" />
+    <Content Include="Views\ManualTransactions\Index.vbhtml" />
+    <Content Include="Views\ManualTransactions\ItemNumberLocationModalPartial.vbhtml" />
+    <Content Include="Views\GlobalConfig\TestPrintServiceModal.vbhtml" />
+    <Content Include="Views\Help\Plugins\STPaging.vbhtml" />
+    <Content Include="serverLicense.wsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\CustomReports\_LLViewWriter.vbhtml" />
+    <Content Include="Views\Help\ColumnSequence.vbhtml" />
+    <Content Include="Views\Help\Plugins\DatePickers.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCLicensing.vbhtml" />
+    <Content Include="Views\Help\GlobalConfig\GCWSApps.vbhtml" />
+    <Content Include="Views\Help\CycleCount\CycleCount.vbhtml" />
+    <Content Include="Views\Help\CycleCount\CycleCountBatch.vbhtml" />
+    <Content Include="Views\Help\CycleCount\Wrapper.vbhtml" />
+    <Content Include="Views\Shared\PromptModal.vbhtml" />
+    <Content Include="Views\Shared\PrintConfigModal.vbhtml" />
+    <Content Include="Views\_PPWEBLayout.vbhtml" />
+    <Content Include="Views\Transactions\ReprocessedTransPartial.vbhtml" />
+    <Content Include="Views\Help\MoveItemsPartial.vbhtml" />
+    <Content Include="Views\ManualTransactions\GenOrderTransPartial.vbhtml" />
+    <Content Include="Views\GlobalConfig\SQLAuthModalPartial.vbhtml" />
+    <None Include="Web.Test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Views\Shared\Error.vbhtml" />
+    <Content Include="Views\Shared\_Layout.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Content\themes\base\minified\images\" />
+    <Folder Include="Views\Print\" />
+    <Folder Include="Views\Typeahead\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PickPro Web.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61627/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

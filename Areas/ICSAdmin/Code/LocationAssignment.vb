@@ -32,8 +32,8 @@ Namespace Admin
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Location Assignment", "getLocAssCountTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Location Assignment", "getLocAssCountTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -124,8 +124,8 @@ Namespace Admin
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Location Assignment", "getLocAssPickTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Location Assignment", "getLocAssPickTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -160,8 +160,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Location Assignment", "getLocAssPutAwayTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Location Assignment", "getLocAssPutAwayTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -191,7 +191,7 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                insertErrorMessages("Location Assignment", "getLocAssCountData", ex.Message, User, WSID)
+                insertErrorMessages("Location Assignment", "getLocAssCountData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -214,7 +214,7 @@ Namespace Admin
 
                 Return sysPref
             Catch ex As Exception
-                insertErrorMessages("IE", "GetPreferences", counter & " " & ex.Message, "IEPref", wsid)
+                insertErrorMessages("IE", "GetPreferences", counter & " " & ex.ToString(), "IEPref", wsid)
                 Throw
             End Try
         End Function

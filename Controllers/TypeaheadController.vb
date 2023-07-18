@@ -101,8 +101,8 @@ Public Class TypeaheadController
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("TypeaheadController", "getAdjustmentReasons", ex.Message, User.Identity.Name, Session("WSID"))
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("TypeaheadController", "getAdjustmentReasons", ex.ToString(), User.Identity.Name, Session("WSID"))
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()

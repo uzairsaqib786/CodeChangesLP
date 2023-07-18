@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     function setOffline() {
         $('#STEStatus').css({ color: 'red' }).html('Offline');
-        $('#STEServiceToggle').text('Start Print Service').removeClass('btn-danger').addClass('btn-primary').removeAttr('disabled');
+        $('#STEServiceToggle').text('Start STE Service').removeClass('btn-danger').addClass('btn-primary').removeAttr('disabled');
         $('#STERestartService').attr('disabled', 'disabled');
     };
 });

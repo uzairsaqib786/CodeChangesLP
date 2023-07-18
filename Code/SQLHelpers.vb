@@ -37,8 +37,8 @@ Public Module SQLHelpers
                     mapList.Add(rowMap)
                 End While
             Catch ex As Exception
-                Debug.WriteLine("GetResultMapList " & spName & " error: " & ex.Message)
-                insertErrorMessages("SQLHelpers", "GetResultMapList", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+                Debug.WriteLine("GetResultMapList " & spName & " error: " & ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetResultMapList", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
             Finally
                 dataReader.Close()
             End Try
@@ -86,8 +86,8 @@ Public Module SQLHelpers
                 End While
 
             Catch ex As Exception
-                Debug.WriteLine("GetResultListMultiDataSetSingle " & spName & " error: " & ex.Message)
-                insertErrorMessages("SQLHelpers", "GetResultListMultiDataSetSingle", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+                Debug.WriteLine("GetResultListMultiDataSetSingle " & spName & " error: " & ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetResultListMultiDataSetSingle", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
             Finally
                 dataReader.Close()
             End Try
@@ -131,8 +131,8 @@ Public Module SQLHelpers
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine("GetResultMap " & spName & " error: " & ex.Message)
-                insertErrorMessages("SQLHelpers", "GetResultMap", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+                Debug.WriteLine("GetResultMap " & spName & " error: " & ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetResultMap", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
             Finally
                 dataReader.Close()
             End Try
@@ -172,8 +172,8 @@ Public Module SQLHelpers
                 End While
 
             Catch ex As Exception
-                Debug.WriteLine("GetResultList " & spName & " error: " & ex.Message)
-                insertErrorMessages("SQLHelpers", "GetResultList", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+                Debug.WriteLine("GetResultList " & spName & " error: " & ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetResultList", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
             Finally
                 dataReader.Close()
             End Try
@@ -197,8 +197,8 @@ Public Module SQLHelpers
                 ret = dataReader.Item(0)
             End If
         Catch ex As Exception
-            Debug.WriteLine("GetResultSingleCol " & spName & " error: " & ex.Message)
-            insertErrorMessages("SQLHelpers", "GetResultSingleCol", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+            Debug.WriteLine("GetResultSingleCol " & spName & " error: " & ex.ToString())
+            insertErrorMessages("SQLHelpers", "GetResultSingleCol", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
         Finally
             If dataReader IsNot Nothing Then
                 dataReader.Close()
@@ -255,8 +255,8 @@ Public Module SQLHelpers
                     dataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine("GetResultMapList " & spName & " error: " & ex.Message)
-                insertErrorMessages("SQLHelpers", "GetResultMapList", "SP: " & spName & " Message: " & ex.Message, "SQLHelpers", wsid)
+                Debug.WriteLine("GetResultMapList " & spName & " error: " & ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetResultMapList", "SP: " & spName & " Message: " & ex.ToString(), "SQLHelpers", wsid)
             Finally
                 dataReader.Close()
             End Try
@@ -349,8 +349,8 @@ Public Module SQLHelpers
                     End If
                 Next
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SQLHelpers", "GetJQueryDataTableResult", ex.Message, user, wsid)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SQLHelpers", "GetJQueryDataTableResult", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(datareader) Then datareader.Dispose()
             End Try

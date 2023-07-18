@@ -83,8 +83,8 @@ Namespace WorkManager.Controllers
                     End If
                 Next
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWorkController", "GetTransDetailTable", ex.Message, User.Identity.Name, Session("WSID"))
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWorkController", "GetTransDetailTable", ex.ToString(), User.Identity.Name, Session("WSID"))
             End Try
             Return Json(details, JsonRequestBehavior.AllowGet)
         End Function
@@ -121,8 +121,8 @@ Namespace WorkManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWorkController", "PrintWMWorkList", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWorkController", "PrintWMWorkList", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -160,8 +160,8 @@ Namespace WorkManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWorkController", "PrintWMItemLabel", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWorkController", "PrintWMItemLabel", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
@@ -197,8 +197,8 @@ Namespace WorkManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("SelectWorkController", "PrintWMToteLabel", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("SelectWorkController", "PrintWMToteLabel", ex.ToString(), username, WSID)
                 Return False
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)

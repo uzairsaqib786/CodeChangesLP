@@ -126,8 +126,8 @@ Namespace Induction
                                         End If
                                     End If
                                 Catch ex As Exception
-                                    Debug.Print(ex.Message)
-                                    insertErrorMessages("InductionLocAss", "AssignPutAwayLocations: dynreader", ex.Message, user, WSID)
+                                    Debug.Print(ex.ToString())
+                                    insertErrorMessages("InductionLocAss", "AssignPutAwayLocations: dynreader", ex.ToString(), user, WSID)
                                     location.Success = False
                                     location.Message = ex.Message
                                     result = LocationFound.ErrorThrown
@@ -155,8 +155,8 @@ Namespace Induction
 
                                             RunActionSP("updIMNewLocMachineName", WSID, {{"@Item", WSID & "-IM", strVar}, {"@rt", CastAsSqlBool(isReel), intVar}, {"@InvMapID", reader("Inv Map ID"), strVar}})
                                         Catch ex As Exception
-                                            Debug.Print(ex.Message)
-                                            insertErrorMessages("InductionLocAss", "AssignPutAwayLocation: updIMNewLocMachineName", ex.Message, user, WSID)
+                                            Debug.Print(ex.ToString())
+                                            insertErrorMessages("InductionLocAss", "AssignPutAwayLocation: updIMNewLocMachineName", ex.ToString(), user, WSID)
                                             result = LocationFound.ErrorThrown
                                         End Try
                                         If result = LocationFound.ErrorThrown Then Return location
@@ -202,7 +202,7 @@ Namespace Induction
                             End While
                         End If
                     Catch ex As Exception
-                        Debug.Print(ex.Message)
+                        Debug.Print(ex.ToString())
                         insertErrorMessages("InductionLocAss", "AssignPutAwayLocation: For v", ex.ToString(), user, WSID)
                         location.Success = False
                         location.Message = ex.Message
@@ -247,8 +247,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("InductionLocAss", "CFBulkExist", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("InductionLocAss", "CFBulkExist", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -270,8 +270,8 @@ Namespace Induction
             Try
                 RunActionSP("updIMUnreserve", WSID, {{"@WSID", WSID, strVar}, {"@Zone", zone, strVar}, {"@Dedicate", CastAsSqlBool(dedicate), intVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("InductionLocAss", "ClearReservedNotComplete", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("InductionLocAss", "ClearReservedNotComplete", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -316,8 +316,8 @@ Namespace Induction
                     locs.Add("carton flow")
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("InductionLocAss", "GetLocTypes", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("InductionLocAss", "GetLocTypes", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -355,8 +355,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("InductionLocAss", "GetMapMax", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("InductionLocAss", "GetMapMax", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()

@@ -47,8 +47,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "selectIMPreferences", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "selectIMPreferences", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -82,8 +82,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "selectRTSUserFieldData", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "selectRTSUserFieldData", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -112,8 +112,8 @@ Namespace Induction
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("Preferences", "selectReelLogic", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("Preferences", "selectReelLogic", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()

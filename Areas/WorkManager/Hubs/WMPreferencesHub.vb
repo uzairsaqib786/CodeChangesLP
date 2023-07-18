@@ -30,8 +30,8 @@ Public Class WMPreferencesHub
                                                                                            {"@WSID", WSID, strVar},
                                                                                             {"@PrintDirect", printDirect, intVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("WMPreferencesHub", "SaveGeneralSettings", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("WMPreferencesHub", "SaveGeneralSettings", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -59,7 +59,7 @@ Public Class WMPreferencesHub
                                                                                                                                 {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "SaveGeneralSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "SaveGeneralSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success
@@ -86,7 +86,7 @@ Public Class WMPreferencesHub
                                                         End If
                                                     Catch ex As Exception
                                                         res = "Error"
-                                                        insertErrorMessages("WMPreferencesHub", "verifyLocationRangeName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("WMPreferencesHub", "verifyLocationRangeName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
                                                             DataReader.Dispose()
@@ -129,7 +129,7 @@ Public Class WMPreferencesHub
 
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "vupdateLocationRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "vupdateLocationRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
 
@@ -163,8 +163,8 @@ Public Class WMPreferencesHub
                                                                                         {"@CountAllow", counts(0), intVar}, {"@CountBatch", counts(1), intVar}, {"@CountDefault", counts(2), intVar},
                                                                                         {"@CountMax", counts(3), intVar}, {"@CountLines", counts(4), intVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("WMPreferencesHub", "SaveWMUser", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("WMPreferencesHub", "SaveWMUser", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -195,8 +195,8 @@ Public Class WMPreferencesHub
                                                      Try
                                                          RunActionSP("delWMUser", WSID, {{"@User", username, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("WMPreferencesHub", "RemoveWorker", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("WMPreferencesHub", "RemoveWorker", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -218,8 +218,8 @@ Public Class WMPreferencesHub
                                                      Try
                                                          RunActionSP("wmClearWorkers", WSID, {{"@Username", username, strVar}, {"@PickClear", pick, intVar}, {"@PutClear", put, intVar}, {"@CountClear", count, intVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("WMPreferencesHub", "ClearBatches", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("WMPreferencesHub", "ClearBatches", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -256,7 +256,7 @@ Public Class WMPreferencesHub
                                                                                                                              {"@Active", act, intVar}})
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "createLocationRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "createLocationRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success
@@ -276,7 +276,7 @@ Public Class WMPreferencesHub
                                                          RunActionSP("updWMLocationRangesRefresh", Context.QueryString.Get("WSID"), {{"nothing"}})
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "refreshLocationRanges", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "refreshLocationRanges", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
                                                      Return success
                                                  End Function)
@@ -340,7 +340,7 @@ Public Class WMPreferencesHub
 
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "updateUserRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "updateUserRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success
@@ -368,7 +368,7 @@ Public Class WMPreferencesHub
 
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "insertWMUserRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "insertWMUserRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success
@@ -389,7 +389,7 @@ Public Class WMPreferencesHub
                                                          RunActionSP("delWMUserRanges", Context.QueryString.Get("WSID"), {{"@ID", ID, intVar}})
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("WMPreferencesHub", "deleteWorkerRange", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("WMPreferencesHub", "deleteWorkerRange", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success

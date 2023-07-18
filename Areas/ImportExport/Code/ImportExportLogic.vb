@@ -50,7 +50,7 @@ Namespace ImportExport
 
                 Return ret
             Catch ex As Exception
-                insertErrorMessages("IE", "GetPreferences", counter & " " & ex.Message, "IEPref", wsid)
+                insertErrorMessages("IE", "GetPreferences", counter & " " & ex.ToString(), "IEPref", wsid)
                 Throw
             End Try
         End Function

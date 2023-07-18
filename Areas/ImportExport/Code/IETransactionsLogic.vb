@@ -47,8 +47,8 @@ Namespace ImportExport
                                                 {{"@Table", table, strVar}, {"@SDate", sDate, dteVar}, {"@EDate", eDate, dteVar}, {"@SRow", sRow, intVar}, {"@ERow", eRow, intVar},
                                                  {"@PluginWhere", pluginWhere, strVar}, {"@SortCol", column, strVar}, {"@SortOrder", sortOrder, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("IETransactionsLogic", "GetIETransactions", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("IETransactionsLogic", "GetIETransactions", ex.ToString(), user, WSID)
             End Try
             Return data
         End Function
@@ -65,8 +65,8 @@ Namespace ImportExport
             Try
                 result = CheckDBNull(GetResultSingleCol("selIETransMinDate", "IE", {{"@Table", table, strVar}}))
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("IETransactionsLogic", "GetIETransMinDate", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("IETransactionsLogic", "GetIETransMinDate", ex.ToString(), user, WSID)
             End Try
             If result = "" Then result = Now.ToString("MM/dd/yyyy")
             Return result
@@ -83,8 +83,8 @@ Namespace ImportExport
             Try
                 RunActionSP("delIETransactions", "IE", {{"@Table", table, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("IETransactionsLogic", "DeleteTransactions", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("IETransactionsLogic", "DeleteTransactions", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True

@@ -71,7 +71,7 @@ Public Class OrganizeWorkHub
                                                                                                                                {"@Time", Time, intVar}})
                                                      Catch ex As Exception
                                                          success = False
-                                                         insertErrorMessages("OrganizeWorkHub", "SaveGeneralSettings", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                         insertErrorMessages("OrganizeWorkHub", "SaveGeneralSettings", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                      End Try
 
                                                      Return success

@@ -101,7 +101,7 @@ Namespace Controllers
                 RunSPArray("updUser", "CONFIG", {{"@Username", username, strVar}, {"@Password", password, strVar}})
             Catch ex As Exception
                 Debug.WriteLine("Error Occured when updating User Account")
-                insertErrorMessages("GlobalConfig", "Update Config User", ex.Message, "GlobalConfig", Session("WSID"))
+                insertErrorMessages("GlobalConfig", "Update Config User", ex.ToString(), "GlobalConfig", Session("WSID"))
             End Try
             Return RedirectToAction("Index")
         End Function

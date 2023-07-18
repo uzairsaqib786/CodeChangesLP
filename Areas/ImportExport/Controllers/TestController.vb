@@ -43,8 +43,8 @@ Namespace ImportExport.Controllers
                         End While
                     End If
                 Catch ex As Exception
-                    Debug.WriteLine(ex.Message)
-                    insertErrorMessages("GenerateCert", "checkPCName", ex.Message, "", "")
+                    Debug.WriteLine(ex.ToString())
+                    insertErrorMessages("GenerateCert", "checkPCName", ex.ToString(), "", "")
                 Finally
                     If Not IsNothing(Datareader) Then
                         Datareader.Dispose()

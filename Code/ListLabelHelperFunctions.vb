@@ -74,8 +74,8 @@ Public Class ListLabelHelperFunctions
                             Catch unauthorizedEx As UnauthorizedAccessException
                                 ' can't delete it, but don't care (executable, readonly, no access rights, etc.)
                             Catch ex As Exception
-                                Debug.WriteLine(ex.Message)
-                                insertErrorMessages("ListLabelExtension/HtmlHelperExtensions", "DeleteDesigns", ex.Message, "System Timer", "System")
+                                Debug.WriteLine(ex.ToString())
+                                insertErrorMessages("ListLabelExtension/HtmlHelperExtensions", "DeleteDesigns", ex.ToString(), "System Timer", "System")
                             End Try
                         End If
                     Next
@@ -89,8 +89,8 @@ Public Class ListLabelHelperFunctions
                             Catch unauthorizedEx As UnauthorizedAccessException
                                 ' can't delete it, but don't care (executable, readonly, no access rights, etc.)
                             Catch ex As Exception
-                                Debug.WriteLine(ex.Message)
-                                insertErrorMessages("ListLabelExtension/HtmlHelperExtensions", "DeleteDesigns", ex.Message, "System Timer", "System")
+                                Debug.WriteLine(ex.ToString())
+                                insertErrorMessages("ListLabelExtension/HtmlHelperExtensions", "DeleteDesigns", ex.ToString(), "System Timer", "System")
                             End Try
                         End If
                     Next
@@ -99,8 +99,8 @@ Public Class ListLabelHelperFunctions
                 IO.Directory.CreateDirectory(path)
             End If
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("HtmlHelperExtenions", "DeleteDesigns", ex.Message, "", "")
+            Debug.Print(ex.ToString())
+            insertErrorMessages("HtmlHelperExtenions", "DeleteDesigns", ex.ToString(), "", "")
         End Try
     End Sub
 
@@ -143,8 +143,8 @@ Public Class ListLabelHelperFunctions
                     End If
                 End With
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("Global.asax.vb", "Services_OnListLabelRequest", ex.Message, model.User, model.WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("Global.asax.vb", "Services_OnListLabelRequest", ex.ToString(), model.User, model.WSID)
             End Try
             e.NewInstance = _LL
             e.ExportPath = model.ExportPath

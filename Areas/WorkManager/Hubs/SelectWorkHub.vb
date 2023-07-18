@@ -31,8 +31,8 @@ Public Class SelectWorkHub
                                                      Try
                                                          RunActionSP("updWMClearBatch", WSID, {{"@Batches", batches, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("SelectWorkHub", "ClearBatches", ex.Message, user, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("SelectWorkHub", "ClearBatches", ex.ToString(), user, WSID)
                                                          Return False
                                                      End Try
                                                      Return True
@@ -52,8 +52,8 @@ Public Class SelectWorkHub
                                                      Try
                                                          RunActionSP("updWMAssignBatchesToUser", WSID, {{"@User", selectedUser, strVar}, {"@Batches", batchStr, strVar}})
                                                      Catch ex As Exception
-                                                         Debug.Print(ex.Message)
-                                                         insertErrorMessages("SelectWorkHub", "AssignBatchToUser", ex.Message, username, WSID)
+                                                         Debug.Print(ex.ToString())
+                                                         insertErrorMessages("SelectWorkHub", "AssignBatchToUser", ex.ToString(), username, WSID)
                                                          Return False
                                                      End Try
                                                      Return True

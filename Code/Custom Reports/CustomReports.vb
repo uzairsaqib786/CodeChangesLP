@@ -23,8 +23,8 @@ Public Class CustomReports
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReports", "getReportNames", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReports", "getReportNames", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()
@@ -53,8 +53,8 @@ Public Class CustomReports
                 Next
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReportsHub", "getSelectedReportData", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReportsHub", "getSelectedReportData", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then reader.Dispose()
         End Try
@@ -80,8 +80,8 @@ Public Class CustomReports
 
             Return getDataReadersKnownColumns(reader)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReports", "getReportFields", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReports", "getReportFields", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then reader.Dispose()
         End Try
@@ -347,8 +347,8 @@ Public Class CustomReports
                 numRecords = 0
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReports", "chooseView", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReports", "chooseView", ex.ToString(), user, WSID)
         End Try
 
         Return New CustomReportsModel(reportDesign, user, userDirectory, WSID, IIf(WSID = "", "", userCS(WSID)),
@@ -418,8 +418,8 @@ Public Class CustomReports
             Titles = New With {.Sys = SysTitles, .User = UserTitles}
         Catch ex As Exception
             Titles = New With {.Sys = New List(Of Object) From {New With {.Title = "Error", .File = ""}}, .User = New List(Of Object) From {New With {.Title = "Error", .File = ""}}}
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReports", "getCustomReportTitles", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReports", "getCustomReportTitles", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()
@@ -451,8 +451,8 @@ Public Class CustomReports
                 End If
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("CustomReports", "getReportDetails", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("CustomReports", "getReportDetails", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(reader) Then
                 reader.Dispose()

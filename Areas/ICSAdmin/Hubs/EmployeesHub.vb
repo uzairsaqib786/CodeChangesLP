@@ -39,7 +39,7 @@ Namespace Admin
                                                  Clients.Others.controlUpdated(controlName, newValue)
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Employees", "updateControl", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Employees", "updateControl", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -88,7 +88,7 @@ Namespace Admin
                                                  End If
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Employees", "submitControlName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Employees", "submitControlName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -112,7 +112,7 @@ Namespace Admin
                                                  RunActionSP("insStaffAccessAll", Context.QueryString.Get("WSID"), {{"@Username", username, strVar}, {"@Access", accessLevel, strVar}})
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Employees", "submitControlName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Employees", "submitControlName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -158,7 +158,7 @@ Namespace Admin
                                                  End If
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Employees", "submitGroupName", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Employees", "submitGroupName", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -267,8 +267,8 @@ Namespace Admin
                                                      Return False
                                                  End If
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesHub", "addNewEmployeeZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesHub", "addNewEmployeeZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()
@@ -291,8 +291,8 @@ Namespace Admin
                                                  RunActionSP("delZoneStaff", Context.QueryString.Get("WSID"), {{"@Username", username, strVar}, {"@Zone", zone, strVar}})
 
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesHub", "deleteEmployeeZone", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesHub", "deleteEmployeeZone", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -312,8 +312,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("insBulkPickRange", Context.QueryString.Get("WSID"), {{"@Username", username, strVar}, {"@StartLocation", startLocation, strVar}, {"@EndLocation", endLocation, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesHub", "addEmployeeLocation", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesHub", "addEmployeeLocation", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -331,8 +331,8 @@ Namespace Admin
                                              Try
                                                  RunActionSP("delBulkPickRange", Context.QueryString.Get("WSID"), {{"@Username", username, strVar}, {"@StartLocation", startLocation, strVar}, {"@EndLocation", endLocation, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesHub", "deleteEmployeeLocation", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesHub", "deleteEmployeeLocation", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -354,8 +354,8 @@ Namespace Admin
                                                              {{"@Username", username, strVar}, {"@StartLocation", newSL, strVar}, {"@EndLocation", newEL, strVar}, _
                                                               {"@OldStartLocation", oldSL, strVar}, {"@OldEndLocation", oldEL, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("EmployeesHub", "updateEmployeeLocation", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("EmployeesHub", "updateEmployeeLocation", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function
@@ -389,7 +389,7 @@ Namespace Admin
                                                  End If
                                              Catch ex As Exception
                                                  Success.fail = False
-                                                 insertErrorMessages("EmployeesHub", "addUpdatePickLevel", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("EmployeesHub", "addUpdatePickLevel", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(Datareader) Then
                                                      Datareader.Dispose()
@@ -411,7 +411,7 @@ Namespace Admin
                                                  RunActionSP("delEmployeePickLevel", Context.QueryString.Get("WSID"), {{"@LevelID", value, strVar}})
 
                                              Catch ex As Exception
-                                                 insertErrorMessages("EmployeesHub", "deletePickLevel", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("EmployeesHub", "deletePickLevel", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -438,7 +438,7 @@ Namespace Admin
                                                  ' DELETE USER THROUGH DATABASE
                                                  RunActionSP("delEmployee", Context.QueryString.Get("WSID"), {{"@Username", Trim(username), strVar}, {"@DeletedBy", Context.User.Identity.Name, strVar}, {"@WSID", Context.QueryString.Get("WSID"), strVar}})
                                              Catch ex As Exception
-                                                 insertErrorMessages("EmployeesHub", "deleteEmployee", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("EmployeesHub", "deleteEmployee", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                  Return False
                                              End Try
                                              Return True
@@ -518,7 +518,7 @@ Namespace Admin
                                                  End If
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("Employees", "updStaffAccessUserGroup", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("Employees", "updStaffAccessUserGroup", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()

@@ -35,7 +35,7 @@ Public Class ServiceTest
     ''' <param name="exportType">Directly print, export to file, or do both.</param>
     ''' <param name="printers">List of the printers to be included in this test.  Has no effect if exportType is not Print or Both</param>
     ''' <param name="printerIsLabel">List of the printer types (matched by index to printers) -> True = Label Printer, else List/Report Printer</param>
-    ''' <returns>New With {.ExpectedResults = List(of TestPrintResult), .Errors = List(of Object[New With {.Message = ex.Message, .Type = ex.GetType(), .sp = Stored Procedure/SQL, .file = file w/out path, .area = failure line #}])}</returns>
+    ''' <returns>New With {.ExpectedResults = List(of TestPrintResult), .Errors = List(of Object[New With {.Message = ex.ToString(), .Type = ex.GetType(), .sp = Stored Procedure/SQL, .file = file w/out path, .area = failure line #}])}</returns>
     ''' <remarks></remarks>
     Public Shared Function Test(type As ServiceTestOutputType, Context As Hubs.HubCallerContext, ByRef Clients As Object, AppName As String, AllWSIDs As Boolean, _
                                 exportType As ServiceTestPrintExport, printers As List(Of String), printerIsLabel As List(Of Boolean)) As Object
@@ -75,14 +75,14 @@ Public Class ServiceTest
                             line = 4
                         End If
                     Catch ex As Exception
-                        Errors.Add(New With {.Message = ex.Message, .Type = ex.GetType(), .sp = sp, .file = filename, .area = line})
+                        Errors.Add(New With {.Message = ex.ToString(), .Type = ex.GetType(), .sp = sp, .file = filename, .area = line})
                     End Try
                 End While
             End If
         Catch ex As Exception
-            Debug.Print(ex.Message)
-            insertErrorMessages("ServiceTest", "Test", ex.Message, user, WSID)
-            Errors.Add(New With {.Message = ex.Message, .Type = ex.GetType(), .sp = "", .file = "", .area = -1})
+            Debug.Print(ex.ToString())
+            insertErrorMessages("ServiceTest", "Test", ex.ToString(), user, WSID)
+            Errors.Add(New With {.Message = ex.ToString(), .Type = ex.GetType(), .sp = "", .file = "", .area = -1})
         End Try
         Return New With {.Errors = Errors, .ExpectedResults = ExpectedResults}
     End Function

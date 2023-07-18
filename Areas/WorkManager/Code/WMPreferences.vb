@@ -16,8 +16,8 @@ Namespace WorkManager
             Try
                 Return GetResultMap("selWMGeneralBatch", WSID, {{"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetGeneralBatchSettings", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetGeneralBatchSettings", ex.ToString(), user, WSID)
             End Try
             Return New Dictionary(Of String, Object)
         End Function
@@ -43,8 +43,8 @@ Namespace WorkManager
             Try
                 table = GetJQueryDataTableResult(draw, "selWMUsersDT", WSID, user, {{"@PluginWhere", pluginWhere, strVar}, {"@StartRow", sRow, intVar}, {"@EndRow", eRow, intVar}, {"@SortCol", "[" & cols(sortCol) & "]", strVar}, {"@SortOrder", sortOrder, strVar}}, 2, 1, 0)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetWMUsersTable", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetWMUsersTable", ex.ToString(), user, WSID)
             End Try
             Return table
         End Function
@@ -89,8 +89,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetGeneralBatchSettings", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetGeneralBatchSettings", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -125,8 +125,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetEmployeeTypeahead", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetEmployeeTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -157,8 +157,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "StartLocationRangeTypeahead", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "StartLocationRangeTypeahead", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -190,8 +190,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "EndLocationRangeTypeahead", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "EndLocationRangeTypeahead", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -213,8 +213,8 @@ Namespace WorkManager
             Try
                 RunActionSP("insWMUser", WSID, {{"@User", username, strVar}, {"@WSID", WSID, strVar}})
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("MenuController", "Index", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("MenuController", "Index", ex.ToString(), user, WSID)
                 Return False
             End Try
             Return True
@@ -261,8 +261,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "getWorkerRangesTable", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "getWorkerRangesTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -293,8 +293,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "selectWMUsersLastNameTypeahead", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "selectWMUsersLastNameTypeahead", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -326,8 +326,8 @@ Namespace WorkManager
                     End While
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "selectWMUsersLastNameTypeahead", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "selectWMUsersLastNameTypeahead", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -358,8 +358,8 @@ Namespace WorkManager
                     End If
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetUserSettings", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetUserSettings", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then
                     reader.Dispose()
@@ -388,8 +388,8 @@ Namespace WorkManager
                     permissions.Add(reader("Reports"))
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("WMPreferences", "GetWMPermissions", ex.Message, user, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("WMPreferences", "GetWMPermissions", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(reader) Then reader.Dispose()
             End Try

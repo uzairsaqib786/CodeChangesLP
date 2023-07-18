@@ -56,7 +56,7 @@ Namespace Admin
 
                                              Catch ex As Exception
                                                  Debug.WriteLine(ex)
-                                                 insertErrorMessages("EmployeesStatsHub", "getEmployees", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 insertErrorMessages("EmployeesStatsHub", "getEmployees", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              Finally
                                                  If Not IsNothing(DataReader) Then
                                                      DataReader.Dispose()

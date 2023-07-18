@@ -26,8 +26,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "getCountInfo", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "getCountInfo", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -57,8 +57,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "selectFilterTA", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "selectFilterTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Close()
@@ -114,8 +114,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -145,8 +145,8 @@ Namespace Induction
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -177,8 +177,8 @@ Namespace Induction
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "SelectBatchPickIDTA", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "SelectBatchPickIDTA", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -203,8 +203,8 @@ Namespace Induction
                 End If
 
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PickToteSetupHub", "selectWSPickZones", ex.Message, User, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PickToteSetupHub", "selectWSPickZones", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -260,8 +260,8 @@ Namespace Induction
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PickToteSetup", "selectPickToteManTransTable", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

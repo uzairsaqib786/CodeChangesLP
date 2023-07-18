@@ -23,8 +23,8 @@ Public Class UnitOfMeasure
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Unit of Measure", "getUnitsOfMeasure", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Unit of Measure", "getUnitsOfMeasure", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then
                 DataReader.Dispose()
@@ -46,8 +46,8 @@ Public Class UnitOfMeasure
         Try
             RunActionSP("delUoM", WSID, {{"@UoM", UoM, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Unit of Measure", "deleteUoM", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Unit of Measure", "deleteUoM", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True
@@ -66,8 +66,8 @@ Public Class UnitOfMeasure
         Try
             RunActionSP("updateUoM", WSID, {{"@Old", OldValue, strVar}, {"@New", NewValue, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Unit of Measure", "saveUoM", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Unit of Measure", "saveUoM", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True
@@ -85,8 +85,8 @@ Public Class UnitOfMeasure
         Try
             RunActionSP("insUnitOfMeasure", WSID, {{"@UoM", value, strVar}})
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Unit of Measure", "saveUoM", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Unit of Measure", "saveUoM", ex.ToString(), user, WSID)
             Return False
         End Try
         Return True

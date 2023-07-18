@@ -81,8 +81,8 @@ Namespace Admin
                 End While
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("System Replenishment", "selSystRepTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("System Replenishment", "selSystRepTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -143,8 +143,8 @@ Namespace Admin
                 End While
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "getNewSystemReplenishmentOrdersTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "getNewSystemReplenishmentOrdersTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -177,8 +177,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "getSysReplnNewTypeahead", ex.Message, user, wsid)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "getSysReplnNewTypeahead", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -223,8 +223,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "selCurrReplenSearchTypeahead", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "selCurrReplenSearchTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -257,8 +257,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "selDeleteRangeBegin", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "selDeleteRangeBegin", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -291,8 +291,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "selDeleteRangeEnd", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "selDeleteRangeEnd", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -331,8 +331,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("SystemReplenishment", "selReplenCountInfo", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("SystemReplenishment", "selReplenCountInfo", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

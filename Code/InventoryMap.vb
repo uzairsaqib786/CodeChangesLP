@@ -56,8 +56,8 @@ Public Class InventoryMap
                                                         {"@sortOrder", sortOrder, strVar}, _
                                                         {"@filter", filter, strVar}}, columnOrder:=columnSeq)
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("Inventory Map", "selInventoryMap", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("Inventory Map", "selInventoryMap", ex.ToString(), user, WSID)
         End Try
 
         Return table
@@ -85,8 +85,8 @@ Public Class InventoryMap
                 End While
             End If
         Catch ex As Exception
-            Debug.WriteLine(ex.Message)
-            insertErrorMessages("InventoryMap", "getLocationZoneTypeahead", ex.Message, user, WSID)
+            Debug.WriteLine(ex.ToString())
+            insertErrorMessages("InventoryMap", "getLocationZoneTypeahead", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(datareader) Then
                 datareader.Dispose()
@@ -128,7 +128,7 @@ Public Class InventoryMap
             End If
         Catch ex As Exception
             Debug.WriteLine(ex)
-            insertErrorMessages("Inventory Map", "getTypeaheadInvMap", ex.Message, user, WSID)
+            insertErrorMessages("Inventory Map", "getTypeaheadInvMap", ex.ToString(), user, WSID)
         Finally
             If Not IsNothing(DataReader) Then DataReader.Dispose()
         End Try

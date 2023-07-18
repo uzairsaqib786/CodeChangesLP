@@ -31,8 +31,8 @@ Namespace Admin
                                                  RunActionSP("insUsysLogFile", Context.QueryString.Get("WSID"), {{"@Log", CastAsSqlBool(diagMode), intVar}, _
                                                                   {"@User", Context.User.Identity.Name, strVar}})
                                              Catch ex As Exception
-                                                 Debug.WriteLine(ex.Message)
-                                                 insertErrorMessages("MenuHub", "toggleDiagMode", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                 Debug.WriteLine(ex.ToString())
+                                                 insertErrorMessages("MenuHub", "toggleDiagMode", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                              End Try
                                          End Sub)
         End Function

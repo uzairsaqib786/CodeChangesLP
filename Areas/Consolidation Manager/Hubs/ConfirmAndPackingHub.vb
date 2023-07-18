@@ -22,7 +22,7 @@ Public Class ConfirmAndPackingHub
                                                     Try
                                                         RunActionSP("updShipTransUnPack", Context.QueryString.Get("WSID"), {{"@ST_ID", ST_ID, intVar}})
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ConfirmAndPackingHub", "updShipTransUnPack", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ConfirmAndPackingHub", "updShipTransUnPack", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         success = "Fail"
                                                     End Try
                                                     Return success
@@ -66,7 +66,7 @@ Public Class ConfirmAndPackingHub
                                                                               End While
                                                                           End If
                                                                       Catch ex As Exception
-                                                                          insertErrorMessages("ConfirmAndPackingHub", "selConfPackSelectDT", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                          insertErrorMessages("ConfirmAndPackingHub", "selConfPackSelectDT", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                       Finally
                                                                           If Not IsNothing(DataReader) Then
                                                                               DataReader.Close()
@@ -105,7 +105,7 @@ Public Class ConfirmAndPackingHub
                                                             result = DataReader(0)
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ConfirmAndPackingHub", "updateConfPackProcModal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ConfirmAndPackingHub", "updateConfPackProcModal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         result = "Fail"
                                                     Finally
                                                         If Not IsNothing(DataReader) Then
@@ -140,7 +140,7 @@ Public Class ConfirmAndPackingHub
                                                                               End While
                                                                           End If
                                                                       Catch ex As Exception
-                                                                          insertErrorMessages("ConfirmAndPackingHub", "selConfPackProcModal", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                                          insertErrorMessages("ConfirmAndPackingHub", "selConfPackProcModal", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                                       Finally
                                                                           If Not IsNothing(DataReader) Then
                                                                               DataReader.Close()
@@ -173,7 +173,7 @@ Public Class ConfirmAndPackingHub
                                                             result = DataReader(0)
                                                         End If
                                                     Catch ex As Exception
-                                                        insertErrorMessages("ConfirmAndPackingHub", "confirmAllConfPack", ex.Message, Context.User.Identity.Name, Context.QueryString.Get("WSID"))
+                                                        insertErrorMessages("ConfirmAndPackingHub", "confirmAllConfPack", ex.ToString(), Context.User.Identity.Name, Context.QueryString.Get("WSID"))
                                                         result = "Fail"
                                                     Finally
                                                         If Not IsNothing(DataReader) Then

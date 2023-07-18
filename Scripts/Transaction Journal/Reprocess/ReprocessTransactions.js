@@ -318,9 +318,7 @@ $(document).ready(function () {
     $('#ROrder, #RItem').on('input', function (e, ID) {
         if (ID > 0) {
             return false;
-        } else if ($('#ROrder').val() == '') {
-            $('#RItem').val('');
-            openTransTempTable.draw();
+
         } else {
             var order = $('#ROrder').val().trim();
             var item = $('#RItem').val().trim();
@@ -508,6 +506,28 @@ $(document).ready(function () {
         $('#reprocessCheckBox, #completeCheckBox, #historyCheckBox').attr('disabled', true);
         $('#reprocessCheckBox, #completeCheckBox, #historyCheckBox').prop('checked', false);
         $('#reprocTransTable tr.active').removeClass('active');
+    });
+
+    $('#MarkReprocDisplay, #MarkCompDisplay, #MarkHistoryDisplay').click(function () {
+        console.log($(this).attr('ID'))
+        var Field = '';
+        switch ($(this).attr('ID')) {
+            case 'MarkReprocDisplay':
+                Field='reprocess'
+                break;
+            case 'MarkCompDisplay':
+                Field = 'complete'
+                break;
+            case 'MarkHistoryDisplay':
+                Field = 'history'
+                break;
+        };
+
+        RPHub.server.setReprocessIDs($('#ROrder').val(), $('#RItem').val(), hold, $('#selection4').val(), $('#searchString4').val(), Field).done(function (response) {
+            if (!response) {
+                MessageModal('Error', 'There was an error marking the designated reprocess records', undefined, function () { document.getElementById("Message_Modal").style.zIndex = "1061"; });
+            };
+        });
     });
 
     //Opens the column sequence page for the reporcess page and saves the information that's on the page 

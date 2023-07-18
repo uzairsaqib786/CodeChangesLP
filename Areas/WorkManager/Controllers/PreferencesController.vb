@@ -128,8 +128,8 @@ Namespace WorkManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PreferencesController", "PrintWMUserRanges", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PreferencesController", "PrintWMUserRanges", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
 
@@ -156,8 +156,8 @@ Namespace WorkManager.Controllers
                     Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
                 End If
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("PreferencesController", "PrintWMUserRanges", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("PreferencesController", "PrintWMUserRanges", ex.ToString(), username, WSID)
                 Return Json(False, JsonRequestBehavior.AllowGet)
             End Try
 

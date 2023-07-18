@@ -69,8 +69,8 @@ Namespace ImportExport
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ManageDataModalTables", "getInvMapTables", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ManageDataModalTables", "getInvMapTables", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -156,8 +156,8 @@ Namespace ImportExport
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("ManageDataModalTables", "getInvTables", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("ManageDataModalTables", "getInvTables", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

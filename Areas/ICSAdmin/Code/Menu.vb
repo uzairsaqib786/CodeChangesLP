@@ -37,7 +37,7 @@ Namespace Admin
                     DataReader.NextResult()
                 Next
             Catch ex As Exception
-                insertErrorMessages("Main Menu", "allocatedTransactionsTable", ex.Message, user, WSID)
+                insertErrorMessages("Main Menu", "allocatedTransactionsTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -66,8 +66,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("MenuHub", "getPOD", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("MenuHub", "getPOD", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -95,8 +95,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Menu", "getDiagMode", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Menu", "getDiagMode", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -125,8 +125,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Menu", "inWorkMode", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Menu", "inWorkMode", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -153,8 +153,8 @@ Namespace Admin
                     PickWorkstat = False
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Menu", " grabPickWorkstation", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Menu", " grabPickWorkstation", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

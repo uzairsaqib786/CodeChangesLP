@@ -26,8 +26,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getOrderSort", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getOrderSort", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -56,8 +56,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "selPodIDDropDown", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "selPodIDDropDown", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -94,8 +94,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PreferencesHub", "selBulkZonesDropDown", ex.Message, user, wsid)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PreferencesHub", "selBulkZonesDropDown", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -126,8 +126,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getLocations", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getLocations", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -159,8 +159,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getParentZones", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getParentZones", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -214,8 +214,8 @@ Namespace Admin
 
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "selPodZonesDropDown", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "selPodZonesDropDown", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -268,8 +268,8 @@ Namespace Admin
                     End If
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getScanVerifyTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getScanVerifyTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -300,8 +300,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getSVFieldNames", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getSVFieldNames", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -332,8 +332,8 @@ Namespace Admin
                 End If
 
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PreferencesHub", "selBulkZones", ex.Message, user, wsid)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PreferencesHub", "selBulkZones", ex.ToString(), user, wsid)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -363,8 +363,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PreferencesHub", "selPodSetupPods", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PreferencesHub", "selPodSetupPods", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -416,8 +416,8 @@ Namespace Admin
                     datareader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getDevicePreferencesTable", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getDevicePreferencesTable", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -448,8 +448,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", WSID, "getCartonFlowZones", ex.Message, user)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", WSID, "getCartonFlowZones", ex.ToString(), user)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -482,8 +482,8 @@ Namespace Admin
                     datareader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getDevPrefZoneTypeahead", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getDevPrefZoneTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -516,8 +516,8 @@ Namespace Admin
                     datareader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getDevPrefUoMTypeahead", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getDevPrefUoMTypeahead", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -550,8 +550,8 @@ Namespace Admin
                     datareader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getCellSizeTypeaheadDevPrefs", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getCellSizeTypeaheadDevPrefs", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(datareader) Then
                     datareader.Dispose()
@@ -572,8 +572,8 @@ Namespace Admin
             Try
                 RunActionSP("updateCarouselState", WSID, {{"@WSID", WSID, strVar}, {"@Carousel", Carousel, strVar}})
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "StopCarouselInterface", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "StopCarouselInterface", ex.ToString(), user, WSID)
             End Try
         End Sub
 
@@ -673,8 +673,8 @@ Namespace Admin
                     DataReader.NextResult()
                 End While
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("PreferencesHub", "selectWorkstationSetupInfo", ex.Message, user, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("PreferencesHub", "selectWorkstationSetupInfo", ex.ToString(), user, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -709,8 +709,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getLightTreeZones", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getLightTreeZones", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -741,8 +741,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getLightTreeCars", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getLightTreeCars", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()
@@ -773,8 +773,8 @@ Namespace Admin
                     End While
                 End If
             Catch ex As Exception
-                Debug.WriteLine(ex.Message)
-                insertErrorMessages("Preferences", "getLightTreeBinLoc", ex.Message, User, WSID)
+                Debug.WriteLine(ex.ToString())
+                insertErrorMessages("Preferences", "getLightTreeBinLoc", ex.ToString(), User, WSID)
             Finally
                 If Not IsNothing(DataReader) Then
                     DataReader.Dispose()

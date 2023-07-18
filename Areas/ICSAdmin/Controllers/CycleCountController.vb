@@ -91,8 +91,8 @@ Namespace Admin.Controllers
                 Dim m As ExportServiceModel = ListLabelHelperFunctions.GetStandardLLExportProperties(username, WSID, Server, "preview", sp, params, filename)
                 Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CycleCountController", "ExportCycleCountReport", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CycleCountController", "ExportCycleCountReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -108,8 +108,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Cycle Count Detail", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CycleCountController", "PrintCycleCountReport", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CycleCountController", "PrintCycleCountReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -125,8 +125,8 @@ Namespace Admin.Controllers
                 Dim m As LLReportModel = ListLabelHelperFunctions.GetStandardLLPrintProperties(username, WSID, Server, "Cycle Count Disc", LLType, filename, sp, params)
                 Clients.Print(m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CycleCountController", "PrintDiscReport", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CycleCountController", "PrintDiscReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
@@ -147,8 +147,8 @@ Namespace Admin.Controllers
                 Dim m As ExportServiceModel = ListLabelHelperFunctions.GetStandardLLExportProperties(username, WSID, Server, "preview", sp, params, filename)
                 Return PartialView("~/Views/CustomReports/_LLViewer.vbhtml", m)
             Catch ex As Exception
-                Debug.Print(ex.Message)
-                insertErrorMessages("CycleCountController", "ExportDiscReport", ex.Message, username, WSID)
+                Debug.Print(ex.ToString())
+                insertErrorMessages("CycleCountController", "ExportDiscReport", ex.ToString(), username, WSID)
             End Try
             Return Json(True, JsonRequestBehavior.AllowGet)
         End Function
